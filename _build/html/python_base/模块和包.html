@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.14. 模块和包 &mdash; qa study 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="qa study 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="1. python基础" href="index.html"/>
+        <link rel="next" title="1.15. 内建函数" href="内建函数.html"/>
+        <link rel="prev" title="1.13. 异常处理" href="异常处理.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. python基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="安装.html">1.1. 环境安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="数据类型和变量.html">1.2. 数据类型和变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运行python.html">1.3. 运行python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列表元组.html">1.4. 列表和元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字典.html">1.5. 字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符串.html">1.6. 字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运算.html">1.7. 运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="流程控制.html">1.8. 流程控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="函数.html">1.9. 函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类1.html">1.10. 类(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类2.html">1.11. 类(2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类3.html">1.12. 类(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="异常处理.html">1.13. 异常处理</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.14. 模块和包</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.14.1. 怎么理解模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.14.2. 定义、使用模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name">1.14.3. __name__是什么？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.14.4. 引用标准库里的模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.14.5. 什么是包？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.14.6. 怎么使用包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.14.7. 嵌套包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import">1.14.8. import是怎么查找包或模块的呢？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="内建函数.html">1.15. 内建函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用标准库.html">1.16. 常用标准库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用第三方库.html">1.17. 常用第三方库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="练习.html">1.18. 练习题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">2. 接口自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">4. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">5. mysql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. python基础</a> &raquo;</li>
+        
+      <li>1.14. 模块和包</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/python_base/模块和包.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1.14. 模块和包<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>python里用模块和包组织代码，模块就是一个个以 <code class="docutils literal notranslate"><span class="pre">.py</span></code> 为后缀的文件，包就是一个个带有 <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 文件的文件夹。</p>
+<div class="section" id="id2">
+<h2>1.14.1. 怎么理解模块<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>可以把模块理解成一个日记本，不同的日记本里都可以出现6月6号的日记，但是因为分属于不同的日记本，所以引用的时候不会出错，比如我们可以描述为A日记本某日的日记，B日记本某日的日记</p>
+</div>
+<div class="section" id="id3">
+<h2>1.14.2. 定义、使用模块<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>新建一个以 <code class="docutils literal notranslate"><span class="pre">.py</span></code> 结尾的文件，就是新建了一个模块，大家新建一个 <code class="docutils literal notranslate"><span class="pre">a.py</span></code>  文件，然后输入以下内容:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">demo</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="s1">&#39;im in a.py&#39;</span>
+</pre></div>
+</div>
+<p>使用模块有如下三种方式，第一种:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">a</span> <span class="k">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>这种方式从字面理解是从a模块中导入所有内容（*是所有的意思），然后就可以使用模块中的变量和函数了，如新建一个 <code class="docutils literal notranslate"><span class="pre">b.py</span></code> ，然后输入以下内容</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">a</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="nb">print</span> <span class="n">num</span>
+<span class="n">demo</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>看，在b模块使用a模块的变量和函数，就好像在a块中一样，但这种方式存在一个严重问题，但a模块中变量非常多，如果全部导入会污染b模块的命名空间，如，b里也有一个变量叫num，如果导入语句出现在num定义后，则会出现变量被覆盖的情况，所以非常不推荐这种方法。</p>
+<p>第二种:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">a</span>
+</pre></div>
+</div>
+<p>这种方式是非常好的，导入模块对象，然后使用的时候可以通过 <code class="docutils literal notranslate"><span class="pre">点号</span></code> 取值，即 <code class="docutils literal notranslate"><span class="pre">a.num</span></code> 、 <code class="docutils literal notranslate"><span class="pre">a.demo</span></code> 这样子，这样即可以知道这些变量和函数是a模块里的，也不会污染b的命名空间。</p>
+<p>第三种:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">a</span> <span class="k">import</span> <span class="n">num</span><span class="p">,</span> <span class="n">demo</span>
+</pre></div>
+</div>
+<p>第三种方法看起来和第一种很相似，只是把 <code class="docutils literal notranslate"><span class="pre">*</span></code> 换成了具体的变量名，虽说原理相似，但这种按需导入的方式，即使变量名有冲突，也可以很快的找出来，使用方式同第一种。</p>
+</div>
+<div class="section" id="name">
+<h2>1.14.3. __name__是什么？<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>经常在模块里看到如下语句:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">xxxx</span>
+</pre></div>
+</div>
+<p>那么 <code class="docutils literal notranslate"><span class="pre">__name__</span></code> 是什么？ <code class="docutils literal notranslate"><span class="pre">__main__</span></code> 又是什么呢？故名思意, <code class="docutils literal notranslate"><span class="pre">__name</span></code> 是名字，模块的名字，比如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">a</span>
+<span class="nb">print</span> <span class="n">a</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+<p>大家可以看到输出为 <code class="docutils literal notranslate"><span class="pre">a</span></code> 也就是模块的名称,但是在a模块里执行 <code class="docutils literal notranslate"><span class="pre">print(__name__)</span></code> 会是什么呢？结果是 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> ，也就是说，当模块被当做运行主体时， <code class="docutils literal notranslate"><span class="pre">__name__</span></code> 的值是 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> ，但被导入的时候，值为模块名。所以可以用 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':xxx</span></code> 去判断只在运行该模块运行时执行下面的语句，被导入时不执行。</p>
+</div>
+<div class="section" id="id4">
+<h2>1.14.4. 引用标准库里的模块<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>python标准库里有很多现在的模块可以使用，如果 <code class="docutils literal notranslate"><span class="pre">sys</span></code> 、 <code class="docutils literal notranslate"><span class="pre">time</span></code> 、 <code class="docutils literal notranslate"><span class="pre">datetime</span></code> 等等，使用标准库里的模块与我们写的方式是一样的，如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="nb">print</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>标准库里的模块非常之多，覆盖数据结构、文件系统、字符处理、时间日期等等， 大家可以看一下这个目录，<a class="reference external" href="https://docs.python.org/2/library/index.html">https://docs.python.org/2/library/index.html</a></p>
+</div>
+<div class="section" id="id5">
+<h2>1.14.5. 什么是包？<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>上面我们把模块比喻成了日记本，但在我们可以把包比喻成盒子，盒子里可以放日记本，每个盒子都有自己的名字，如  <code class="docutils literal notranslate"><span class="pre">box_a</span></code> 、 <code class="docutils literal notranslate"><span class="pre">box_b</span></code> ，包在实现体现就是文件夹，新建一个文件夹，然后在里面放一个名为 <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 的文件（空的也可以，但名字要对），这时这外文件夹也被称为包。包是用来组织模块的，以用来避免模块名重复的问题，同时也可以把功能类似的模块放到一个包里，即可以起到分类的作用。</p>
+</div>
+<div class="section" id="id6">
+<h2>1.14.6. 怎么使用包<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>使用包非常简单，就跟模块差不多，只是要加上包名，如 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">box_a.a</span> <span class="pre">import</span> <span class="pre">num</span></code> ，先是包名，然后是点号，通过点号索引下面的模块。</p>
+</div>
+<div class="section" id="id7">
+<h2>1.14.7. 嵌套包<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>包内不仅可以模块，还可以再放入包，思考如下结构:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── outer （外面的包）
+    ├── __init__.py
+    ├── a.py
+    ├── b.py
+    └── inner （里面的包）
+        ├── __init__.py
+        └── c.py
+
+2 directories, 5 files
+</pre></div>
+</div>
+<p>怎么导入c模块呢？同样可以使用点号去索引里面的包，如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">outer.inner</span> <span class="k">import</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="import">
+<h2>1.14.8. import是怎么查找包或模块的呢？<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
+<p>比如说，你有两个包，一个在C盘，一个在D盘，两个包名字一样，那么导入的时候，是导入哪一个呢？答案是可能都导入不了，python是按照 <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> 里的路径去查找包或模块的，该列表的内容大致如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/Cellar/pyenv/1.0.10/versions/2.7.13/bin&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python27.zip&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/plat-darwin&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/plat-mac&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/plat-mac/lib-scriptpackages&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/lib-tk&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/lib-old&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/lib-dynload&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/site-packages&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/usr/local/opt/pyenv/versions/2.7.13/lib/python2.7/site-packages/IPython/extensions&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>大家可能跟我的不太一样，但是类似，在这个列表里，第一个元素是空字符串，后面是一些路径，路径就不用解释了，这个空字符串是代表当前目录，也就是你所在的目录。当在当前目录找不到时，会按着这个列表顺序去下个路径找，以此类推，最后还找不到，就会报错。回到正题，我们怎么运行例如 <code class="docutils literal notranslate"><span class="pre">c:\outer</span></code> 包呢？</p>
+<p><strong>第一种方式</strong></p>
+<p>我们看一下，outer包在c盘下，也就是说c盘在查找路径里，我们就可以找到该包，所以在需要引用outer包的脚本里加上 <code class="docutils literal notranslate"><span class="pre">sys.path.append(r'c:/')</span></code> ，这种修改只是临时性的，脚本执行完后，又会恢复原状。</p>
+<p><strong>第二种方式</strong></p>
+<p>除了修改查找路径，我们还可以在当前路径上做文章，我们去包路径下执行不就得了？因为此时，当前路径就是包所在的路径了，所以自然可以找到包。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="内建函数.html" class="btn btn-neutral float-right" title="1.15. 内建函数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="异常处理.html" class="btn btn-neutral" title="1.13. 异常处理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

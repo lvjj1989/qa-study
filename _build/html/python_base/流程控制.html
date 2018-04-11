@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.8. 流程控制 &mdash; qa study 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="qa study 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="1. python基础" href="index.html"/>
+        <link rel="next" title="1.9. 函数" href="函数.html"/>
+        <link rel="prev" title="1.7. 运算" href="运算.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. python基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="安装.html">1.1. 环境安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="数据类型和变量.html">1.2. 数据类型和变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运行python.html">1.3. 运行python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列表元组.html">1.4. 列表和元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字典.html">1.5. 字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符串.html">1.6. 字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运算.html">1.7. 运算</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.8. 流程控制</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.8.1. 条件判断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.8.2. 循环</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="函数.html">1.9. 函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类1.html">1.10. 类(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类2.html">1.11. 类(2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类3.html">1.12. 类(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="异常处理.html">1.13. 异常处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="模块和包.html">1.14. 模块和包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="内建函数.html">1.15. 内建函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用标准库.html">1.16. 常用标准库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用第三方库.html">1.17. 常用第三方库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="练习.html">1.18. 练习题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">2. 接口自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">4. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">5. mysql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. python基础</a> &raquo;</li>
+        
+      <li>1.8. 流程控制</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/python_base/流程控制.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1.8. 流程控制<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>python中主要提供两种流程控制，条件判断和循环，关键字有三个， <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">in</span></code> 、<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> 、 <code class="docutils literal notranslate"><span class="pre">while</span></code>，下面一一介绍一下</p>
+<div class="section" id="id2">
+<h2>1.8.1. 条件判断<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> 这种条件判断大家应该都很熟悉了，每种编程语言都会有，翻译成中文就是，如果AAA成立，执行XXX，或者BBB成立，执行YYY，如果都对不上，执行ZZZ，如下面的例子，如果你的性别是男的，输出帅哥，如果是女，输出美女:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="n">sex</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;男&#39;</span>
+
+<span class="k">if</span> <span class="n">sex</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">&#39;男&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;帅哥&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">sex</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">&#39;女&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;美女&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;死人妖&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">注意是elif，不是else if</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>1.8.2. 循环<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><strong>for in 循环</strong></p>
+<p>为什么这里写 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">in</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">for</span></code> 呢，因为在python中的for循环 <code class="docutils literal notranslate"><span class="pre">for</span></code> 和 <code class="docutils literal notranslate"><span class="pre">in</span></code> 是成对出现的，我们先写一个例子:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这个例子循环了10次，打印出了0到9，是不是每简单？自增也不用写了，其实在python中 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">in</span></code> 用来遍历可迭代对象的，把可迭代对象里的元素一个一个取出来，然后再做处理，当然，你不做处理也可以，仅当做计数器</p>
+<p>在这里我们引入了一个新的函数 <code class="docutils literal notranslate"><span class="pre">range</span></code> ，故名思意，就是范围，它可以生成指定范围的数据序列，示例如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">可迭代对象，就是实现了可迭代协议的python对象，比如list、tuple、dict等等</p>
+</div>
+<p><strong>while 循环</strong></p>
+<p>while循环的意思是：当AAA条件为真的时候，执行XXXX，很简单，我们写个例子:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>跳过循环、终止循环</strong></p>
+<p>使用continue可以跳过本次循环，进入下次循环，使用break中以跳出循环语句:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="sd">&#39;&#39;&#39;不打印2&#39;&#39;&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="sd">&#39;&#39;&#39;3的时候终止循环&#39;&#39;&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="函数.html" class="btn btn-neutral float-right" title="1.9. 函数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="运算.html" class="btn btn-neutral" title="1.7. 运算" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
