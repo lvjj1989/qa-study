@@ -1,17 +1,34 @@
 MySQL 创建数据表
 ===========================================
 
-使用 mysqladmin 创建数据库
---------------------------------------
+创建MySQL数据表需要以下信息：
 
-使用普通用户，你可能需要特定的权限来创建或者删除 MySQL 数据库。
+* 表名
+* 表字段名
+* 定义每个表字段
 
-所以我们这边使用root用户登录，root用户拥有最高权限，可以使用 mysql mysqladmin 命令来创建数据库。
+以下为创建MySQL数据表的SQL通用语法：
 
-实例
 ::
+	CREATE TABLE table_name (column_name column_type);
 
-	[root@host]# mysqladmin -u root -p create RUNOOB
-	Enter password:******
+以下例子中我们将在 RUNOOB 数据库中创建数据表runoob_tbl：
 
-以上命令执行成功后会创建 MySQL 数据库 RUNOOB。
+::
+	CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+	   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+	   `runoob_title` VARCHAR(100) NOT NULL,
+	   `runoob_author` VARCHAR(40) NOT NULL,
+	   `submission_date` DATE,
+	   PRIMARY KEY ( `runoob_id` )
+	)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+实例解析：
+
+* 如果你不想字段为 NULL 可以设置字段的属性为 NOT NULL， 在操作数据库时如果输入该字段的数据为NULL ，就会报错。
+* AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。
+* PRIMARY KEY关键字用于定义列为主键。 您可以使用多列来定义主键，列间以逗号分隔。
+* ENGINE 设置存储引擎，CHARSET 设置编码。
+
+

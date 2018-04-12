@@ -22,7 +22,7 @@ BIT数据类型保存位字段值，并且支持MyISAM、MEMORY、InnoDB和BDB�
 日期和时间类型
 --------------------------------------
 .. figure:: /_static/mysql/数据类型2.png
-    :width: 15.0cm
+    :width: 20.0cm
 
 
 
@@ -30,7 +30,7 @@ BIT数据类型保存位字段值，并且支持MyISAM、MEMORY、InnoDB和BDB�
 --------------------------------------
 
 .. figure:: /_static/mysql/数据类型2.png
-    :width: 15.0cm
+    :width: 20.0cm
 	
 
 CHAR和VARCHAR类型类似，但它们保存和检索的方式不同。它们的最大长度和是否尾部空格被保留等方面也不同。在存储或检索过程中不进行大小写转换。

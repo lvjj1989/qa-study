@@ -21,3 +21,4 @@ MySQL 删除数据库
 
 	Do you really want to drop the 'RUNOOB' database [y/N] y
 	Database "RUNOOB" dropped
+
