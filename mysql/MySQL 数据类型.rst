@@ -3,8 +3,10 @@ MySQL 数据类型
 MySQL中定义数据字段的类型对你数据库的优化是非常重要的。
 
 MySQL支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。
+
 数值类型
 --------------------------------------
+
 MySQL支持所有标准SQL数值数据类型。
 
 这些类型包括严格数值数据类型(INTEGER、SMALLINT、DECIMAL和NUMERIC)，以及近似数值数据类型(FLOAT、REAL和DOUBLE PRECISION)。
