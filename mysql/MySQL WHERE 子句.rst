@@ -7,6 +7,7 @@ MySQL WHERE 子句
 以下是 SQL SELECT 语句使用 WHERE 子句从数据表中读取数据的通用语法：
 
 ::
+
 	SELECT field1, field2,...fieldN FROM table_name1, table_name2...
 	[WHERE condition1 [AND [OR]] condition2.....
 

@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2. HTTP &mdash; qa study 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="qa study 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="2. 接口自动化" href="index.html"/>
+        <link rel="next" title="2.3. JSON" href="json.html"/>
+        <link rel="prev" title="2.1. 接口测试概述" href="接口测试概述.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">1. python基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 接口自动化</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="接口测试概述.html">2.1. 接口测试概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. HTTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.2.1. 什么是协议</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.2.2. 协议分层</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tcp-ip">2.2.3. TCP/IP协议</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.2.4. HTTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.2.4.1. HTTP是什么</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.2.4.2. HTTP方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.2.4.3. HTTP状态码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2.2.4.4. HTTP请求首部</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">2.3. JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="自己写接口.html">2.4. 自己写接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requests.html">2.5. 使用python requests调用接口</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">4. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">5. mysql</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. 接口自动化</a> &raquo;</li>
+        
+      <li>2.2. HTTP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interface/http.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="http">
+<h1>2.2. HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p>在讲HTTP之前，我们先讲一下什么是协议</p>
+<div class="section" id="id1">
+<h2>2.2.1. 什么是协议<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>通俗来讲，协议可以理解为约定，比如说下午一到6点，你就知道要下班了，这是因为公司有制度规定6点下班，协议可以很简单，但也可以很复杂，比如语言就是一种很复杂的协议，有大量的词汇代表不同的意思</p>
+</div>
+<div class="section" id="id2">
+<h2>2.2.2. 协议分层<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在学HTTP前一定要理解协议分层这个概念，打个比方，打电话，你打开电话，拨通号码，跟需要通话的人建立了连接，然后你说一句话，声音通过话筒由声波信号转换成了电信号，然后电信号通过通讯媒介传输到对方电话，最后通过对方的听筒转化成声波。</p>
+<p>声波转换成电信号，最后电信号又转换成声波，这就要遵守一定的协议，比如多少频率转化成多少伏的电压，如果双方协议不一样，转换出来的声音可能就完全不一样了。声波的传输是需要协议，同时双方通话的人也是，比如你是广东人，对方是上海人，两边各讲方言，结果都蒙逼了，然后双方使用一样的协议都讲普通话，OK，这要就可以HAPPY通信了。</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/tel.png"><img alt="../_images/tel.png" src="../_images/tel.png" style="width: 15.0cm;" /></a>
+</div>
+<p>在这里，双方通话语言的协议就在声波和电信号转换的协议之上</p>
+<p>那为什么要分层呢？这个问题比较好回答，比如如果你跟你老婆打电话，如果不通过声波和电信号之间的转换协议，你声音得多大她才能听到？？这是必要情况。还有一种情况，可能不是必要的，但也要分层，这么做的目的是简化实现，降低耦合，大家可以先这么理解，有兴趣的话可以看一些专业书籍。</p>
+<p>再看一下下面这个图，可以理解一下为什么要分层（这个图摘自图解TPC/IP）</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/tel2.png"><img alt="../_images/tel2.png" src="../_images/tel2.png" style="width: 15.0cm;" /></a>
+</div>
+</div>
+<div class="section" id="tcp-ip">
+<h2>2.2.3. TCP/IP协议<a class="headerlink" href="#tcp-ip" title="Permalink to this headline">¶</a></h2>
+<p>我们先看一下下面的百科介绍，写的比较专业，我来翻译一下：说白了，就是怎么样把你电脑上运行的程序的消息发送给网络上另一个电脑的程序的一系列协议</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Transmission Control Protocol/Internet Protocol的简写，中译名为传输控制协议/因特网互联协议，又名网络通讯协议，是Internet最基本的协议、Internet国际互联网络的基础，由网络层的IP协议和传输层的TCP协议组成。TCP/IP 定义了电子设备如何连入因特网，以及数据如何在它们之间传输的标准。协议采用了4层的层级结构，每一层都呼叫它的下一层所提供的协议来完成自己的需求。通俗而言：TCP负责发现传输的问题，一有问题就发出信号，要求重新传输，直到所有数据安全正确地传输到目的地。而IP是给因特网的每一台联网设备规定一个地址。</p>
+</div>
+<p>我们来了看一下下面的图加深理解（这个图也摘自图解TCP/IP）</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/floors.png"><img alt="../_images/floors.png" src="../_images/floors.png" style="width: 18.0cm;" /></a>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.2.4. HTTP<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>我们在这只需了解一下什么是HTTP，以及一些入门的知识，并不深入讨论，深入讨论半年也说不完</p>
+<div class="section" id="id4">
+<h3>2.2.4.1. HTTP是什么<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>最开始HTTP是为了传输文件产生的，它属于应用层协议，基于传输层TCP协议，但随着互联网的演进，最初的静态文件传输已经演变成动态生成“文件”再传输</p>
+<p>HTTP原理比较类似于去小卖铺买东西，你说要一个泡面（ <code class="docutils literal"><span class="pre">请求</span></code> ），然后店员给你一个泡面（ <code class="docutils literal"><span class="pre">响应</span></code> ），如果商店没有，店员告诉你没有货了（ <code class="docutils literal"><span class="pre">404</span></code> ），如果买东西的人太多了，店员懒得给你找，就回复给你小店炸了，没空理你（ <code class="docutils literal"><span class="pre">500</span></code> ），再或者，店员干脆懒得理你，回都不回（ <code class="docutils literal"><span class="pre">timeout</span></code> ）</p>
+<p>或者，商店里有很多种泡面，你得告诉店员要哪一种，然后你说要包装是纸桶装的( <code class="docutils literal"><span class="pre">header</span></code> )泡面</p>
+<p>再或者，你在店里办了会员，每次不会花钱就能买东西，然后你到店里后，要把会员卡给店员，店员看一下你是不是会员，是会员了再看你有什么要求（ <code class="docutils literal"><span class="pre">cookies</span></code> ）</p>
+<p>再再或者，你买的东西比较私密，不想让旁边的人听到，然后你说了只有你和店员知道的暗语（ <code class="docutils literal"><span class="pre">加密</span></code> ）</p>
+<p>同理HTTP就是你的电脑和服务器电脑通信的，你输入 <a class="reference external" href="http://www.baidu.com">http://www.baidu.com</a> ，百度的服务器把网页数据返回给你</p>
+</div>
+<div class="section" id="id5">
+<h3>2.2.4.2. HTTP方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>这里只介绍四种常见的，也就是增删改查</p>
+<ul class="simple">
+<li><strong>GET</strong> 查，我需要查点资料</li>
+<li><strong>POST</strong> 增，我要增加点东西，如向数据库增加记录</li>
+<li><strong>PUT</strong> 改，修改某一项已经存在的数据的内容</li>
+<li><strong>DELETE</strong> 删，删除一些数据</li>
+</ul>
+<p>但其实在实际使用过程中，程序员们并不严格遵守，大家了解一下就好啦</p>
+</div>
+<div class="section" id="id6">
+<h3>2.2.4.3. HTTP状态码<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>首先看一下状态码分类</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="36%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">状态码</th>
+<th class="head">类别</th>
+<th class="head">原因短语</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1XX</td>
+<td>信息性状态码</td>
+<td>接收的请求正在处理</td>
+</tr>
+<tr class="row-odd"><td>2XX</td>
+<td>成功状态码</td>
+<td>请求正确，处理完毕</td>
+</tr>
+<tr class="row-even"><td>3XX</td>
+<td>重定向状态码</td>
+<td>需要进行附加操作完成请求</td>
+</tr>
+<tr class="row-odd"><td>4XX</td>
+<td>客户端错误状态码</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr class="row-even"><td>5XX</td>
+<td>服务器错误状态码</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<p>大家对各种状态码先有一个大致了解，至于每组状态码之间有什么细微差别（如400和404），可以看一下这个百科: <a class="reference external" href="http://baike.baidu.com/item/HTTP%E7%8A%B6%E6%80%81%E7%A0%81">http://baike.baidu.com/item/HTTP%E7%8A%B6%E6%80%81%E7%A0%81</a></p>
+</div>
+<div class="section" id="id7">
+<h3>2.2.4.4. HTTP请求首部<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>首部也就是我们平常见到的HTTP headers，HTTP首部是除了传输数据外的一些额外信息，比如下面这个:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">test</span><span class="o">-</span><span class="n">study</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span>
+<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Upgrade</span><span class="o">-</span><span class="n">Insecure</span><span class="o">-</span><span class="n">Requests</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Macintosh</span><span class="p">;</span> <span class="n">Intel</span> <span class="n">Mac</span> <span class="n">OS</span> <span class="n">X</span> <span class="mi">10</span><span class="n">_12_3</span><span class="p">)</span> <span class="n">AppleWebKit</span><span class="o">/</span><span class="mf">537.36</span> <span class="p">(</span><span class="n">KHTML</span><span class="p">,</span> <span class="n">like</span> <span class="n">Gecko</span><span class="p">)</span> <span class="n">Chrome</span><span class="o">/</span><span class="mf">58.0</span><span class="o">.</span><span class="mf">3029.110</span> <span class="n">Safari</span><span class="o">/</span><span class="mf">537.36</span>
+<span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">image</span><span class="o">/</span><span class="n">webp</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">DNT</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span> <span class="n">deflate</span><span class="p">,</span> <span class="n">sdch</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">zh</span><span class="o">-</span><span class="n">CN</span><span class="p">,</span><span class="n">zh</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">zh</span><span class="o">-</span><span class="n">TW</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span>
+<span class="n">Cookie</span><span class="p">:</span> <span class="n">csrftoken</span><span class="o">=</span><span class="n">NdDltTfq4fl3a70u7SrJ4amYJSezAQHK</span><span class="p">;</span> <span class="n">__utmt</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">__utma</span><span class="o">=</span><span class="mf">157584191.1561414775</span><span class="o">.</span><span class="mf">1496201127.1496888218</span><span class="o">.</span><span class="mf">1496925908.21</span><span class="p">;</span> <span class="n">__utmb</span><span class="o">=</span><span class="mf">157584191.1</span><span class="o">.</span><span class="mf">10.1496925908</span><span class="p">;</span> <span class="n">__utmc</span><span class="o">=</span><span class="mi">157584191</span><span class="p">;</span> <span class="n">__utmz</span><span class="o">=</span><span class="mf">157584191.1496201127</span><span class="o">.</span><span class="mf">1.1</span><span class="o">.</span><span class="n">utmcsr</span><span class="o">=</span><span class="p">(</span><span class="n">direct</span><span class="p">)</span><span class="o">|</span><span class="n">utmccn</span><span class="o">=</span><span class="p">(</span><span class="n">direct</span><span class="p">)</span><span class="o">|</span><span class="n">utmcmd</span><span class="o">=</span><span class="p">(</span><span class="n">none</span><span class="p">)</span>
+<span class="n">If</span><span class="o">-</span><span class="kc">None</span><span class="o">-</span><span class="n">Match</span><span class="p">:</span> <span class="n">W</span><span class="o">/</span><span class="s2">&quot;59380209-24de&quot;</span>
+<span class="n">If</span><span class="o">-</span><span class="n">Modified</span><span class="o">-</span><span class="n">Since</span><span class="p">:</span> <span class="n">Wed</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Jun</span> <span class="mi">2017</span> <span class="mi">13</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">21</span> <span class="n">GMT</span>
+</pre></div>
+</div>
+<p>下面我们介绍几个比较重要的首部</p>
+<p><strong>Host</strong></p>
+<p>该首部指明了要访问的服务器地址和端口</p>
+<p><strong>Accept</strong></p>
+<p>表示客户端接受哪种类型的数据，如 <code class="docutils literal"><span class="pre">text/html</span></code> 表示客户端希望得到html文本，<code class="docutils literal"><span class="pre">image/jpeg</span></code> 表示希望得到图片，`` application/msword`` 表示希望得到word文档</p>
+<p><strong>Content-Type</strong></p>
+<p>表示客户端发送的数据类型，如 <code class="docutils literal"><span class="pre">application/x-www-form-urlencoded</span></code> 表示发送的是表单键对数据， <code class="docutils literal"><span class="pre">application/json</span></code> 表示发送的是序列化后的json数据</p>
+<p><strong>Cookie</strong></p>
+<p>表示客户端存储的Cookie发送给服务器</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="json.html" class="btn btn-neutral float-right" title="2.3. JSON" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="接口测试概述.html" class="btn btn-neutral" title="2.1. 接口测试概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

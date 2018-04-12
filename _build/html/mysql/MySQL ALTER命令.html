@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.23. MySQL ALTER命令 &mdash; qa study 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="qa study 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="5. mysql" href="index.html"/>
+        <link rel="next" title="5.24. MySQL 索引" href="MySQL 索引.html"/>
+        <link rel="prev" title="5.22. MySQL 事务" href="MySQL 事务.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">1. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">2. 接口自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">3. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">4. 性能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. mysql</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="MySQL 安装.html">5.1. MySQL 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 管理.html">5.2. MySQL 管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 连接.html">5.3. MySQL 连接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 创建数据库.html">5.4. MySQL 创建数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 删除数据库.html">5.5. MySQL 删除数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 选择数据库.html">5.6. MySQL 选择数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 数据类型.html">5.7. MySQL 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 创建数据表.html">5.8. MySQL 创建数据表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 删除数据表.html">5.9. MySQL 删除数据表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 插入数据.html">5.10. MySQL 插入数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 查询数据.html">5.11. MySQL 查询数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL WHERE 子句.html">5.12. MySQL WHERE 子句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL UPDATE 查询.html">5.13. MySQL UPDATE 查询</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL DELETE 语句.html">5.14. MySQL DELETE 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL LIKE 子句.html">5.15. MySQL LIKE 子句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL UNION 操作符.html">5.16. MySQL UNION 操作符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 排序.html">5.17. MySQL 排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL GROUP BY 语句.html">5.18. MySQL GROUP BY 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mysql 连接的使用.html">5.19. Mysql 连接的使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL NULL 值处理.html">5.20. MySQL NULL 值处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 正则表达式.html">5.21. MySQL 正则表达式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 事务.html">5.22. MySQL 事务</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.23. MySQL ALTER命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.23.1. 删除，添加或修改表字段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.23.2. 修改字段类型及名称</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-table-null">5.23.3. ALTER TABLE 对 Null 值和默认值的影响</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.23.4. 修改字段默认值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.23.5. 修改表名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MySQL 索引.html">5.24. MySQL 索引</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">5. mysql</a> &raquo;</li>
+        
+      <li>5.23. MySQL ALTER命令</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/mysql/MySQL ALTER命令.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mysql-alter">
+<h1>5.23. MySQL ALTER命令<a class="headerlink" href="#mysql-alter" title="Permalink to this headline">¶</a></h1>
+<p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p>
+<p>开始本章教程前让我们先创建一张表，表名为：testalter_tbl。</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><p class="first">root&#64;host# mysql -u root -p password;
+Enter password:<strong>***</strong>
+mysql&gt; use RUNOOB;
+Database changed
+mysql&gt; create table testalter_tbl</p>
+<blockquote>
+<div>-&gt; (
+-&gt; i INT,
+-&gt; c CHAR(1)
+-&gt; );</div></blockquote>
+<p class="last">Query OK, 0 rows affected (0.05 sec)
+mysql&gt; SHOW COLUMNS FROM testalter_tbl;
++——-+———+——+—–+———+——-+
+| Field | Type    | Null | Key | Default | Extra |
++——-+———+——+—–+———+——-+
+| i     | int(11) | YES  |     | NULL    |       |
+| c     | char(1) | YES  |     | NULL    |       |
++——-+———+——+—–+———+——-+
+2 rows in set (0.00 sec)</p>
+</dd>
+</dl>
+<div class="section" id="id1">
+<h2>5.23.1. 删除，添加或修改表字段<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>如下命令使用了 ALTER 命令及 DROP 子句来删除以上创建表的 i 字段：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span>  <span class="n">DROP</span> <span class="n">i</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>如果数据表中只剩余一个字段则无法使用DROP来删除字段。
+MySQL 中使用 ADD 子句来向数据表中添加列，如下实例在表 testalter_tbl 中添加 i 字段，并定义数据类型:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">ADD</span> <span class="n">i</span> <span class="n">INT</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>执行以上命令后，i 字段会自动添加到数据表字段的末尾。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SHOW</span> <span class="n">COLUMNS</span> <span class="n">FROM</span> <span class="n">testalter_tbl</span><span class="p">;</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="n">Type</span>    <span class="o">|</span> <span class="n">Null</span> <span class="o">|</span> <span class="n">Key</span> <span class="o">|</span> <span class="n">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">c</span>     <span class="o">|</span> <span class="n">char</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="n">NULL</span>    <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="n">i</span>     <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="n">NULL</span>    <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="mi">2</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>如果你需要指定新增字段的位置，可以使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。
+尝试以下 ALTER TABLE 语句, 在执行成功后，使用 SHOW COLUMNS 查看表结构的变化：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">DROP</span> <span class="n">i</span><span class="p">;</span>
+<span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">ADD</span> <span class="n">i</span> <span class="n">INT</span> <span class="n">FIRST</span><span class="p">;</span>
+<span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">DROP</span> <span class="n">i</span><span class="p">;</span>
+<span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">ADD</span> <span class="n">i</span> <span class="n">INT</span> <span class="n">AFTER</span> <span class="n">c</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>FIRST 和 AFTER 关键字只占用于 ADD 子句，所以如果你想重置数据表字段的位置就需要先使用 DROP 删除字段然后使用 ADD 来添加字段并设置位置。</p>
+</div>
+<div class="section" id="id2">
+<h2>5.23.2. 修改字段类型及名称<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。
+例如，把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">MODIFY</span> <span class="n">c</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>使用 CHANGE 子句, 语法有很大的不同。 在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段名及类型。尝试如下实例：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">CHANGE</span> <span class="n">i</span> <span class="n">j</span> <span class="n">BIGINT</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>::</dt>
+<dd>mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</dd>
+</dl>
+</div>
+<div class="section" id="alter-table-null">
+<h2>5.23.3. ALTER TABLE 对 Null 值和默认值的影响<a class="headerlink" href="#alter-table-null" title="Permalink to this headline">¶</a></h2>
+<p>当你修改字段时，你可以指定是否包含只或者是否设置默认值。
+以下实例，指定字段 j 为 NOT NULL 且默认值为100 。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span>
+    <span class="o">-&gt;</span> <span class="n">MODIFY</span> <span class="n">j</span> <span class="n">BIGINT</span> <span class="n">NOT</span> <span class="n">NULL</span> <span class="n">DEFAULT</span> <span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>如果你不设置默认值，MySQL会自动设置该字段默认为 NULL。</p>
+</div>
+<div class="section" id="id3">
+<h2>5.23.4. 修改字段默认值<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>你可以使用 ALTER 来修改字段的默认值，尝试以下实例：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">ALTER</span> <span class="n">i</span> <span class="n">SET</span> <span class="n">DEFAULT</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SHOW</span> <span class="n">COLUMNS</span> <span class="n">FROM</span> <span class="n">testalter_tbl</span><span class="p">;</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="n">Type</span>    <span class="o">|</span> <span class="n">Null</span> <span class="o">|</span> <span class="n">Key</span> <span class="o">|</span> <span class="n">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">c</span>     <span class="o">|</span> <span class="n">char</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="n">NULL</span>    <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="n">i</span>     <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="mi">1000</span>    <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="mi">2</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你也可以使用 ALTER 命令及 DROP子句来删除字段的默认值，如下实例：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">ALTER</span> <span class="n">i</span> <span class="n">DROP</span> <span class="n">DEFAULT</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SHOW</span> <span class="n">COLUMNS</span> <span class="n">FROM</span> <span class="n">testalter_tbl</span><span class="p">;</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="n">Type</span>    <span class="o">|</span> <span class="n">Null</span> <span class="o">|</span> <span class="n">Key</span> <span class="o">|</span> <span class="n">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="o">|</span> <span class="n">c</span>     <span class="o">|</span> <span class="n">char</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="n">NULL</span>    <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="n">i</span>     <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span>  <span class="o">|</span>     <span class="o">|</span> <span class="n">NULL</span>    <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+-------+---------+------+-----+---------+-------+</span>
+<span class="mi">2</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Changing</span> <span class="n">a</span> <span class="n">Table</span> <span class="n">Type</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：</p>
+<p><strong>注意</strong>：查看数据表类型可以使用 SHOW TABLE STATUS 语句。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MYISAM</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span>  <span class="n">SHOW</span> <span class="n">TABLE</span> <span class="n">STATUS</span> <span class="n">LIKE</span> <span class="s1">&#39;testalter_tbl&#39;</span>\<span class="n">G</span>
+<span class="o">***************************</span> <span class="mf">1.</span> <span class="n">row</span> <span class="o">****************</span>
+           <span class="n">Name</span><span class="p">:</span> <span class="n">testalter_tbl</span>
+           <span class="n">Type</span><span class="p">:</span> <span class="n">MyISAM</span>
+     <span class="n">Row_format</span><span class="p">:</span> <span class="n">Fixed</span>
+           <span class="n">Rows</span><span class="p">:</span> <span class="mi">0</span>
+ <span class="n">Avg_row_length</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">Data_length</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Max_data_length</span><span class="p">:</span> <span class="mi">25769803775</span>
+   <span class="n">Index_length</span><span class="p">:</span> <span class="mi">1024</span>
+      <span class="n">Data_free</span><span class="p">:</span> <span class="mi">0</span>
+ <span class="n">Auto_increment</span><span class="p">:</span> <span class="n">NULL</span>
+    <span class="n">Create_time</span><span class="p">:</span> <span class="mi">2007</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">08</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">36</span>
+    <span class="n">Update_time</span><span class="p">:</span> <span class="mi">2007</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">08</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">36</span>
+     <span class="n">Check_time</span><span class="p">:</span> <span class="n">NULL</span>
+ <span class="n">Create_options</span><span class="p">:</span>
+        <span class="n">Comment</span><span class="p">:</span>
+<span class="mi">1</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>5.23.5. 修改表名<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>如果需要修改数据表的名称，可以在 ALTER TABLE 语句中使用 RENAME 子句来实现。
+尝试以下实例将数据表 testalter_tbl 重命名为 alter_tbl：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">ALTER</span> <span class="n">TABLE</span> <span class="n">testalter_tbl</span> <span class="n">RENAME</span> <span class="n">TO</span> <span class="n">alter_tbl</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>ALTER 命令还可以用来创建及删除MySQL数据表的索引，该功能我们会在接下来的章节中介绍。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MySQL 索引.html" class="btn btn-neutral float-right" title="5.24. MySQL 索引" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MySQL 事务.html" class="btn btn-neutral" title="5.22. MySQL 事务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
