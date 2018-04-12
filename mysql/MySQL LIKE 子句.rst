@@ -14,6 +14,7 @@ SQL LIKE 子句中使用百分号 %字符来表示任意字符，类似于UNIX�
 以下是 SQL SELECT 语句使用 LIKE 子句从数据表中读取数据的通用语法：
 
 ::
+
 	SELECT field1, field2,...fieldN 
 	FROM table_name
 	WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'

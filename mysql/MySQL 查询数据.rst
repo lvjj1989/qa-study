@@ -5,6 +5,7 @@ MySQL 数据库使用SQL SELECT语句来查询数据。
 
 你可以通过 mysql> 命令提示窗口中在数据库中查询数据，或者通过PHP脚本来查询数据。
 ::
+
 	SELECT column_name,column_name
 	FROM table_name
 	[WHERE Clause]

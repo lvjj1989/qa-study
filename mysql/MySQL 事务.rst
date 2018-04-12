@@ -34,6 +34,7 @@ MYSQL 事务处理主要有两种方法：
 * SET AUTOCOMMIT=1 开启自动提交
 
 ::
+
 	事务测试
 	mysql> use RUNOOB;
 	Database changed

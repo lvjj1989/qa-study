@@ -6,6 +6,7 @@ MySQL DELETE 语句
 以下是 SQL DELETE 语句从 MySQL 数据表中删除数据的通用语法：
 
 ::
+
 	DELETE FROM table_name [WHERE Clause]
 
 * 如果没有指定 WHERE 子句，MySQL 表中的所有记录将被删除。

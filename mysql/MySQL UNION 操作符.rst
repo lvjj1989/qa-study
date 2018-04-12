@@ -5,6 +5,7 @@ MySQL UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到
 MySQL UNION 操作符语法格式：
 
 ::
+
 	SELECT expression1, expression2, ... expression_n
 	FROM tables
 	[WHERE conditions]

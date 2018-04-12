@@ -10,6 +10,7 @@ MySQL 创建数据库
 实例
 
 ::
+
 	[root@host]# mysqladmin -u root -p create RUNOOB
 	Enter password:******
 

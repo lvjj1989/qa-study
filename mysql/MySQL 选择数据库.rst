@@ -8,6 +8,7 @@ MySQL 选择数据库
 实例
 以下实例选取了数据库 RUNOOB:
 ::
+
 	[root@host]# mysql -u root -p
 	Enter password:******
 	mysql> use RUNOOB;

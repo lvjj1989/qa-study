@@ -10,11 +10,13 @@ MySQL 创建数据表
 以下为创建MySQL数据表的SQL通用语法：
 
 ::
+
 	CREATE TABLE table_name (column_name column_type);
 
 以下例子中我们将在 RUNOOB 数据库中创建数据表runoob_tbl：
 
 ::
+
 	CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 	   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
 	   `runoob_title` VARCHAR(100) NOT NULL,
