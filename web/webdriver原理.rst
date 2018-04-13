@@ -81,3 +81,4 @@ webdriver直接调用了浏览器对自动化测试的原生接口，具体怎�
 
 * 每个浏览器都有自己自动化测试接口，如打开网页，点击等
 * 每个浏览器自己的webdriver实现，如chromedriver iedriver都封装了这些自动化测试接口，然后把这些操作以web service形式暴露出来
+
