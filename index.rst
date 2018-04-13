@@ -12,9 +12,12 @@
 
    python_base/index.rst
    interface/index.rst
+   web_functional/index.rst
    web/index.rst
    performance/index.rst
    mysql/index.rst
+   Testng/index.rst
+   pytest/index.rst
 
 
 
