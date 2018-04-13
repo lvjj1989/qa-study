@@ -60,9 +60,8 @@ datetime
 ---------------------------------------
 ::
 
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
-
+	#!/usr/bin/python
+	# -*- coding: UTF-8 -*-
 	import datetime
 	i = datetime.datetime.now()
 	print ("当前的日期和时间是 %s" % i)
