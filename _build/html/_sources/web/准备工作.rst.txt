@@ -1,0 +1,19 @@
+准备工具
+======================================
+
+技术选型
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* **工具**：在前面我们有说到目前的主流是selenium webdriver，那我们就选它了，因为选主流的工具，网上的资料非常多，当你遇到问题时，同样的问题别人也遇到过
+* **语言**：selenium webdriver 客户端实现的语言比较多，官方主要有Java、Python、Ruby、C#、Javascript（Node），第三方有PHP、R、TCL等等，用什么语言看自己喜欢，但建议选官方的，第三方的维护不好在这儿，我们选用python
+
+环境安装
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 安装python2.7 & python3.5+
+* 下载浏览器driver，我们使用Chrome进行测试，所以选用chromedriver，下面分别是windows版、linux版和mac版http://npm.taobao.org/mirrors/chromedriver/2.32/ ，下载后放到环境变量路径里（这样做后面创建Chrome类时不需要指定driver路径）
+* 安装和driver版本对应的浏览器，在 chromedriver的更新日志上可以找到 http://npm.taobao.org/mirrors/chromedriver/2.32/notes.txt ，如chromedriver2.32 对应的chrome版本为v59-61
+* 执行如下命令安装selenium，requests后面讨论selenium原理的时候会用到
+
+::
+
+        pip install selenium
+        pip install requests
