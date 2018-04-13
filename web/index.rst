@@ -8,4 +8,5 @@ web自动化
    准备工作.rst
    webdriver原理.rst
    api.rst
+   定位.rst
    
