@@ -16,7 +16,7 @@
    web/index.rst
    performance/index.rst
    mysql/index.rst
-   Testng/index.rst
+   testng/index.rst
    pytest/index.rst
 
 
