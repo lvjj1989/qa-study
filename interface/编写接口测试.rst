@@ -518,6 +518,9 @@ http://pithy-test.readthedocs.io/en/latest/
 参考：
 
 [1] requests：http://www.python-requests.org/en/master/
+
 [2] thriftpy：http://thriftpy.readthedocs.io/en/latest/
+
 [3] objectpath：http://objectpath.org/
+
 [4] pytest：https://docs.pytest.org
