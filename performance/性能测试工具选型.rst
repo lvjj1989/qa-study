@@ -73,7 +73,7 @@
 性能测试工具，从理论上来讲在性能测试过程中使用到的所有工具都可以称其为性能测试工具，通常分为以下几类：
 
 
-.. figure:: /_static/performance/xngj_1.jpg
+.. figure:: /_static/performance/xngj_1.png
     :width: 20.0cm
 
 
