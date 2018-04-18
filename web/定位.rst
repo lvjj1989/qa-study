@@ -84,7 +84,7 @@ name就像是每个学生的姓名，因为可能会重名（比如说一班和�
 	driver.find_element_by_name('firstname')
 
 
- **通过classname定位：**
+** 通过classname定位：**
 
  classname是html元素中的class属性，可能有多个如 <button class="button submit">按钮</button> ，使用时，选择一个class属性就可以，比如button或者submit
 
