@@ -10,11 +10,13 @@
    :maxdepth: 2
    :numbered:
 
+   java_base/index.rst
    python_base/index.rst
    interface/index.rst
    web_functional/index.rst
    web/index.rst
    performance/index.rst
+   pytest/index.rst
    mysql/index.rst
 
 

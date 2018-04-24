@@ -12,6 +12,7 @@
 
 测试获取LIST
 --------------------------------------
+
 在交互环境或者IDE中输入如下代码::
 
     # coding=utf-8
@@ -41,6 +42,7 @@
 
 增加一条
 ---------------------------------------
+
 在交互环境或者IDE中输入如下代码::
 
     # coding=utf-8
@@ -69,6 +71,7 @@
 
 requests
 ---------------------------------------
+
 看了上面的两个例子，大家对requests有了大致的了解，现在总结一下基本的使用方法，更多可以查看一下官方文档 http://docs.python-requests.org/en/master/ 或者中文文档（不是最新的，不过影响不大） http://cn.python-requests.org/zh_CN/latest/
 
 * 发送不同的http请求，直接使用 ``requests.<方法名小写>`` 即可，如 ``requests.get`` 、 ``requests.post`` 
