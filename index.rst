@@ -16,6 +16,7 @@
    web_functional/index.rst
    web/index.rst
    performance/index.rst
+   jmeter/index.rst
    pytest/index.rst
    mysql/index.rst
 

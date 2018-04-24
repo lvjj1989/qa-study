@@ -36,6 +36,7 @@ JSON字符串是将JSON序列化后的字符串，将上面的JSON对象序列�
 
 在python中使用json
 --------------------------------------
+
 python标准库中自带json模块，可以序列化和反序列化json，在python中json对象就是字典，但python字典不一定是json对象
 
 **序列化JSON**::
