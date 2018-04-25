@@ -67,8 +67,8 @@ mysqladmin  Ver 8.23 Distrib 5.0.9-0, for redhat-linux-gnu on i386
 如果以上命令执行后未输入任何信息，说明你的Mysql未安装成功。
 使用 MySQL Client(Mysql客户端) 执行简单的SQL命令
 你可以在 MySQL Client(Mysql客户端) 使用 mysql 命令连接到Mysql服务器上，默认情况下Mysql服务器的密码为空，所以本实例不需要输入密码。
-::
 
+::
 
 
 	命令如下：
@@ -83,6 +83,8 @@ mysqladmin  Ver 8.23 Distrib 5.0.9-0, for redhat-linux-gnu on i386
 	+----------+
 	2 rows in set (0.13 sec)
 	--------------------------------------
+
+
 Mysql安装后需要做的
 --------------------------------------
 
@@ -96,6 +98,8 @@ Mysql安装后需要做的
 	[root@host]# mysql -u root -p
 	Enter password:*******
 	注意：在输入密码时，密码是不会显示了，你正确输入即可。
+
+
 Window 上安装Mysql
 --------------------------------------
 Window上安装Mysql相对来说会较为简单，你只需要在 MySQL 下载中下载window版本的mysql安装包，并解压安装包。
@@ -105,4 +109,6 @@ Window上安装Mysql相对来说会较为简单，你只需要在 MySQL 下载�
 ::
 
 	mysqld.exe --console
+
+
 如果安装成功以上命令将输出一些mysql启动及InnoDB信息。

@@ -23,12 +23,17 @@ pytest是python的一种单元测试框架，与python自带的unittest测试框
 ::
 
 	pip install -U pytest  
+	pip install -U pytest-html  
+	pip install -U pytest-rerunfailures  
+
+
 
 安装完成后，可以验证安装的版本：
 
 ::
 
 	py.test --version  
+
 
 一个实例
 ---------------------------------------------
