@@ -19,6 +19,8 @@
    jmeter/index.rst
    pytest/index.rst
    mysql/index.rst
+   linux/index.rst
+   jenkins/index.rst
 
 
 

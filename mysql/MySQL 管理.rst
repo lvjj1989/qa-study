@@ -4,14 +4,17 @@ MySQL 管理
 启动及关闭 MySQL 服务器
 --------------------------------------
 首先，我们需要通过以下命令来检查MySQL服务器是否启动：
+
 ::
 	ps -ef | grep mysqld
 如果MySql已经启动，以上命令将输出mysql进程列表， 如果mysql未启动，你可以使用以下命令来启动mysql服务器:
+
 ::
 
 	root@host# cd /usr/bin
 	./mysqld_safe &
 如果你想关闭目前运行的 MySQL 服务器, 你可以执行以下命令:
+
 ::
 
 	root@host# cd /usr/bin
@@ -20,6 +23,7 @@ MySQL 管理
 MySQL 用户设置
 如果你需要添加 MySQL 用户，你只需要在 mysql 数据库中的 user 表添加新用户即可。
 以下为添加用户的的实例，用户名为guest，密码为guest123，并授权用户可进行 SELECT, INSERT 和 UPDATE操作权限：
+
 ::
 
 	root@host# mysql -u root -p
@@ -51,34 +55,22 @@ MySQL 用户设置
 你可以在创建用户时，为用户指定权限，在对应的权限列中，在插入语句中设置为 'Y' 即可，用户权限列表如下：
 
 * Select_priv
-
 * Insert_priv
-
 * Update_priv
-
 * Delete_priv
-
 * Create_priv
-
 * Drop_priv
-
 * Reload_priv
-
 * Shutdown_priv
-
 * Process_priv
-
 * File_priv
-
 * Grant_priv
-
 * References_priv
-
 * Index_priv
-
 * Alter_priv
 
 另外一种添加用户的方法为通过SQL的 GRANT 命令，你下命令会给指定数据库TUTORIALS添加用户 zara ，密码为 zara123 。
+
 ::
 
 	root@host# mysql -u root -p password;
@@ -95,6 +87,7 @@ MySQL 用户设置
 /etc/my.cnf 文件配置
 --------------------------------------
 一般情况下，你不需要修改该配置文件，该文件默认配置如下：
+
 ::
 
 	[mysqld]
@@ -115,6 +108,7 @@ MySQL 用户设置
 以下列出了使用Mysql数据库过程中常用的命令：
 * USE 数据库名 :
 选择要操作的Mysql数据库，使用该命令后所有Mysql命令都只针对该数据库。
+
 ::
 
 	mysql> use RUNOOB;
