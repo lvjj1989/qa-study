@@ -147,8 +147,8 @@ Test over
 
 	# coding=utf-8
 	'''
-	Created on 2016-7-22
-	@author: Jennifer
+	Created on 2018-05-02
+	@author: Lvjj
 	Project:登录百度测试用例
 	'''
 	from selenium import webdriver
@@ -184,8 +184,8 @@ Test over
 
 	# coding=utf-8
 	'''
-	Created on 2016-7-22
-	@author: Jennifer
+	Created on 2018-05-02
+	@author: Lvjj
 	Project:使用有道翻译测试用例
 	'''
 	from selenium import webdriver
@@ -221,8 +221,8 @@ web测试用例：通过测试套件TestSuite来组装多个测试用例。
 
 	# coding=utf-8
 	'''
-	Created on 2016-7-26
-	@author: Jennifer
+	Created on 2018-05-05
+	@author: Lvjj
 	Project:编写Web测试用例
 	'''
 	import unittest
