@@ -3,6 +3,28 @@ unittest
 
 unittest单元测试框架不仅可以适用于单元测试，还可以适用WEB自动化测试用例的开发与执行，该测试框架可组织执行测试用例，并且提供了丰富的断言方法，判断测试用例是否通过，最终生成测试结果。今天笔者就总结下如何使用unittest单元测试框架来进行WEB自动化测试。
 
+**unittest.TestCase：**TestCase类，所有测试用例类继承的基本类。
+
+**unittest.main():**使用她可以方便的将一个单元测试模块变为可直接运行的测试脚本，main()方法使用TestLoader类来搜索所有包含在该模块中以“test”命名开头的测试方法，并自动执行他们。执行方法的默认顺序是：根据ASCII码的顺序加载测试用例，数字与字母的顺序为：0-9，A-Z，a-z。所以以A开头的测试用例方法会优先执行，以a开头会后执行。
+
+**unittest.TestSuite()：**unittest框架的TestSuite()类是用来创建测试套件的。
+
+**unittest.TextTextRunner():**unittest框架的TextTextRunner()类，通过该类下面的run()方法来运行suite所组装的测试用例，入参为suite测试套件。
+
+**unittest.defaultTestLoader():** defaultTestLoader()类，通过该类下面的discover()方法可自动更具测试目录start_dir匹配查找测试用例文件（test*.py），并将查找到的测试用例组装到测试套件，因此可以直接通过run()方法执行discover。用法如下：
+
+**unittest.skip()**:装饰器，当运行用例时，有些用例可能不想执行等，可用装饰器暂时屏蔽该条测试用例。一种常见的用法就是比如说想调试某一个测试用例，想先屏蔽其他用例就可以用装饰器屏蔽。
+
+**@unittest.skip(reason):** skip(reason)装饰器：无条件跳过装饰的测试，并说明跳过测试的原因。
+
+**@unittest.skipIf(reason):** skipIf(condition,reason)装饰器：条件为真时，跳过装饰的测试，并说明跳过测试的原因。
+
+**@unittest.skipUnless(reason):** skipUnless(condition,reason)装饰器：条件为假时，跳过装饰的测试，并说明跳过测试的原因。
+
+**@unittest.expectedFailure():** expectedFailure()测试标记为失败。
+
+
+
 废话不多说，直接看代码：
 
 ::
@@ -147,8 +169,8 @@ Test over
 
 	# coding=utf-8
 	'''
-	Created on 2016-7-22
-	@author: Jennifer
+	Created on 2018-05-02
+	@author: Lvjj
 	Project:登录百度测试用例
 	'''
 	from selenium import webdriver
@@ -184,8 +206,8 @@ Test over
 
 	# coding=utf-8
 	'''
-	Created on 2016-7-22
-	@author: Jennifer
+	Created on 2018-05-02
+	@author: Lvjj
 	Project:使用有道翻译测试用例
 	'''
 	from selenium import webdriver
@@ -221,8 +243,8 @@ web测试用例：通过测试套件TestSuite来组装多个测试用例。
 
 	# coding=utf-8
 	'''
-	Created on 2016-7-26
-	@author: Jennifer
+	Created on 2018-05-02
+	@author: Lvjj
 	Project:编写Web测试用例
 	'''
 	import unittest
