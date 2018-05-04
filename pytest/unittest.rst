@@ -243,7 +243,11 @@ web测试用例：通过测试套件TestSuite来组装多个测试用例。
 
 	# coding=utf-8
 	'''
+<<<<<<< HEAD
 	Created on 2018-05-02
+=======
+	Created on 2018-05-05
+>>>>>>> 907de13f66f27f08ead0ec823c7ef7bf652d7a33
 	@author: Lvjj
 	Project:编写Web测试用例
 	'''
