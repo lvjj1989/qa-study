@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用python requests调用接口 &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../java_base/index.html">1. java基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">2. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">3. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jmeter/index.html">4. jmeter性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">5. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">6. 持续集成</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>使用python requests调用接口</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interface/requests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-requests">
+<h1>使用python requests调用接口<a class="headerlink" href="#python-requests" title="Permalink to this headline">¶</a></h1>
+<p>在这一节，我们使用python的requests库调用上一节中写的接口</p>
+<div class="section" id="id1">
+<h2>准备工作<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">运行上一节的脚本</p>
+</li>
+<li><p class="first">安装requests库:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="list">
+<h2>测试获取LIST<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<p>在交互环境或者IDE中输入如下代码:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># 请求该接口</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://localhost:5000/todos&#39;</span><span class="p">)</span>
+
+<span class="c1"># 获取响应数据，并解析JSON，转化为python字典</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># 打印响应状态码</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+
+<span class="c1"># 打印result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># 打印结果中的 ‘todo1’ 任务</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;todo1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>然后运行，输出如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">200</span>
+<span class="p">{</span><span class="sa">u</span><span class="s1">&#39;todo1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;build an API&#39;</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;todo3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;profit!&#39;</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;todo2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;?????&#39;</span><span class="p">}}</span>
+<span class="p">{</span><span class="sa">u</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;build an API&#39;</span><span class="p">}</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.4</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>增加一条<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在交互环境或者IDE中输入如下代码:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># 定义要添加的任务</span>
+<span class="n">task</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="s1">&#39;my task&#39;</span><span class="p">}</span>
+
+<span class="c1"># 请求该接口</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;http://localhost:5000/todos&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
+
+<span class="c1"># 获取响应数据，并解析JSON，转化为python字典</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># 打印响应状态码</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+
+<span class="c1"># 打印result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>响应如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">201</span>
+<span class="p">{</span><span class="sa">u</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;my task&#39;</span><span class="p">}</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.6</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requests">
+<h2>requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h2>
+<p>看了上面的两个例子，大家对requests有了大致的了解，现在总结一下基本的使用方法，更多可以查看一下官方文档 <a class="reference external" href="http://docs.python-requests.org/en/master/">http://docs.python-requests.org/en/master/</a> 或者中文文档（不是最新的，不过影响不大） <a class="reference external" href="http://cn.python-requests.org/zh_CN/latest/">http://cn.python-requests.org/zh_CN/latest/</a></p>
+<ul>
+<li><p class="first">发送不同的http请求，直接使用 <code class="docutils literal notranslate"><span class="pre">requests.&lt;方法名小写&gt;</span></code> 即可，如 <code class="docutils literal notranslate"><span class="pre">requests.get</span></code> 、 <code class="docutils literal notranslate"><span class="pre">requests.post</span></code></p>
+</li>
+<li><p class="first">传送url查询参数的方法如下，试验过程中，大家可以抓包看一下效果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://xxxx&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">传送form表单格式的数据，使用方法如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;http://xxxxx&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">传送json数据使用方法如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;http://xxxxx&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
