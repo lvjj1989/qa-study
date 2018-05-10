@@ -10,10 +10,10 @@
    :maxdepth: 2
    :numbered:
 
+   web_functional/index.rst
+   interface/index.rst
    java_base/index.rst
    python_base/index.rst
-   interface/index.rst
-   web_functional/index.rst
    web/index.rst
    performance/index.rst
    jmeter/index.rst
@@ -21,6 +21,8 @@
    mysql/index.rst
    linux/index.rst
    jenkins/index.rst
+   Interview_skills/index.rst
+
 
 
 
