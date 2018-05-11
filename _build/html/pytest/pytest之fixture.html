@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8.6. pytest之fixture &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. mysql" href="../mysql/index.html" />
+    <link rel="prev" title="8.5. pytest参数化" href="pytest参数化.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../web_functional/index.html">1. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">2. 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java_base/index.html">3. java基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jmeter/index.html">7. jmeter性能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">8. Python单元测试框架pytest</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unittest.html">8.1. unittest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html">8.2. pytest介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html">8.3. pytest编写规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html">8.4. pytest测试报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest参数化.html">8.5. pytest参数化</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.6. pytest之fixture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fixture">8.6.1. fixture介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">8.6.2. 调用fixture的三种方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixture-scope">8.6.3. fixture scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">8.6.4. fixture 返回值</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">10. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">11. 持续集成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">12. 面试技巧</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">8. Python单元测试框架pytest</a> &raquo;</li>
+        
+      <li>8.6. pytest之fixture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pytest/pytest之fixture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pytestfixture">
+<h1>8.6. pytest之fixture<a class="headerlink" href="#pytestfixture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fixture">
+<h2>8.6.1. fixture介绍<a class="headerlink" href="#fixture" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>fixture是pytest特有的功能，它用pytest.fixture标识，定义在函数前面。在你编写测试函数的时候，你可以将此函数名称做为传入参数，pytest将会以依赖注入方式，将该函数的返回值作为测试函数的传入参数。 fixture有明确的名字，在其他函数，模块，类或整个工程调用它时会被激活。 fixture是基于模块来执行的，每个fixture的名字就可以触发一个fixture的函数，它自身也可以调用其他的fixture。 我们可以把fixture看做是资源，在你的测试用例执行之前需要去配置这些资源，执行完后需要去释放资源。比如module类型的fixture，适合于那些许多测试用例都只需要执行一次的操作。 fixture还提供了参数化功能，根据配置和不同组件来选择不同的参数。 fixture主要的目的是为了提供一种可靠和可重复性的手段去运行那些最基本的测试内容。比如在测试网站的功能时，每个测试用例都要登录和退出，利用fixture就可以只做一次，否则每个测试用例都要做这两步也是冗余。</p>
+<p>Fixture基础实例入门</p>
+<p>在函数声明之前加上“&#64;pytest.fixture”。其他函数要来调用这个Fixture，只用把它当做一个输入的参数即可</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">before</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">before each test&#39;</span>
+
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">(</span><span class="n">before</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="s1">&#39;test_1()&#39;</span>
+
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">(</span><span class="n">before</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="s1">&#39;test_2()&#39;</span>
+    <span class="k">assert</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>下面是运行结果，test_1和test_2运行之前都调用了before，也就是before执行了两次。默认情况下，fixture是每个测试用例如果调用了该fixture就会执行一次的。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">yatyang</span>\<span class="n">PycharmProjects</span>\<span class="n">pytest_example</span><span class="o">&gt;</span><span class="n">pytest</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">s</span> <span class="n">test_fixture_basic</span><span class="o">.</span><span class="n">py</span>
+<span class="o">=============================</span> <span class="n">test</span> <span class="n">session</span> <span class="n">starts</span> <span class="o">=============================</span>
+<span class="n">platform</span> <span class="n">win32</span> <span class="o">--</span> <span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">13</span><span class="p">,</span> <span class="n">pytest</span><span class="o">-</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="n">py</span><span class="o">-</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">32</span><span class="p">,</span> <span class="n">pluggy</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span> <span class="o">--</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Python27</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span>
+<span class="n">cachedir</span><span class="p">:</span> <span class="o">.</span><span class="n">cache</span>
+<span class="n">metadata</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Python&#39;</span><span class="p">:</span> <span class="s1">&#39;2.7.13&#39;</span><span class="p">,</span> <span class="s1">&#39;Platform&#39;</span><span class="p">:</span> <span class="s1">&#39;Windows-7-6.1.7601-SP1&#39;</span><span class="p">,</span> <span class="s1">&#39;Packages&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;py&#39;</span><span class="p">:</span> <span class="s1">&#39;1.4.32&#39;</span><span class="p">,</span> <span class="s1">&#39;pytest&#39;</span><span class="p">:</span> <span class="s1">&#39;3.0.6&#39;</span><span class="p">,</span> <span class="s1">&#39;pluggy&#39;</span><span class="p">:</span> <span class="s1">&#39;0.4.0&#39;</span><span class="p">},</span> <span class="s1">&#39;JAVA_HOME&#39;</span><span class="p">:</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Program Files (x86)</span><span class="se">\\</span><span class="s1">Java</span><span class="se">\\</span><span class="s1">jd</span>
+<span class="n">k1</span><span class="o">.</span><span class="mf">7.0</span><span class="n">_01</span><span class="s1">&#39;, &#39;</span><span class="n">Plugins</span><span class="s1">&#39;: {&#39;</span><span class="n">html</span><span class="s1">&#39;: &#39;</span><span class="mf">1.14</span><span class="o">.</span><span class="mi">2</span><span class="s1">&#39;, &#39;</span><span class="n">metadata</span><span class="s1">&#39;: &#39;</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span><span class="s1">&#39;}}</span>
+<span class="n">rootdir</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">PycharmProjects</span>\<span class="n">pytest_example</span><span class="p">,</span> <span class="n">inifile</span><span class="p">:</span>
+<span class="n">plugins</span><span class="p">:</span> <span class="n">metadata</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">html</span><span class="o">-</span><span class="mf">1.14</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">collected</span> <span class="mi">2</span> <span class="n">items</span>
+
+<span class="n">test_fixture_basic</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_1</span>
+<span class="n">before</span> <span class="n">each</span> <span class="n">test</span>
+<span class="n">test_1</span><span class="p">()</span>
+<span class="n">PASSED</span>
+<span class="n">test_fixture_basic</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_2</span>
+<span class="n">before</span> <span class="n">each</span> <span class="n">test</span>
+<span class="n">test_2</span><span class="p">()</span>
+<span class="n">FAILED</span>
+
+<span class="o">==================================</span> <span class="n">FAILURES</span> <span class="o">===================================</span>
+<span class="n">___________________________________</span> <span class="n">test_2</span> <span class="n">____________________________________</span>
+
+<span class="n">before</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">test_2</span><span class="p">(</span><span class="n">before</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s1">&#39;test_2()&#39;</span>
+<span class="o">&gt;</span>       <span class="k">assert</span> <span class="mi">0</span>
+<span class="n">E</span>       <span class="k">assert</span> <span class="mi">0</span>
+
+<span class="n">test_fixture_basic</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span> <span class="ne">AssertionError</span>
+<span class="o">=====================</span> <span class="mi">1</span> <span class="n">failed</span><span class="p">,</span> <span class="mi">1</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">0.23</span> <span class="n">seconds</span> <span class="o">======================</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>8.6.2. 调用fixture的三种方式<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>在测试用例中直接调用它，例如第二部分的基础实例。</li>
+<li>用fixture decorator调用fixture</li>
+</ol>
+<p>可以用以下三种不同的方式来写，我只变化了函数名字和类名字，内容没有变。第一种是每个函数前声明，第二种是封装在类里，类里的每个成员函数声明，第三种是封装在类里在前声明。在可以看到3中不同方式的运行结果都是一样。 test_fixture_decorator.py</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">before</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">before each test&#39;</span><span class="p">)</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">usefixtures</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_1()&#39;</span><span class="p">)</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">usefixtures</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_2()&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Test1</span><span class="p">:</span>
+    <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">usefixtures</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_1()&#39;</span><span class="p">)</span>
+
+    <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">usefixtures</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_4</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_2()&#39;</span><span class="p">)</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">usefixtures</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Test2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test_5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_1()&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_6</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_2()&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>用autos调用fixture</li>
+</ol>
+<p>fixture decorator一个optional的参数是autouse, 默认设置为False。 当默认为False，就可以选择用上面两种方式来试用fixture。 当设置为True时，在一个session内的所有的test都会自动调用这个fixture。 权限大，责任也大，所以用该功能时也要谨慎小心。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">mod_header</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">-----------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;module      : </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">request</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------------&#39;</span><span class="p">)</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;function&quot;</span><span class="p">,</span> <span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">func_header</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">-----------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;function    : </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">request</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time        : </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------------&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_one</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;in test_one()&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_two</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;in test_two()&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fixture-scope">
+<h2>8.6.3. fixture scope<a class="headerlink" href="#fixture-scope" title="Permalink to this headline">¶</a></h2>
+<p>function：每个test都运行，默认是function的scope class：每个class的所有test只运行一次 module：每个module的所有test只运行一次 session：每个session只运行一次</p>
+<p>比如你的所有test都需要连接同一个数据库，那可以设置为module，只需要连接一次数据库，对于module内的所有test，这样可以极大的提高运行效率。</p>
+</div>
+<div class="section" id="id2">
+<h2>8.6.4. fixture 返回值<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在上面的例子中，fixture返回值都是默认None，我们可以选择让fixture返回我们需要的东西。如果你的fixture需要配置一些数据，读个文件，或者连接一个数据库，那么你可以让fixture返回这些数据或资源。</p>
+<p>如何带参数 fixture还可以带参数，可以把参数赋值给params，默认是None。对于param里面的每个值，fixture都会去调用执行一次，就像执行for循环一样把params里的值遍历一次。 test_fixture_param.py</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_data</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span>
+
+<span class="k">def</span> <span class="nf">test_not_2</span><span class="p">(</span><span class="n">test_data</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_data: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">test_data</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">test_data</span> <span class="o">!=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mysql/index.html" class="btn btn-neutral float-right" title="9. mysql" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pytest参数化.html" class="btn btn-neutral" title="8.5. pytest参数化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.9. 函数 &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.10. 类(1)" href="类1.html" />
+    <link rel="prev" title="4.8. 流程控制" href="流程控制.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../web_functional/index.html">1. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">2. 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java_base/index.html">3. java基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. python基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="安装.html">4.1. 环境安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="数据类型和变量.html">4.2. 数据类型和变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运行python.html">4.3. 运行python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列表元组.html">4.4. 列表和元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字典.html">4.5. 字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符串.html">4.6. 字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运算.html">4.7. 运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="流程控制.html">4.8. 流程控制</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.9. 函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.9.1. 定义一个函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.9.2. 值传递和引用传递</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.9.3. 默认参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.9.4. 函数返回值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.9.5. 可变参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4.9.6. 递归函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">4.9.7. 装饰器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="类1.html">4.10. 类(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类2.html">4.11. 类(2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类3.html">4.12. 类(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="异常处理.html">4.13. 异常处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="模块和包.html">4.14. 模块和包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="内建函数.html">4.15. 内建函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用标准库.html">4.16. 常用标准库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用第三方库.html">4.17. 常用第三方库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="练习.html">4.18. 练习题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jmeter/index.html">7. jmeter性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">10. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">11. 持续集成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">12. 面试技巧</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">4. python基础</a> &raquo;</li>
+        
+      <li>4.9. 函数</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/python_base/函数.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>4.9. 函数<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>函数在python里是非常重要的，是一等公民，函数的定义和使用非常简单，但又有非常高级的用法，函数就像我们中学时学的函数 <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code> ，有输入有输出</p>
+<div class="section" id="id2">
+<h2>4.9.1. 定义一个函数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">calc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>在这里我们定义了一个函数 <code class="docutils literal notranslate"><span class="pre">calc</span></code> ，用来计算两个数值的和，调用时直接写函数名，然后传入相应的参数，返回两个值的和，需要注意的是</p>
+<ul class="simple">
+<li>函数名命名规则和变量是一致的</li>
+<li>函数都有返回值，如果没有写return语句则返回None</li>
+<li>注意是怎么缩进的</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>4.9.2. 值传递和引用传递<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>给函数传参时，要注意值传递和引用传递，值传递就是只传值，函数里的操作不会修改原变量，引用传递时在函数里的操作会修改原变量，在python里，字典、列表、对象是引用传递，其它为值传递，下面我们看一个值传递的例子</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_value</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">test_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入仍为1，也就是说在函数里对变量的值修改，并没有影响到传的参数，下面再看一个引用传递的例子</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_ref</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">v</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;test_ref&#39;</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">test_ref</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输出结果为 <code class="docutils literal notranslate"><span class="pre">{'a':</span> <span class="pre">'test_ref'}</span></code> ，大家可以观察一下</p>
+</div>
+<div class="section" id="id4">
+<h2>4.9.3. 默认参数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>有时候定义一个函数，有很多参数，但并不想每次都给所有参数传值，比如下面一个函数</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_order</span><span class="p">(</span><span class="n">order_num</span><span class="p">,</span> <span class="n">order_from</span><span class="p">,</span> <span class="n">order_to</span><span class="p">,</span> <span class="n">order_info</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">order_num</span><span class="p">,</span> <span class="n">order_from</span><span class="p">,</span> <span class="n">order_to</span><span class="p">,</span> <span class="n">order_info</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>使用的时候，需要传入4个参数，但其实大部分时候我们只需要传order_num这个参数，其它参数一般都不会变，这种情况下，我们就可以使用默认参数了</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ef</span> <span class="n">make_order</span><span class="p">(</span><span class="n">order_num</span><span class="p">,</span> <span class="n">order_from</span><span class="o">=</span><span class="s1">&#39;shanghai&#39;</span><span class="p">,</span> <span class="n">order_to</span><span class="o">=</span><span class="s1">&#39;henan&#39;</span><span class="p">,</span> <span class="n">order_info</span><span class="o">=</span><span class="s1">&#39;some thing&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">order_num</span><span class="p">,</span> <span class="n">order_from</span><span class="p">,</span> <span class="n">order_to</span><span class="p">,</span> <span class="n">order_info</span><span class="p">)</span>
+
+<span class="n">make_order</span><span class="p">(</span><span class="mi">123123</span><span class="p">)</span>
+<span class="n">make_order</span><span class="p">(</span><span class="mi">123123</span><span class="p">,</span> <span class="n">order_info</span><span class="o">=</span><span class="s1">&#39;i do not know&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入结果为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">123123</span><span class="p">,</span> <span class="s1">&#39;shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;henan&#39;</span><span class="p">,</span> <span class="s1">&#39;some thing&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">123123</span><span class="p">,</span> <span class="s1">&#39;shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;henan&#39;</span><span class="p">,</span> <span class="s1">&#39;i do not know&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">需要注意的是，所有的默认值参数必须定义在位参后面</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.9.4. 函数返回值<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>使用return关键字返回函数结果，结果可以是任何python基础数据类型或者对象，如果不写return的话，则返回None，如下示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="c1"># 反转输入的名字</span>
+<span class="k">def</span> <span class="nf">reverse_your_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">my_name</span> <span class="o">=</span> <span class="s1">&#39;yuyu&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reverse_your_name</span><span class="p">(</span><span class="n">my_name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uyuy</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>下面这个例子不指定返回值:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># coding=utf-8</span>
+
+<span class="k">def</span> <span class="nf">non_return</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">non_return</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>4.9.5. 可变参数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>有时候，当我们定义一个函数的时候，我们并不知道要传多少参数，也就是说参数的个数是未知的，为了解决这个问题，我们可以采用如下办法，把位置参数全部放进一个列表传进去，关键值参数放入一个字典里:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">args</span>
+    <span class="nb">print</span> <span class="n">kwargs</span>
+
+<span class="n">demo</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.1</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>我们是做到了把不定个数的参数传给了函数，但是这样好像并不符合我们的传参习惯，为此python在语法做了优化，可以按照之前的传参方式，传入变长参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">args</span>
+    <span class="nb">print</span> <span class="n">kwargs</span>
+
+<span class="n">demo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.1</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>4.9.6. 递归函数<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>如果一个函数在函数内部调用它自己，这就是递归，递归的好处是，针对把复杂层次深的问题（有相似逻辑）简单化，如下面这个列表:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]]]</span>
+
+<span class="n">使用函数把它摊平</span><span class="p">:</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>这个该怎么写呢？正常的思维是，遍历列表里的每一项，如果是列表的话就再遍历，来我们写一下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">j</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                                    <span class="k">pass</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+<span class="nb">print</span> <span class="n">expand</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.1</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>有没有一种日了狗的感觉。。。 还好这层级也并不是特别深，但是如果不知道层级怎么办？大家注意这些判断，其实都是在判断是不是列表，如果是列表就再遍历，不是就加进结果集，而且内部的逻辑跟外部是一样的，我们把问题简化一下，再看一个例子:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">b</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">b</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.1</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>这是一个只有两级的例子，在a函数中做的是最后一级，大家可以看出来，两个函数里，其实做了类似的循环，延伸一下，如果在b里调用b自己不就可以了吗？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]]]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">expand</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+
+<span class="n">expand</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.1</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>有点绕，不理解也没关系，一般情况下也不会用到的。。需要注意的是使用递归时一定要有终止条件，否则就会溢出报错了。</p>
+</div>
+<div class="section" id="id8">
+<h2>4.9.7. 装饰器<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>装饰器其实很简单，就是高阶函数，把函数传给函数，再返回函数，也称包装器，听起来比较唬人，我们看个例子就明白了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">wrapper_demo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s1">&#39;begin&#39;</span>
+        <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s1">&#39;end&#39;</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">wrapper_demo</span><span class="p">(</span><span class="n">demo</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>结果为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">begin</span>
+<span class="n">end</span>
+<span class="mi">3</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.1</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>理解了之后，我们再讲一种简单的解法，python里提供了一个 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> 符号，用来简化使用:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wrapper_demo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s1">&#39;begin&#39;</span>
+        <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s1">&#39;end&#39;</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@wrapper_demo</span>
+<span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span> <span class="n">demo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>大家试一下，结果是一样的</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="类1.html" class="btn btn-neutral float-right" title="4.10. 类(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="流程控制.html" class="btn btn-neutral" title="4.8. 流程控制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

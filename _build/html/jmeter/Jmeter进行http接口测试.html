@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1. Jmeter进行http接口测试 &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.2. Jmeter参数化" href="Jmeter参数化.html" />
+    <link rel="prev" title="7. jmeter性能测试" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../web_functional/index.html">1. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">2. 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java_base/index.html">3. java基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. jmeter性能测试</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.1. Jmeter进行http接口测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">7.1.1. 开发接口测试案例的整体方案</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.1.2. 接口自动化适用场景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.1.3. 接口测试环境准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.1.4. 创建工程：</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter参数化.html">7.2. Jmeter参数化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter常用断言方式.html">7.3. Jmeter常用断言方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter常用监听器.html">7.4. Jmeter常用监听器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter聚合报告.html">7.5. Jmeter聚合报告</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">10. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">11. 持续集成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">12. 面试技巧</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">7. jmeter性能测试</a> &raquo;</li>
+        
+      <li>7.1. Jmeter进行http接口测试</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/jmeter/Jmeter进行http接口测试.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmeterhttp">
+<h1>7.1. Jmeter进行http接口测试<a class="headerlink" href="#jmeterhttp" title="Permalink to this headline">¶</a></h1>
+<p><strong>前言：</strong></p>
+<p>本文主要针对http接口进行测试，使用Jmeter工具实现。
+Jmter工具设计之初是用于做性能测试的，它在实现对各种接口的调用方面已经做的比较成熟，因此，本次直接使用Jmeter工具来完成对Http接口的测试。</p>
+<div class="section" id="id1">
+<h2>7.1.1. 开发接口测试案例的整体方案<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>第一步：我们要分析出测试需求，并拿到开发提供的接口说明文档；</li>
+<li>第二步：从接口说明文档中整理出接口测试案例，里面要包括详细的入参和出参数据以及明确的格式和检查点。</li>
+<li>第三步：和开发一起对接口测试案例进行评审。</li>
+<li>第四步：结合开发库，准备接口测试案例中的入参数据和出参数据，并整理成csv格式的文件。</li>
+<li>第五步：结合接口测试案例文档和csv格式的数据文档，做接口测试案例的自动化案例开发。</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>7.1.2. 接口自动化适用场景<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>目前设计的自动化接口测试案例有两个运行场景：</p>
+<ol class="arabic simple">
+<li>测试前置、开发自测：一个新的自动化接口测试案例开发完成后，直接发给接口对应的开发，安排在开发本地环境执行，一旦开发确认完成接口开发，就开始执行接口测试案例，基本上可以实时拿到测试结果，方便开发快速做出判断。【开发本地运行的方式就是打开JMeter工具，导入JMX文件，开始执行可。】</li>
+<li>回归测试：开发本地测试通过后，或整个需求手工测试通过后，把自动化的接口测试案例做分类整理，挑选出需要纳入到回归测试中的案例，在持续集成环境重新准备测试数据，并把案例纳入到持续集成的job中来，这些用于回归的接口测试案例需要配置到持续集成平台自动运行。</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>7.1.3. 接口测试环境准备<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Jdk1.6或以上：<a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+<p>Jmeter，下载址址：<a class="reference external" href="http://jmeter.apache.org/download_jmeter.cgi">http://jmeter.apache.org/download_jmeter.cgi</a></p>
+<p>插件的下载安装地址：<a class="reference external" href="http://www.jmeter-plugins.org/">http://www.jmeter-plugins.org/</a></p>
+</div>
+<div class="section" id="id4">
+<h2>7.1.4. 创建工程：<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>1、打开Jmeter：下载好Jmeter后，双击bin目录下的jmeter.bat文件：</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_1.jpg"><img alt="../_images/jmeter_1.jpg" src="../_images/jmeter_1.jpg" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>2、添加线程组：在“测试计划”上点击鼠标右键–&gt;添加–&gt;threads(Users)–&gt;线程组，添加测试场景设置组件，接口测试中一般设置为1个“线程数”，根据测试数据的个数设定“循环次数”。</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_2.png"><img alt="../_images/jmeter_2.png" src="../_images/jmeter_2.png" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>3、添加“HTTP Cookie管理器”：</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_3.png"><img alt="../_images/jmeter_3.png" src="../_images/jmeter_3.png" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>4、添加“Http请求默认值”组件，当被测系统有唯一的访问域名和端口时，这个组件很好用：</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_4.png"><img alt="../_images/jmeter_4.png" src="../_images/jmeter_4.png" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>5、在“HTTP 请求默认值”组件配置页面，填写被测系统的域名和端口，http请求的实现包版本以及具体协议类型，线程组里的所有“HTTP Sampler”可默认使用此设置。</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_5.jpg"><img alt="../_images/jmeter_5.jpg" src="../_images/jmeter_5.jpg" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>6、在“线程组”里添加“HTTP 请求”的Sampler</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_6.png"><img alt="../_images/jmeter_6.png" src="../_images/jmeter_6.png" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>7、在HTTP请求设置页面，录入被测接口的详细信息，包括请求路径，对应的请求方法，以及随请求一起发送的参数列表：</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_7.jpg"><img alt="../_images/jmeter_7.jpg" src="../_images/jmeter_7.jpg" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>8、设置检查点：在被测接口对应的“HTTP 请求”上，添加“响应断言”</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_8.png"><img alt="../_images/jmeter_8.png" src="../_images/jmeter_8.png" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>9、在设置页面上添加对相应结果的正则表达式存在性判断即可：</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_9.jpg"><img alt="../_images/jmeter_9.jpg" src="../_images/jmeter_9.jpg" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p>10、添加监听器：方便查看运行后的结果</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_10.png"><img alt="../_images/jmeter_10.png" src="../_images/jmeter_10.png" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p><strong>运行结果：</strong></p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_11.jpg"><img alt="../_images/jmeter_11.jpg" src="../_images/jmeter_11.jpg" style="width: 20.0cm;" /></a>
+</div>
+</div></blockquote>
+<p><a class="reference external" href="http://www.cnblogs.com/puresoul/p/5092628.html">参考出处</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Jmeter参数化.html" class="btn btn-neutral float-right" title="7.2. Jmeter参数化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="7. jmeter性能测试" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
