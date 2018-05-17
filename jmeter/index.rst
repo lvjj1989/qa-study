@@ -6,7 +6,7 @@ jmeter性能测试
 
 .. toctree::
 
-	Jmeter进行基本结构
+	Jmeter基本结构
 	Jmeter进行http接口测试.rst
 	Jmeter重要组件.rst
 	Jmeter参数化.rst
