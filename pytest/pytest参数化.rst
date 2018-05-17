@@ -1,7 +1,7 @@
 pytest参数化
 ======================================
 
-pytest中使用@pytest.mark.parametrize进行参数话，可以来看一下下面的例子：
+pytest中使用@pytest.mark.parametrize进行参数化，可以来看一下下面的例子：
 
 ::
 
