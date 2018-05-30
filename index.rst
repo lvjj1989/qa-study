@@ -10,7 +10,7 @@
    :maxdepth: 2
    :numbered:
 
-   web_functional/index.rst
+   functional/index.rst
    interface/index.rst
    java_base/index.rst
    python_base/index.rst
