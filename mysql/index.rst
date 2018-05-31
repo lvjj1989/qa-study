@@ -2,6 +2,8 @@ mysql
 ======================================
 Mysql是最流行的关系型数据库管理系统，在WEB应用方面MySQL是最好的RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。
 
+参考来源：菜鸟教程
+
 .. toctree::
 
    MySQL 安装.rst
