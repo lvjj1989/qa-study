@@ -17,7 +17,9 @@ selenium webdriver原理
     Starting ChromeDriver 2.31.488763 (092de99f48a300323ecf8c2a4e2e7cab51de5ba8) on port 9515
     Only local connections are allowed.
 
-* 第二步：把下面的代码copy到python编辑器里，执行::
+* 第二步：把下面的代码copy到python编辑器里，执行
+
+::
 
     # coding=utf-8
     import requests
