@@ -205,3 +205,40 @@ frame操作
     
     # 设置窗口大小
     driver.set_window_size()
+
+鼠标事件
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+鼠标事件方法被通常封装是ActionChains中
+::
+
+    #右击
+    context_click()
+
+    #双击
+    double_click()
+
+    #拖动
+    drag_and_drop()
+
+    #鼠标悬停
+    move_to_element()
+
+
+键盘事件
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+在使用键盘按钮方法前需要先导入keys类
+::
+
+    from selenium.webdriver.common.keys import Keys
+
+    # 以下为常用的键盘操作
+    send_keys(Keys.BACK_BACK_SPACE) # 删除键
+    send_keys(Keys.BACK_SPACE)      # 空格键
+    send_keys(Keys.Tab)             # 制表键(Tab)
+    send_keys(Keys.ESCAPE)          # 回退键(ESC)
+    send_keys(Keys.ENTER)           # 回车键
+    send_keys(Keys.CONTROL,'a')     # 全选(Ctrl + A)
+    send_keys(Keys.CONTROL,'c')     # 复制(Ctrl + C)
+    send_keys(Keys.CONTROL,'x')     # 减去(Ctrl + X)
+    send_keys(Keys.CONTROL,'v')     # 粘贴(Ctrl + V)
+    send_keys(Keys.F1)              # F1

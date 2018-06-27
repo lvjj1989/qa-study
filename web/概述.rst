@@ -16,7 +16,21 @@
 
 使用什么工具
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-UI自动化曾经非常流行（现在好像也很流行..），当年最火的莫过于QTP（收费工具，而且非常的贵）了，因为那个时候的测试工程师普遍只会点点点，有了QTP这个工具，真是如获至宝，解放了很大的生产力，于是在测试行业逐步分化出了自动化测试这个细分职位。很有趣的是，在各各公司纷纷意识到并开始招聘自动化工程师的时候（不管需不需要，反正觉得很NB的样子），QTP却因各种原因淡出了主流工具舞台，随后，之前一直不温不火的selenium在跟webdriver合并后开始迅速走红，如下图是这几年两者的百度指数对比。因此我们选择学习selenium，对QTP有兴趣的也可以自己学习一下。
+目前市面上的自动化测试框架非常多，下面几款是非常常见的webUI自动化测试框架或工具
+
+1)UFT
+UTF(Unified Functional Testing)，由QTP(Quick Test Professional software)与ST(Service Test)合并而来，由HP公司开发，是一个企业级的自动化测试工具，提供了强大的录制回访功能，同事也兼容了对象识别模块与图形识别模块的两种识别方式，支持B/S和C/S两种架构，所使用的预约主要是vbscript脚本语言。
+
+2)Robot Framework
+Robot Framewrok(RF)是一款基于Python语言编写的自动化测试框架，具备良好的拓展性，支持关键字驱动，可以同时测试
+多个类型的客户端或者接口，可进行分布式测试。
+
+3)Watir
+Watir(Web Applincation Testing in Ruby)是一款基于web开发的自动化功能测试工具。Watir是一个Ruby语言库，使用Ruby语言进行脚本开发
+
+4)Selenium
+Selenium是一个用于Web应用程序测试的工具框架，支持多平台、多浏览器、多语言去实现自动化测试。目前是web自动化领域应用较为广泛。
+
 
   .. figure:: /_static/web/selenium_qtp_duibi.png
     :width: 80.0cm
