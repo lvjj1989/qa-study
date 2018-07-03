@@ -14,3 +14,4 @@ jmeter性能测试
 	Jmeter常用监听器.rst
 	Jmeter聚合报告.rst
 	jmeter持续集成.rst
+	jmeter配置到Jenkins.rst

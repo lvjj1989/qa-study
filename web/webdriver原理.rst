@@ -65,7 +65,7 @@ webdriver是什么
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     The primary new feature in Selenium 2.0 is the integration of the WebDriver API. WebDriver is designed to provide a simpler, more concise programming interface in addition to addressing some limitations in the Selenium-RC API. Selenium-WebDriver was developed to better support dynamic web pages where elements of a page may change without the page itself being reloaded. WebDriver’s goal is to supply a well-designed object-oriented API that provides improved support for modern advanced web-app testing problems. 
 
-上面是官网的介绍，我来转义一下：
+上面是官网的介绍，翻译成中文就是：
 
 * selenium 2.0最重要的特性就是集成了WebDrvier API，WebDriver除了解决一些Selenium-RC API的不足外，旨在提供更简单，更简洁的编程接口
 * Selenium-WebDrivers为更好的支持动态页面（也就是ajax，不刷新页面改变DOM）而开发
