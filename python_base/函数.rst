@@ -159,7 +159,7 @@
                 result.append(i)
 
         return result
-    print expand(l)
+    print(expand(l))
 
 结果为::
 
@@ -257,6 +257,6 @@
     def demo(a, b):
         return a + b
 
-    print demo(1, 2)
+    print(demo(1, 2))
 
 大家试一下，结果是一样的

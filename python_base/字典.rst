@@ -9,8 +9,8 @@
     d1 = {'name': 'yuyu'}
     d2 = dict(name='yuyu')
 
-    print d1
-    print d2
+    print(d1)
+    print(d2)
 
 输出为::
 
