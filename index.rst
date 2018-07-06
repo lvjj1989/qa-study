@@ -19,7 +19,6 @@
    jmeter/index.rst
    pytest/index.rst
    mysql/index.rst
-   linux/index.rst
    jenkins/index.rst
    Interview_skills/index.rst
 

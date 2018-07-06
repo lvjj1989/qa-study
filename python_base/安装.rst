@@ -6,7 +6,7 @@
 
 安装Python
 --------------------------------------
-打开 python官网下载地址 https://www.python.org/downloads/ ，在下方找到Python 3.6.5，选择对应的系统和版本点击下载 打开，选择跟自己操作系统匹配的安装包，然后下载，如windows 64，则选择 **Windows x86-64 MSI installer**，安装完成后，打开一个命令行窗口，然后输入python，如果出现python的提示符，说明安装成功。
+打开 python官网下载地址 https://www.python.org/downloads/ ，在下方找到Python 3.7.0，选择对应的系统和版本点击下载 打开，选择跟自己操作系统匹配的安装包，然后下载，如windows 64，则选择 **Windows x86-64 MSI installer**，安装完成后，打开一个命令行窗口，然后输入python，如果出现python的提示符，说明安装成功。
 
 
 .. warning:: Windows安装过程中需勾选 **Add python.exe to Path** ，如下图所示:

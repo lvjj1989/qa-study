@@ -1,3 +1,13 @@
-持续集成
+持续集成Jenkins
 ===================================
-编写中，敬请期待
+
+http://jenkins-ci.org
+
+.. toctree::
+
+
+	Jenkins介绍.rst
+	Jenkins安装.rst
+	Jenkins测试中常用插件.rst
+	Jenkins配置.rst
+
