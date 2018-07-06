@@ -24,11 +24,11 @@
 
     d1 = {}
     d1['a'] = 1
-    print d1
+    print(d1)
 
     d2 = {}
     d2.update(b=2)
-    print d2
+    print(d2)
 
 取值
 --------------------------------------
@@ -36,22 +36,22 @@
 ::
 
   d1 = {'a': 1, 'b': 2}
-  print d1['a']
-  print d1['c']
+  print(d1['a'])
+  print(d1['c'])
 
 输出为::
 
     1
     Traceback (most recent call last):
       File "C:/Documents and Settings/Administrator/PycharmProjects/study/demo2.py", line 5, in <module>
-        print d1['c']
+        print(d1['c'])
     KeyError: 'c'
 
 除了使用[]取值外，还可以使用get，并且设置默认值::
 
     d1 = {'a': 1, 'b': 2}
-    print d1.get('a')
-    print d1.get('c', 0)
+    print(d1.get('a'))
+    print(d1.get('c', 0))
 
 输出为::
 
@@ -64,7 +64,7 @@
 ::
 
     d1 = {'a': 1, 'b': 2}
-    print d1.keys()
+    print(d1.keys())
 
 输出为::
 
@@ -76,7 +76,7 @@
 ::
 
     d1 = {'a': 1, 'b': 2}
-    print d1.values()
+    print(d1.values())
 
 输出为::
 
@@ -88,7 +88,7 @@
 ::
 
     d1 = {'a': 1, 'b': 2}
-    print d1.items()
+    print(d1.items())
 
 输出为::
 
@@ -101,7 +101,7 @@
 
     d1 = {'a': 1, 'b': 2}
     for k, v in d1.items():
-        print 'key: %s, key: %s' % (k, v)
+        print('key: %s, key: %s' % (k, v))
 
 输出为::
 
@@ -114,8 +114,8 @@
 ::
 
     d1 = {'a': 1, 'b': 2}
-    print 'a' in d1
-    print 'c' in d1
+    print('a' in d1)
+    print('c' in d1)
 
 输出为::
 

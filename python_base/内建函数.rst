@@ -88,8 +88,8 @@ abs
 
     a = -1
     b = -2
-    print abs(a)
-    print abs(b)
+    print(abs(a)) 
+    print(abs(b)) 
 
 
 all
@@ -97,10 +97,10 @@ all
 判断一个可迭代对象里的元素是否全为真，全为真返回真，否则返回假::
 
     l1 = [1, 2, 3, 0, 'a']
-    print all(l1)
+    print(all(l1)) 
 
     l2 = ['a', 1, 'r']
-    print all(l2)
+    print(all(l2))
 
 
 any
@@ -108,7 +108,7 @@ any
 判断一个可迭代对象，里面的元素全为假时才返回假，只要有一个为真就为真::
 
     l1 = [0, None, '', 1]
-    print any(l1)
+    print(any(l1))
 
 
 float
@@ -127,7 +127,7 @@ getattr
 
         a = 1
 
-    print getattr(A, 'a')
+    print(getattr(A, 'a'))
 
 
 reversed
@@ -137,7 +137,7 @@ reversed
     l  = [4, 3, 2, 1, 'a']
 
     for i in reversed(l):
-        print i
+        print(i)
 
 
 
@@ -189,7 +189,7 @@ enumerate
     In [23]: l = [1, 2, 'a', True]
 
     In [24]: for i in enumerate(l):
-        ...:     print i
+        ...:     print(i)
         ...:
     (0, 1)
     (1, 2)

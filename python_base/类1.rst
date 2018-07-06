@@ -27,7 +27,7 @@
 既然大家很喜欢，那我们就new一个出来::
 
     shuai_ge1 = ShuaiGe()
-    print shuai_ge1.mai_fei_ji()
+    print(shuai_ge1.mai_fei_ji())
 
 这就是面向对象，类是实例的模版，大家可以看到，面向对象其实很简单的，那与面向过程又有什么区别呢？其实除了语法，差异最大的就是思维，举个例子：我们需要造一个计算器，需要实现计算器，来实现加减乘除，下面我们分别使用面向过程和面向对象来实现
 
@@ -81,11 +81,11 @@
             self.name = name
 
         def run(self):
-            print 'i can run !!!'
+            print('i can run !!!')
 
     xiao_sun = Student('boy', 'xiao sun')
-    print xiao_sun.sex
-    print xiao_sun.name
+    print(xiao_sun.sex)
+    print(xiao_sun.name)
     xiao_sun.run()
 
 大家先试着理解一下，下面来分析一下

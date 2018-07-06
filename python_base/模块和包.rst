@@ -17,7 +17,7 @@ python里用模块和包组织代码，模块就是一个个以 ``.py`` 为后�
     num = 1
 
     def demo():
-        print 'im in a.py'
+        print('im in a.py')
 
 使用模块有如下三种方式，第一种::
 
@@ -28,7 +28,7 @@ python里用模块和包组织代码，模块就是一个个以 ``.py`` 为后�
 
     from a import *
 
-    print num
+    print(num)
     demo()
 
 看，在b模块使用a模块的变量和函数，就好像在a块中一样，但这种方式存在一个严重问题，但a模块中变量非常多，如果全部导入会污染b模块的命名空间，如，b里也有一个变量叫num，如果导入语句出现在num定义后，则会出现变量被覆盖的情况，所以非常不推荐这种方法。
@@ -56,7 +56,7 @@ __name__是什么？
 那么 ``__name__`` 是什么？ ``__main__`` 又是什么呢？故名思意, ``__name`` 是名字，模块的名字，比如::
 
     import a
-    print a.__name__
+    print(a.__name__)
 
 大家可以看到输出为 ``a`` 也就是模块的名称,但是在a模块里执行 ``print(__name__)`` 会是什么呢？结果是 ``__main__`` ，也就是说，当模块被当做运行主体时， ``__name__`` 的值是 ``__main__`` ，但被导入的时候，值为模块名。所以可以用 ``if __name__ == '__main__':xxx`` 去判断只在运行该模块运行时执行下面的语句，被导入时不执行。
 
@@ -71,9 +71,9 @@ python标准库里有很多现在的模块可以使用，如果 ``sys`` 、 ``ti
     import time
     import datetime
 
-    print sys.path
-    print time.time()
-    print datetime.datetime.now()
+    print(sys.path)
+    print(time.time())
+    print(datetime.datetime.now())
 
 标准库里的模块非常之多，覆盖数据结构、文件系统、字符处理、时间日期等等， 大家可以看一下这个目录，https://docs.python.org/2/library/index.html
 

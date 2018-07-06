@@ -31,7 +31,7 @@
             self.name = name
 
         def run(self):
-            print 'i can run !!!'
+            print('i can run !!!')
 
 类属性和实例属性的区别就是，类属性存在于类空间里，实例属性存在于对象空间里。
 
@@ -48,15 +48,15 @@
             self.name = name
 
         def say_self_name(self):
-            print self.name
+            print(self.name)
 
         @classmethod
         def say_cls_name(cls):
-            print cls.name
+            print(cls.name)
 
         @staticmethod
         def say_whose_name():
-            print 'whose name?'
+            print('whose name?')
 
     # 生成对象
     xiao_sun = Student('boy', 'xiao sun')

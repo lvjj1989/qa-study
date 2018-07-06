@@ -101,8 +101,8 @@
 有时候，当我们定义一个函数的时候，我们并不知道要传多少参数，也就是说参数的个数是未知的，为了解决这个问题，我们可以采用如下办法，把位置参数全部放进一个列表传进去，关键值参数放入一个字典里::
 
     def demo(args, kwargs):
-        print args
-        print kwargs
+        print(args) 
+        print(kwargs)
 
     demo([1, 2, 3, 4], {'a': 1, 'b': 2})
 
@@ -115,8 +115,8 @@
 我们是做到了把不定个数的参数传给了函数，但是这样好像并不符合我们的传参习惯，为此python在语法做了优化，可以按照之前的传参方式，传入变长参数::
 
     def demo(*args, **kwargs):
-        print args
-        print kwargs
+        print(args)
+        print(kwargs)
 
     demo(1, 2, 3, 4, a=1, b=3, c=3)
 
@@ -186,7 +186,7 @@
                 result.append(i)
 
     b(l)
-    print result
+    print(result) 
 
 结果为::
 
@@ -208,7 +208,7 @@
 
 
     expand(l)
-    print result
+    print(result)
 
 结果为::
 
@@ -226,15 +226,15 @@
 
     def wrapper_demo(func):
         def wrapper(*args):
-            print 'begin'
+            print('begin')
             result  = func(*args)
-            print 'end'
+            print('end')
             return result
         return wrapper
 
     w = wrapper_demo(demo)
     r = w(1, 2)
-    print r
+    print(r)
 
 结果为::
 
@@ -247,9 +247,9 @@
 
     def wrapper_demo(func):
         def wrapper(*args):
-            print 'begin'
+            print('begin')
             result  = func(*args)
-            print 'end'
+            print('end')
             return result
         return wrapper
 

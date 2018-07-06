@@ -11,27 +11,27 @@
     class Human(object):
 
         def run(self):
-            print 'i can run'
+            print'i can run'
 
         def wc(self):
-            print '就地解决'
+            print('就地解决')
 
 
         
     class Man(Human):
 
         def wc(self):
-            print '去男厕所'
+            print('去男厕所')
 
     class Woman(Human):
 
         def wc(self):
-            print '去男厕所'
+            print('去男厕所')
 
     class LadyBoy(Human):
 
         def wc(self):
-            print '???'
+            print('???')
 
 
     human = Human()
