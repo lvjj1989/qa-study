@@ -10,6 +10,7 @@
    :maxdepth: 2
    :numbered:
 
+   welcome/index.rst
    functional/index.rst
    interface/index.rst
    java_base/index.rst
