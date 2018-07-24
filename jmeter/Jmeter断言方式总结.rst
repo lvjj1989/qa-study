@@ -316,7 +316,6 @@ Certificate file:选择证书文件
 Execute assertion message at position:执行断言消息的位置（在返回消息的具体哪个位置执行断言）
 
 
-
 JSR223 断言
 ------------------------------------------
 
