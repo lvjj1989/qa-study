@@ -119,7 +119,103 @@ pytest是python的一种单元测试框架，与python自带的unittest测试框
 
 	py.test --version # shows where pytest was imported from  
 	py.test --fixtures # show available builtin function arguments  
-	py.test -h | --help # show help on command line and config file options  
+	py.test -h | --help # show help on command line and config file options 
+
+
+使用raises可以帮助我们断言某些代码会引发某个异常
+-------------------------------------
+
+::
+
+	# content of test_sysexit.py
+	import pytest
+	def f():
+	    raise SystemExit(1)
+
+	def test_mytest():
+	    with pytest.raises(SystemExit):
+	        f()
+
+当我们开发了多个测试时，可能会把它们分组到一个类中，我们现在可以使用pytest创建一个包含多个测试的类
+------------------------------
+::
+
+	# content of test_class.py
+	class TestClass(object):
+	    def test_one(self):
+	        x = "this"
+	        assert 'h' in x
+
+	    def test_two(self):
+	        x = "hello"
+	        assert hasattr(x, 'check')
+
+
+pytest会发现所有test_命名的函数，没有必要继承任何东西，我们可以简单地通过传递它的文件名来运行测试：
+
+::
+
+	$ pytest -q test_class.py
+	.F                                                                   [100%]
+	================================= FAILURES =================================
+	____________________________ TestClass.test_two ____________________________
+
+	self = <test_class.TestClass object at 0xdeadbeef>
+
+	    def test_two(self):
+	        x = "hello"
+	>       assert hasattr(x, 'check')
+	E       AssertionError: assert False
+	E        +  where False = hasattr('hello', 'check')
+
+	test_class.py:8: AssertionError
+	1 failed, 1 passed in 0.12 seconds
+
+使用内置fixture
+--------------------------------------
+fixture是pytest中的一个特性，fixture可以请求任意资源，用文字不太好理解，我们就通过实例来理解吧。首先，通过以下命令可以找出所有pytest内置的fixture：
+::
+
+	$ pytest --fixtures
+
+我们就以tmpdir这个内置的fixture来演示，tmpdir能返回一个唯一的临时目录路径，新建一个test_tmpdir.py文件，输入以下代码：
+
+::
+
+	def test_needsfiles(tmpdir):
+	    print (tmpdir)
+	    assert 0
+
+在测试函数的参数中列出tmpdir，pytest将在执行测试函数之前查找并调用fixture工厂来创建资源：
+
+::
+
+	$ pytest -q test_tmpdir.py
+
+在测试运行之前，pytest会创建一个唯一的，供每个测试调用的临时目录
+
+::
+	=================================== FAILURES ===================================
+	_________________________ TestBuilding.test_needsfiles _________________________
+
+	self = <test_suites.test_building.test_building_process.TestBuilding object at 0x105ed2ba8>
+	tmpdir = local('/private/var/folders/08/lxy0ywy90mj9ck0rz1tq0y_r0000gn/T/pytest-of-lvjunjie/pytest-2/test_needsfiles0')
+
+	    def test_needsfiles(self, tmpdir):
+	        print(tmpdir)
+	>       assert 0
+	E       assert 0
+
+	test_building_process.py:102: AssertionError
+	----------------------------- Captured stdout call -----------------------------
+	/private/var/folders/08/lxy0ywy90mj9ck0rz1tq0y_r0000gn/T/pytest-of-lvjunjie/pytest-2/test_needsfiles0
+	=========================== 1 failed in 0.12 seconds ===========================
+	Process finished with exit code 0
+
+
+
+
+
 
 最佳实践
 ----------------------------
@@ -133,4 +229,6 @@ pytest是python的一种单元测试框架，与python自带的unittest测试框
 
 	virtualenv .        # create a virtualenv directory in the current directory  
 	source bin/activate # on unix  
+
+
 
