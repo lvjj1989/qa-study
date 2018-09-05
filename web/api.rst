@@ -1,9 +1,10 @@
 selenium webdriver api介绍
 ======================================
 在上一节中， 我们使用requests发送http请求，调用了chromedriver的操作浏览器的web api，看起来有点繁琐，但我们只是演示用来理解webdriver原理的，生产中我们完全不用这么干
-这些繁琐的调用selenium这个项目已经帮我们封装好了，selenium就是干这个事儿的，就是封装了对webdriver的web api调用的客户端实现，如下脚本是实现了对BOPS后台的登录功能::
+这些繁琐的调用selenium这个项目已经帮我们封装好了，selenium就是干这个事儿的，就是封装了对webdriver的web api调用的客户端实现，如下脚本是实现了对BOPS后台的登录功能
 
-    # coding=utf-8
+::
+
     import time
     from selenium import webdriver
     
@@ -184,6 +185,11 @@ frame操作
     # 设置脚本超时时间
     driver.set_script_timeout(30)
 
+    # 等带某个元素出现(在timeout秒内出现locator)
+    import selenium.webdriver.support.ui as ui
+    import selenium.webdriver.support.expected_conditions as EC
+    ui.WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, locator)))
+
 其它不常用操作
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::
@@ -222,6 +228,10 @@ frame操作
 
     #鼠标悬停
     move_to_element()
+
+    #滚动到元素target_xpath
+    target = driver.find_element_by_xpath(target_xpath)
+    driver.execute_script("arguments[0].scrollIntoView();", target_xpath)
 
 
 键盘事件
