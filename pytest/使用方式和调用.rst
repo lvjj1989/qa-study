@@ -43,6 +43,7 @@
 Python带有一个内置的Python调试器称为PDB。pytest可以在命令行选项指定调用：
 
 ::
+
 	py.test -x --pdb # 失败时调用pdb，然后退出测试
 	py.test --pdb - maxfail=3＃ 前3次失败调用pdb。
 
@@ -51,6 +52,7 @@ Profiling测试执行时间
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 得到最执行慢的10个测试
 ::
+
 	py.test --durations=10 
 
 
@@ -59,11 +61,13 @@ Profiling测试执行时间
 创建Jenkins或其他持续集成服务器的结果文件：
 
 ::
+
 	py.test --junitxml=path #path是一个xml文件
 
 在3.1版本中：你可以通过配置junit_suite_name，设置测试集的xml项目根目录名称，
 
 ::
+
 	[pytest]
 	junit_suite_name = my_suite
 
