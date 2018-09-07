@@ -27,6 +27,7 @@ CSV Data Set Config可以制定文本文件这一行一行的提取文本内容�
 **Stop thread on EOF？**：与Recycle on EOF的False选择复用；是停止测试，否不停止测试
 
 **Sharing mode**：参数文件共享模式，有以下三种
-	**All threads**参数文件多所有现场共享，这就包括了同一测试计划中的不同现场组
-	**Current thread groups**：只针对当前线程组共享
-	**Current thread**：只针对当前现场获取
+
+* All threads参数文件多所有现场共享，这就包括了同一测试计划中的不同现场组
+* Current thread groups：只针对当前线程组共享
+* Current thread：只针对当前现场获取
