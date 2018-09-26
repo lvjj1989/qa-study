@@ -1,6 +1,8 @@
 pytest介绍
 ======================================
 
+
+
 pytest简介
 -----------------------------------------------
 
@@ -212,6 +214,21 @@ fixture是pytest中的一个特性，fixture可以请求任意资源，用文字
 	=========================== 1 failed in 0.12 seconds ===========================
 	Process finished with exit code 0
 
+fixture的scope参数
+----------------------------
+
+scope参数有四种，'function','module','class','session'，默认为function。
+
+* function：每个test都运行，默认是function的scope
+* class：每个class的所有test只运行一次
+* module：每个module的所有test只运行一次
+* session：每个session只运行一次
+
+setup和teardown操作
+
+* setup，在测试函数或类之前执行，完成准备工作，例如数据库链接、测试数据、打开文件等
+* teardown，在测试函数或类之后执行，完成收尾工作，例如断开数据库链接、回收内存资源等
+* 备注：也可以通过在fixture函数中通过yield实现setup和teardown功能
 
 
 
