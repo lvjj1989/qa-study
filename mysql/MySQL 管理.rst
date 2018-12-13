@@ -6,6 +6,7 @@ MySQL 管理
 首先，我们需要通过以下命令来检查MySQL服务器是否启动：
 
 ::
+
 	ps -ef | grep mysqld
 如果MySql已经启动，以上命令将输出mysql进程列表， 如果mysql未启动，你可以使用以下命令来启动mysql服务器:
 
@@ -115,6 +116,7 @@ MySQL 用户设置
 	Database changed
 * SHOW DATABASES: 
 列出 MySQL 数据库管理系统的数据库列表。
+
 ::
 
 	mysql> SHOW DATABASES;

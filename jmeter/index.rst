@@ -15,3 +15,4 @@ jmeter性能测试
 	Jmeter聚合报告.rst
 	jmeter持续集成.rst
 	jmeter配置到Jenkins.rst
+	jmeter常用命令.rst
