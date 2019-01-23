@@ -13,6 +13,9 @@ jmeter性能测试
 	Jmeter断言方式总结.rst
 	Jmeter常用监听器.rst
 	Jmeter聚合报告.rst
-	jmeter持续集成.rst
 	jmeter配置到Jenkins.rst
 	jmeter常用命令.rst
+	jmeter分布式.rst
+	jmeter持续集成.rst
+
+

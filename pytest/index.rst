@@ -10,3 +10,4 @@ Python单元测试框架pytest
 	pytest参数化.rst
 	pytest之fixture.rst
 	使用方式和调用.rst
+	pytest持续集成.rst
