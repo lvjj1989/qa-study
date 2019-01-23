@@ -59,3 +59,31 @@ jmeter在linux上基于Jenkins持续集成参数化配置
 System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
 
 点击运行，再重新构建脚本即可。
+
+分布式压测（或者将本地机器作为调度机，其他服务器作为负载机）
+--------------------------------------------------------------
+
+在较大并发量时推荐使用分布式压测，修改Jenkins是中的shell脚本即可
+
+方法流程：
+
+1、修改控制机中jmeter.properties 文件remote_host参数，remote_host=127.0.0.1,xxx.xxx.xxx.xxx:1099
+(xxx.xxx.xxx.xxx为负载机ip，可配置多个，逗号隔开)
+
+2、启动负载机中jmeter-server
+
+3、在shell命令中增加-r，修改【-JThreadNumber=$ThreadNumber -JDiration=$Diration】为【-GThreadNumber=$ThreadNumber -GDiration=$Diration】
+(-J为局部变量配置，如果需要分布式压测，需要将命令行参数带到负载机中，需要用-G全部变量配置)
+
+4、开始压测
+
+
+5、Windows下本地机器作为负载机时，
+
+修改本地jmeter文件bin目录下jmeter.properties以下参数中：
+
+remote_hosts=xxx.xxx.xxx.xxx:1099
+
+server.rmi.ssl.disable=true
+
+启动时点击【运行】——>【远程启动】
