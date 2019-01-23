@@ -1,0 +1,262 @@
+函数
+======================================
+函数在python里是非常重要的，是一等公民，函数的定义和使用非常简单，但又有非常高级的用法，函数就像我们中学时学的函数 ``y = x * x`` ，有输入有输出
+
+定义一个函数
+--------------------------------------
+::
+
+    def calc(a, b):
+        return a + b
+    
+    total = calc(1, 2)
+    print(total)
+
+在这里我们定义了一个函数 ``calc`` ，用来计算两个数值的和，调用时直接写函数名，然后传入相应的参数，返回两个值的和，需要注意的是
+
+* 函数名命名规则和变量是一致的
+* 函数都有返回值，如果没有写return语句则返回None
+* 注意是怎么缩进的
+
+值传递和引用传递
+--------------------------------------
+给函数传参时，要注意值传递和引用传递，值传递就是只传值，函数里的操作不会修改原变量，引用传递时在函数里的操作会修改原变量，在python里，字典、列表、对象是引用传递，其它为值传递，下面我们看一个值传递的例子 ::
+
+    def test_value(v):
+        v = 2
+
+    value = 1
+    test_value(value)
+    print(value)
+
+输入仍为1，也就是说在函数里对变量的值修改，并没有影响到传的参数，下面再看一个引用传递的例子 ::
+
+    def test_ref(v):
+        v['a'] = 'test_ref'
+
+    value = {'a': 1}
+    test_ref(value)
+    print(value)
+
+输出结果为 ``{'a': 'test_ref'}`` ，大家可以观察一下
+
+默认参数
+--------------------------------------
+有时候定义一个函数，有很多参数，但并不想每次都给所有参数传值，比如下面一个函数 ::
+
+    def make_order(order_num, order_from, order_to, order_info):
+        print(order_num, order_from, order_to, order_info)
+
+使用的时候，需要传入4个参数，但其实大部分时候我们只需要传order_num这个参数，其它参数一般都不会变，这种情况下，我们就可以使用默认参数了 ::
+
+    ef make_order(order_num, order_from='shanghai', order_to='henan', order_info='some thing'):
+        print(order_num, order_from, order_to, order_info)
+
+    make_order(123123)
+    make_order(123123, order_info='i do not know')
+
+输入结果为 ::
+
+    (123123, 'shanghai', 'henan', 'some thing')
+    (123123, 'shanghai', 'henan', 'i do not know')
+    [Finished in 0.2s]
+
+.. warning:: 需要注意的是，所有的默认值参数必须定义在位参后面
+
+
+函数返回值
+--------------------------------------
+使用return关键字返回函数结果，结果可以是任何python基础数据类型或者对象，如果不写return的话，则返回None，如下示例::
+
+    # coding=utf-8
+
+    # 反转输入的名字
+    def reverse_your_name(name):
+        return name[::-1]
+
+    my_name = 'yuyu'
+    print(reverse_your_name(my_name))
+
+结果为::
+
+    uyuy
+    [Finished in 0.2s]
+
+下面这个例子不指定返回值::
+
+    # coding=utf-8
+
+    def non_return():
+        pass
+
+    print(non_return())
+
+结果为::
+
+    None
+    [Finished in 0.2s]
+
+可变参数
+--------------------------------------
+有时候，当我们定义一个函数的时候，我们并不知道要传多少参数，也就是说参数的个数是未知的，为了解决这个问题，我们可以采用如下办法，把位置参数全部放进一个列表传进去，关键值参数放入一个字典里::
+
+    def demo(args, kwargs):
+        print(args) 
+        print(kwargs)
+
+    demo([1, 2, 3, 4], {'a': 1, 'b': 2})
+
+结果为::
+
+    [1, 2, 3, 4]
+    {'a': 1, 'b': 2}
+    [Finished in 0.1s]
+
+我们是做到了把不定个数的参数传给了函数，但是这样好像并不符合我们的传参习惯，为此python在语法做了优化，可以按照之前的传参方式，传入变长参数::
+
+    def demo(*args, **kwargs):
+        print(args)
+        print(kwargs)
+
+    demo(1, 2, 3, 4, a=1, b=3, c=3)
+
+结果为::
+
+    (1, 2, 3, 4)
+    {'a': 1, 'c': 3, 'b': 3}
+    [Finished in 0.1s]
+
+递归函数
+--------------------------------------
+如果一个函数在函数内部调用它自己，这就是递归，递归的好处是，针对把复杂层次深的问题（有相似逻辑）简单化，如下面这个列表::
+
+    l = [1, 2, 3, [4, 5, 6, [7, 8, 9, [10, 11]]]]
+
+    使用函数把它摊平:
+
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+这个该怎么写呢？正常的思维是，遍历列表里的每一项，如果是列表的话就再遍历，来我们写一下::
+
+    def expand(l):
+        result = []
+        for i in l:
+            if isinstance(i, list):
+                for j in i:
+                    if isinstance(j, list):
+                        for m in j:
+                            if isinstance(m, list):
+                                for n in m:
+                                    if isinstance(n, list):
+                                        pass
+                                    else:
+                                        result.append(n)
+                            else:
+                                result.append(m)
+                    else:
+                        result.append(j)
+            else:
+                result.append(i)
+
+        return result
+    print(expand(l))
+
+结果为::
+
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    [Finished in 0.1s]
+
+有没有一种日了狗的感觉。。。 还好这层级也并不是特别深，但是如果不知道层级怎么办？大家注意这些判断，其实都是在判断是不是列表，如果是列表就再遍历，不是就加进结果集，而且内部的逻辑跟外部是一样的，我们把问题简化一下，再看一个例子::
+
+    l = [1, 2, [3, 4]]
+
+    result = []
+
+    def a(l):
+        for i in l:
+            result.append(i)
+        return result
+
+
+    def b(l):
+        for i in l:
+            if isinstance(i, list):
+                a(i)
+            else:
+                result.append(i)
+
+    b(l)
+    print(result) 
+
+结果为::
+
+    [1, 2, 3, 4]
+    [Finished in 0.1s]
+
+这是一个只有两级的例子，在a函数中做的是最后一级，大家可以看出来，两个函数里，其实做了类似的循环，延伸一下，如果在b里调用b自己不就可以了吗？ ::
+
+    l = [1, 2, 3, [4, 5, 6, [7, 8, 9, [10, 11]]]]
+
+    result = []
+    def expand(l):
+        for i in l:
+            if isinstance(i, list):
+                expand(i)
+            else:
+                result.append(i)
+
+
+
+    expand(l)
+    print(result)
+
+结果为::
+
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    [Finished in 0.1s]
+
+有点绕，不理解也没关系，一般情况下也不会用到的。。需要注意的是使用递归时一定要有终止条件，否则就会溢出报错了。
+
+装饰器
+--------------------------------------
+装饰器其实很简单，就是高阶函数，把函数传给函数，再返回函数，也称包装器，听起来比较唬人，我们看个例子就明白了::
+
+    def demo(a, b):
+        return a + b
+
+    def wrapper_demo(func):
+        def wrapper(*args):
+            print('begin')
+            result  = func(*args)
+            print('end')
+            return result
+        return wrapper
+
+    w = wrapper_demo(demo)
+    r = w(1, 2)
+    print(r)
+
+结果为::
+
+    begin
+    end
+    3
+    [Finished in 0.1s]
+
+理解了之后，我们再讲一种简单的解法，python里提供了一个 ``@`` 符号，用来简化使用::
+
+    def wrapper_demo(func):
+        def wrapper(*args):
+            print('begin')
+            result  = func(*args)
+            print('end')
+            return result
+        return wrapper
+
+    @wrapper_demo
+    def demo(a, b):
+        return a + b
+
+    print(demo(1, 2))
+
+大家试一下，结果是一样的

@@ -1,0 +1,28 @@
+软件测试过程中经常使用的工具及平台
+======================================
+
+* Charles/fidder
+用于代理和接口抓包工具
+
+* 数据库连接工具
+常见的MySQL连接工具：nacicat for mysql
+常见的Oracle连接工具:pl/sql
+
+* Linux
+常见的Linux连接工具：Xshell，SecureCRT
+
+* postman
+接口测试工具
+
+* jmeter、loadrunner
+性能测试工具
+
+* 禅道、Jira
+项目管理平台
+
+* TestRail
+测试用例管理平台
+
+
+* jenkins
+持续集成平台

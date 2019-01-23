@@ -1,0 +1,97 @@
+类(1)
+======================================
+类是比较重要的内容，因为在python中，所有的所有都是对象
+
+面向对象
+---------------------------------------
+面向对象是对现实世界的抽象，以便可以使用人类的思维去思考解决问题，思考一下，你平时是怎么描述一个帅哥呢？
+
+* 个子很高
+* 身材很好
+* 很有钱，可以买飞机
+* 很浪漫
+
+你能从这几点中分析出来规律吗？ 什么样的（很浪漫， 个子很高，身材很好）帅哥，有什么（钱），可以干什么（买飞机），这就是人类的思维去描述一类对象，我们来翻译成代码::
+
+    class ShuaiGe(object):
+
+        def __init__(self):
+            self.shen_gao = 187
+            self.shen_cai = 'very good'
+            self.money = 100000000
+            self.if_lang_man = True
+
+        def mai_fei_ji(self):
+            return "A380"
+
+既然大家很喜欢，那我们就new一个出来::
+
+    shuai_ge1 = ShuaiGe()
+    print(shuai_ge1.mai_fei_ji())
+
+这就是面向对象，类是实例的模版，大家可以看到，面向对象其实很简单的，那与面向过程又有什么区别呢？其实除了语法，差异最大的就是思维，举个例子：我们需要造一个计算器，需要实现计算器，来实现加减乘除，下面我们分别使用面向过程和面向对象来实现
+
+面向过程::
+
+    def calc(operation, num1, num2):
+
+        if operation == 'add':
+            return num1 + num2
+        elif operation == 'sub':
+            return num1 - num2
+        elif operation == 'mul':
+            return num1 * num2
+        elif operation == 'div':
+            return num1 / num2
+        else:
+            return 'error, unsupported operation'
+
+
+    calc('add', 1, 2)
+
+面向对象::
+
+    class Calc(object):
+
+        def add(self, num1, num2):
+            return num1 + num2
+
+        def sub(self, num1, num2):
+            return num1 - num2
+
+        def mul(self, num1, num2):
+            return num1 * num2
+
+        def mul(self, num1, num2):
+            return num1 / num2
+
+    calc = Calc()
+    calc.add(1, 2)
+
+大家体会一下
+
+编写一个类
+---------------------------------------
+先上个例子::
+
+    class Student(object):
+
+        def __init__(self, sex, name):
+            self.sex = sex
+            self.name = name
+
+        def run(self):
+            print('i can run !!!')
+
+    xiao_sun = Student('boy', 'xiao sun')
+    print(xiao_sun.sex)
+    print(xiao_sun.name)
+    xiao_sun.run()
+
+大家先试着理解一下，下面来分析一下
+
+.. figure:: /_static/python/定义类.png
+    :width: 15.0cm
+
+``self`` 是指实例对象本身，比如生成对象小明，``self`` 就是小明，生成了对象小李，``self`` 就是小李，``self`` 在实例方法的第一个位置，但对象调用时是不需要传的，至于为什么需要这样写，我们后面再说
+

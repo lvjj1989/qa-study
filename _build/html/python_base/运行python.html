@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3. 运行python &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.4. 列表和元组" href="列表元组.html" />
+    <link rel="prev" title="4.2. 数据类型和变量" href="数据类型和变量.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. python基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="安装.html">4.1. 环境安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="数据类型和变量.html">4.2. 数据类型和变量</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. 运行python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.3.1. 在解释器中运行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.3.2. 直接运行python文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.3.3. 如何新建python脚本文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="列表元组.html">4.4. 列表和元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字典.html">4.5. 字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符串.html">4.6. 字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运算.html">4.7. 运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="流程控制.html">4.8. 流程控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="函数.html">4.9. 函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类1.html">4.10. 类(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类2.html">4.11. 类(2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类3.html">4.12. 类(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="异常处理.html">4.13. 异常处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="模块和包.html">4.14. 模块和包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="内建函数.html">4.15. 内建函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用标准库.html">4.16. 常用标准库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用第三方库.html">4.17. 常用第三方库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="练习.html">4.18. 练习题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jmeter/index.html">7. jmeter性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">11. 面试相关</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">4. python基础</a> &raquo;</li>
+        
+      <li>4.3. 运行python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/python_base/运行python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<h1>4.3. 运行python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>4.3.1. 在解释器中运行<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在命令行中输入python或者ipython，解释器交互环境，然后输入python脚本，敲击回车，即可执行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ ~ python
+Python 2.7.13 (default, Apr 26 2017, 20:42:49)
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>该种模式下退出交互环境，输入exit():</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ ~ ipython
+Python 2.7.13 (default, Apr 26 2017, 20:42:49)
+Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython&#39;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&#39;s own help system.
+object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+
+In [1]:
+</pre></div>
+</div>
+<p>该种模式下退出输入quit或exit</p>
+</div>
+<div class="section" id="id2">
+<h2>4.3.2. 直接运行python文件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在命令行模式下，执行输入 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;文件名&gt;</span></code> ，即可执行python脚本，如python脚本（a.py）内容为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>执行a.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➜ ~ python a.py
+123
+➜ ~
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>4.3.3. 如何新建python脚本文件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>新建一个普通的纯文本文件，保存后缀为.py即可</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">在windows下不允许使用notepad（记事本）、word新建脚本文件</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="列表元组.html" class="btn btn-neutral float-right" title="4.4. 列表和元组" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="数据类型和变量.html" class="btn btn-neutral" title="4.2. 数据类型和变量" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

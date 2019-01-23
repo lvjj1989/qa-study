@@ -1,0 +1,108 @@
+流程控制
+======================================
+python中主要提供两种流程控制，条件判断和循环，关键字有三个， ``for in`` 、``if else`` 、 ``while``，下面一一介绍一下
+
+条件判断
+--------------------------------------
+``if else`` 这种条件判断大家应该都很熟悉了，每种编程语言都会有，翻译成中文就是，如果AAA成立，执行XXX，或者BBB成立，执行YYY，如果都对不上，执行ZZZ，如下面的例子，如果你的性别是男的，输出帅哥，如果是女，输出美女::
+
+    # coding=utf-8
+
+    sex = u'男'
+
+    if sex == u'男':
+        print(u'帅哥')
+    elif sex == u'女':
+        print(u'美女')
+    else:
+        print(u'死人妖')
+
+.. note:: 注意是elif，不是else if
+
+循环
+--------------------------------------
+
+**for in 循环**
+
+为什么这里写 ``for in`` 而不是 ``for`` 呢，因为在python中的for循环 ``for`` 和 ``in`` 是成对出现的，我们先写一个例子::
+
+    # coding=utf-8
+
+    for i in range(10):
+        print(i)
+
+这个例子循环了10次，打印出了0到9，是不是每简单？自增也不用写了，其实在python中 ``for in`` 用来遍历可迭代对象的，把可迭代对象里的元素一个一个取出来，然后再做处理，当然，你不做处理也可以，仅当做计数器
+
+在这里我们引入了一个新的函数 ``range`` ，故名思意，就是范围，它可以生成指定范围的数据序列，示例如下::
+
+
+    In [1]: range(10)
+    Out[1]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    In [2]: range(2, 10)
+    Out[2]: [2, 3, 4, 5, 6, 7, 8, 9]
+
+    In [3]: range(2, 10, 2)
+    Out[3]: [2, 4, 6, 8]
+
+    In [4]:
+
+.. note:: 可迭代对象，就是实现了可迭代协议的python对象，比如list、tuple、dict等等
+
+
+**while 循环**
+
+while循环的意思是：当AAA条件为真的时候，执行XXXX，很简单，我们写个例子::
+
+    # coding=utf-8
+
+    num = 10
+
+    while num > 0:
+        print(num)
+        num = num - 1
+
+
+**跳过循环、终止循环**
+
+使用continue可以跳过本次循环，进入下次循环，使用break中以跳出循环语句::
+
+    # coding=utf-8
+
+    '''不打印2'''
+
+    for i in range(10):
+        if i == 2:
+            continue
+        print(i)
+
+    print('*' * 30)
+
+    num = 10
+
+    while num > 0:
+        if num == 2:
+            continue
+        print(num)
+        num = num - 1
+
+::
+
+    # coding=utf-8
+
+    '''3的时候终止循环'''
+
+    for i in range(10):
+        if i == 3:
+            break
+        print(i)
+
+    print('*' * 30)
+
+    num = 10
+
+    while num > 0:
+        if num == 3:
+            break
+        print(num)
+        num = num - 1

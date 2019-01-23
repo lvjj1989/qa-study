@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.5. app与web测试的主要区别 &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. 接口" href="../interface/index.html" />
+    <link rel="prev" title="2.4. web功能测试_基本操作模型" href="功能测试_基本操作模型.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 功能测试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="功能测试基本规范.html">2.1. 功能测试用例基本结构规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="功能测试_页面控件模型.html">2.2. web功能测试_页面控件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="功能测试_页面动作模型.html">2.3. web功能测试_页面动作模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="功能测试_基本操作模型.html">2.4. web功能测试_基本操作模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.5. app与web测试的主要区别</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app">2.5.1. app特有的测试场景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web">2.5.2. web特有的测试场景</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jmeter/index.html">7. jmeter性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">11. 面试相关</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. 功能测试</a> &raquo;</li>
+        
+      <li>2.5. app与web测试的主要区别</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functional/app与web测试的主要区别.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="appweb">
+<h1>2.5. app与web测试的主要区别<a class="headerlink" href="#appweb" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="app">
+<h2>2.5.1. app特有的测试场景<a class="headerlink" href="#app" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>默认键盘（如输入手机号码等场景时默认调用数字键盘）</li>
+<li>多点触控</li>
+<li>屏幕分辨率</li>
+<li>安装卸载，覆盖安装，杀进程再启动，清理缓存(安卓)</li>
+<li>手机权限（如相机、图片、本地文件、麦克风、通讯录、短信等）</li>
+<li>手机自带按钮（如Android的后退、home键，iOS的home键）</li>
+<li>机型、系统、分辨率等适配</li>
+<li>emoji表情输入</li>
+<li>GPS定位</li>
+<li>电量、内存、CPU等性能测试</li>
+<li>调用其他app（如支付宝、微信支付等功能）</li>
+<li>网络切换</li>
+</ul>
+</div>
+<div class="section" id="web">
+<h2>2.5.2. web特有的测试场景<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>多浏览器登录，退出</li>
+<li>浏览器缓存（如cookie清理，表单数据缓存）</li>
+<li>浏览器前进、后退</li>
+<li>浏览器兼容性</li>
+<li>浏览器最大化、还原，页面自适应</li>
+<li>输入全角、半角</li>
+<li>js渲染</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../interface/index.html" class="btn btn-neutral float-right" title="3. 接口" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="功能测试_基本操作模型.html" class="btn btn-neutral" title="2.4. web功能测试_基本操作模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

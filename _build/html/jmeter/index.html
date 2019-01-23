@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. jmeter性能测试 &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.1. Jmeter基本结构" href="Jmeter基本结构.html" />
+    <link rel="prev" title="6.3. 性能测试工具选型" href="../performance/性能测试工具选型.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. jmeter性能测试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html">7.1. Jmeter基本结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter进行http接口测试.html">7.2. Jmeter进行http接口测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter参数化.html">7.3. Jmeter参数化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html">7.1.2.1. Jmeter断言方式总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter常用监听器.html">7.4. Jmeter常用监听器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter聚合报告.html">7.5. Jmeter聚合报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter持续集成.html">7.6. jmeter在linux上基于Jenkins持续集成参数化配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">11. 面试相关</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>7. jmeter性能测试</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/jmeter/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jmeter">
+<h1>7. jmeter性能测试<a class="headerlink" href="#jmeter" title="Permalink to this headline">¶</a></h1>
+<p>工具下载地址：<a class="reference external" href="https://jmeter.apache.org/download_jmeter.cgi">https://jmeter.apache.org/download_jmeter.cgi</a>
+源码地址：<a class="reference external" href="https://github.com/apache/jmeter">https://github.com/apache/jmeter</a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Jmeter基本结构.html">7.1. Jmeter基本结构</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id1">7.1.1. 取样器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id2">7.1.2. 断言</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Jmeter断言方式总结.html">7.1.2.1. Jmeter断言方式总结</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#id1">7.1.2.1.1. 响应断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#id2">7.1.2.1.2. 断言持续时间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#size">7.1.2.1.3. Size断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#xml">7.1.2.1.4. XML断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#xml-schema">7.1.2.1.5. XML Schema 断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#html">7.1.2.1.6. HTML 断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#xpath">7.1.2.1.7. XPath断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#md5hex">7.1.2.1.8. MD5Hex断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#beanshell">7.1.2.1.9. BeanShell断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#bsf">7.1.2.1.10. BSF断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#compare-assertion">7.1.2.1.11. 比较断言（Compare  Assertion）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#smime">7.1.2.1.12. SMIME断言</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Jmeter断言方式总结.html#jsr223">7.1.2.1.13. JSR223 断言</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id3">7.1.3. 监听器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id4">7.1.4. 前置处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id5">7.1.5. 配置元件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id6">7.1.6. 后置处理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id7">7.1.7. 控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id8">7.1.8. 定时器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id9">7.1.9. 线程组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter基本结构.html#id10">7.1.10. 工作台</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jmeter进行http接口测试.html">7.2. Jmeter进行http接口测试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter进行http接口测试.html#id1">7.2.1. 开发接口测试案例的整体方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter进行http接口测试.html#id2">7.2.2. 接口自动化适用场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter进行http接口测试.html#id3">7.2.3. 接口测试环境准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter进行http接口测试.html#id4">7.2.4. 创建工程：</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jmeter参数化.html">7.3. Jmeter参数化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter参数化.html#csv-data-set-config">7.3.1. CSV Data Set Config</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jmeter断言方式总结.html">7.1.2.1. Jmeter断言方式总结</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#id1">7.1.2.1.1. 响应断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#id2">7.1.2.1.2. 断言持续时间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#size">7.1.2.1.3. Size断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#xml">7.1.2.1.4. XML断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#xml-schema">7.1.2.1.5. XML Schema 断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#html">7.1.2.1.6. HTML 断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#xpath">7.1.2.1.7. XPath断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#md5hex">7.1.2.1.8. MD5Hex断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#beanshell">7.1.2.1.9. BeanShell断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#bsf">7.1.2.1.10. BSF断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#compare-assertion">7.1.2.1.11. 比较断言（Compare  Assertion）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#smime">7.1.2.1.12. SMIME断言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter断言方式总结.html#jsr223">7.1.2.1.13. JSR223 断言</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jmeter常用监听器.html">7.4. Jmeter常用监听器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jmeter常用监听器.html#id1">7.4.1. 查看结果树</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jmeter聚合报告.html">7.5. Jmeter聚合报告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jmeter持续集成.html">7.6. jmeter在linux上基于Jenkins持续集成参数化配置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jmeter持续集成.html#jmeter">7.6.1. 在本地完成jmeter脚本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter持续集成.html#shell">7.6.2. 编写线程组时，将线程数与执行时间时进行参数化处理，从shell脚本中获取字段值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter持续集成.html#jmxlinux">7.6.3. 保存后将生成的jmx文件上传到Linux服务器对应的路径上，配置任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter持续集成.html#id1">7.6.4. 点击构建，配置线程数等</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jmeter持续集成.html#html-report">7.6.5. 执行完成后，自动生成测试报告，点击【HTML Report】查看测试报告</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Jmeter基本结构.html" class="btn btn-neutral float-right" title="7.1. Jmeter基本结构" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../performance/性能测试工具选型.html" class="btn btn-neutral" title="6.3. 性能测试工具选型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

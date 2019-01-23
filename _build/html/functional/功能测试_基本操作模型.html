@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.4. web功能测试_基本操作模型 &mdash; qa study 1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.5. app与web测试的主要区别" href="app与web测试的主要区别.html" />
+    <link rel="prev" title="2.3. web功能测试_页面动作模型" href="功能测试_页面动作模型.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qa study
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 功能测试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="功能测试基本规范.html">2.1. 功能测试用例基本结构规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="功能测试_页面控件模型.html">2.2. web功能测试_页面控件模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="功能测试_页面动作模型.html">2.3. web功能测试_页面动作模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. web功能测试_基本操作模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.4.1. 单个查询操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.4.2. 级联查询操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.4.3. 新增操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.4.4. 修改操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.4.5. 删除操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.4.6. 数据导入操作</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app与web测试的主要区别.html">2.5. app与web测试的主要区别</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jmeter/index.html">7. jmeter性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. Python单元测试框架pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interview_skills/index.html">11. 面试相关</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. 功能测试</a> &raquo;</li>
+        
+      <li>2.4. web功能测试_基本操作模型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functional/功能测试_基本操作模型.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="web">
+<h1>2.4. web功能测试_基本操作模型<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.4.1. 单个查询操作<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>分别对单条件进行精确查询</li>
+<li>输入长度的校验，输入允许的最长值进行查询，是否支持</li>
+<li>两个查询条件是否是2选1，来回选择是否出现页面错误</li>
+<li>输入字符</li>
+<li>输入特殊字符</li>
+<li>输入汉字</li>
+<li>输入数字</li>
+<li>条件中含有空格</li>
+<li>输入超长字符</li>
+<li>输入全角字符</li>
+<li>输入单引号</li>
+<li>输入单引号引起来的数据</li>
+<li>输入双引号</li>
+<li>输入双引号引起来的数据</li>
+<li>查询结果按照什么顺序排序</li>
+<li>查询结果是否根据字段显示排序功能</li>
+<li>查询结果是否有分页，如果有，每页最多多少记录</li>
+<li>查询结果是否匹配</li>
+<li>查询结果是否与数据库一致</li>
+<li>查询结果是精确查询还是模糊查询</li>
+<li>输入框大小、文字大小是否合适</li>
+<li>查询处理时间是否能接受</li>
+<li>数据库存在大量数据时，查询处理时间是否能接受</li>
+<li>多个用户同时查询时，输入相同或不同的条件查询后系统响应是否及时</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>2.4.2. 级联查询操作<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>所有条件输入空查询</li>
+<li>只输入一个关键条件查询</li>
+<li>随机组合条件查询</li>
+<li>输入所有关键条件查询</li>
+<li>所有条件都输入查询</li>
+<li>查询结果按什么顺序排序</li>
+<li>查询结果是否根据字段显示</li>
+<li>查询结果是否与数据库一致</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>2.4.3. 新增操作<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>初始化数据正确性</li>
+<li>进入功能后未修改任何数据项运行新增功能</li>
+<li>清空功能中所有可删除的数据项后运行新增功能</li>
+<li>录满功能中所有数据</li>
+<li>服务器磁盘空间不足，不能新增</li>
+<li>主键同名，唯一性验证</li>
+<li>创建时间以服务器的时间为准</li>
+<li>是否在任何情况下，都可以取消保存</li>
+<li>如果存在重置功能，重置后是否正常保存</li>
+<li>提交成功后有返回结果，成功失败页面或实时刷新列表</li>
+<li>新增提交时间如果长，应出现进度显示表</li>
+<li>新增的数据是否与数据库一致</li>
+<li>系统是否有提供数据回显, 那么回显数据与新增数据是一致的</li>
+<li>如果新增数据后有返回到列表, 则一般是新增的数据排在首页首行</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>2.4.4. 修改操作<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>修改一条记录</li>
+<li>是否支持同时修改多条记录</li>
+<li>多用户同时修改同一记录</li>
+<li>点击“取消”或“返回”是否给予提示</li>
+<li>提交成功后有返回结果，成功失败页面或实时刷新列表</li>
+<li>修改提交时间如果长，应出现进度显示</li>
+<li>修改的数据是否与数据库一致</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>2.4.5. 删除操作<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>删除一条记录</li>
+<li>是否支持同时删除多条记录</li>
+<li>一个用户修改，一个用户删除同样的记录</li>
+<li>无选择记录时删除是否控制</li>
+<li>提交成功后有返回结果，成功失败页面或实时刷新列表</li>
+<li>如果节点没有被其它功能关联，可以删除；反之不行</li>
+<li>级联删除是否成功</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>2.4.6. 数据导入操作<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>是否完成数据正常导入功能</li>
+<li>导入文件的部分数据异常进行导入</li>
+<li>导入文件的全部数据异常进行导入</li>
+<li>导入文件的关键字段值在数据中不存在进行导入</li>
+<li>导入文件的数据格式不符合进行导入</li>
+<li>数据导入后列表中的显示是否正确</li>
+<li>数据导入后在数据库中的显示是否正确</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="app与web测试的主要区别.html" class="btn btn-neutral float-right" title="2.5. app与web测试的主要区别" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="功能测试_页面动作模型.html" class="btn btn-neutral" title="2.3. web功能测试_页面动作模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, lvjunjie,sunyanhui
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

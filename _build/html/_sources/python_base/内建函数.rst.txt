@@ -1,0 +1,209 @@
+内建函数
+======================================
+如下表格是python的内建函数，内建函数是指，python解释器启动时会自动加载的函数，使用时无需导入，内建函数大概有70多个，但常用的并不多，我们介绍一些常用的。
+
+.. list-table::
+  :widths: 10 10 10 10 10 
+  :header-rows: 0
+
+  * - abs()
+    - divmod()
+    - input()
+    - open()
+    - staticmethod()
+  * - all()
+    - enumerate()
+    - int()
+    - ord()
+    - str()
+  * - any()
+    - eval()
+    - isinstance()
+    - pow()
+    - sum()
+  * - basestring()
+    - execfile()
+    - issubclass()
+    - print()super()
+    - bin()
+  * - file()
+    - iter()
+    - property()
+    - tuple()
+    - bool()
+  * - filter()
+    - len()
+    - range()
+    - type()
+    - bytearray()
+  * - float()
+    - list()
+    - raw_input()
+    - unichr()
+    - callable()
+  * - format()
+    - locals()
+    - reduce()
+    - unicode()
+    - chr()
+  * - frozenset()
+    - long()
+    - reload()
+    - vars()
+    - classmethod()
+  * - getattr()
+    - map()
+    - repr()
+    - globals()
+    - max()
+  * - reversed()
+    - zip()
+    - compile()
+    - hasattr()
+    - memoryview()
+  * - round()
+    - \_\_import\_\_()
+    - complex()
+    - hash()
+    - min()
+  * - set()
+    - delattr()
+    - help()
+    - next()
+    - setattr()
+  * - dict()
+    - hex()
+    - object()
+    - slice()
+    - dir()
+  * - id()
+    - oct()
+    - sorted()
+    - xrange()
+    - cmp()
+
+abs
+--------------------------------------
+取绝对值::
+
+    a = -1
+    b = -2
+    print(abs(a)) 
+    print(abs(b)) 
+
+
+all
+--------------------------------------
+判断一个可迭代对象里的元素是否全为真，全为真返回真，否则返回假::
+
+    l1 = [1, 2, 3, 0, 'a']
+    print(all(l1)) 
+
+    l2 = ['a', 1, 'r']
+    print(all(l2))
+
+
+any
+--------------------------------------
+判断一个可迭代对象，里面的元素全为假时才返回假，只要有一个为真就为真::
+
+    l1 = [0, None, '', 1]
+    print(any(l1))
+
+
+float
+--------------------------------------
+转化为浮点数::
+
+    print(float(1))
+    print(float('1.1'))
+
+
+getattr
+--------------------------------------
+获取指定对象属性::
+
+    class A(object):
+
+        a = 1
+
+    print(getattr(A, 'a'))
+
+
+reversed
+--------------------------------------
+反转一个可迭代对象，返回的是生成器::
+
+    l  = [4, 3, 2, 1, 'a']
+
+    for i in reversed(l):
+        print(i)
+
+
+
+round
+--------------------------------------
+四舍五入::
+
+    In [11]: round(1.1)
+    Out[11]: 1.0
+
+    In [12]: round(1.4)
+    Out[12]: 1.0
+
+    In [13]: round(1.5)
+    Out[13]: 2.0
+
+    In [14]: round(1.9)
+    Out[14]: 2.0
+
+
+set
+--------------------------------------
+集合类型，返回集合对象::
+
+    In [16]: set([1, 2, 2, 1, 3])
+    Out[16]: {1, 2, 3}
+
+
+dict
+--------------------------------------
+字典类型，返回字典对象::
+
+    In [18]: dict(a=1, b=2)
+    Out[18]: {'a': 1, 'b': 2}
+
+
+divmod
+--------------------------------------
+除法函数，但返回商和余数::
+
+    In [19]: divmod(5, 3)
+    Out[19]: (1, 2)
+
+
+enumerate
+--------------------------------------
+枚举可迭代对象::
+
+    In [23]: l = [1, 2, 'a', True]
+
+    In [24]: for i in enumerate(l):
+        ...:     print(i)
+        ...:
+    (0, 1)
+    (1, 2)
+    (2, 'a')
+    (3, True)
+
+
+len
+--------------------------------------
+求可迭代对象长度::
+
+    In [25]: l  = [1, 2, 3, 3, 4]
+
+    In [26]: len(l)
+    Out[26]: 5
+
+
