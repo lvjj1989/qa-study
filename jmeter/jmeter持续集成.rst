@@ -7,7 +7,7 @@ jmeter在linux上基于Jenkins持续集成参数化配置
 编写线程组时，将线程数与执行时间时进行参数化处理，从shell脚本中获取字段值
 --------------------------------------------------
 
-.. figure:: /jmeter/pytest/jmeter_jenkins_1.png
+.. figure:: /_static/jmeter/jmeter_jenkins_1.png
     :width: 15.0cm
 
 线程组修改为：${__P(ThreadNumber,400)}
@@ -20,15 +20,15 @@ jmeter在linux上基于Jenkins持续集成参数化配置
 ----------------------------------------------------------
 
 
-.. figure:: /jmeter/pytest/jmeter_jenkins_3.png
+.. figure:: /_static/jmeter/jmeter_jenkins_3.png
     :width: 15.0cm
 
 
-.. figure:: /jmeter/pytest/jmeter_jenkins_2.png
+.. figure:: /_static/jmeter/jmeter_jenkins_2.png
     :width: 15.0cm
 
 
-.. figure:: /jmeter/pytest/jmeter_jenkins_5.png
+.. figure:: /_static/jmeter/jmeter_jenkins_5.png
     :width: 15.0cm
 
 
@@ -36,7 +36,7 @@ jmeter在linux上基于Jenkins持续集成参数化配置
 --------------------------------------------------------------
 
 
-.. figure:: /jmeter/pytest/jmeter_jenkins_4.png
+.. figure:: /_static/jmeter/jmeter_jenkins_4.png
     :width: 15.0cm
 
 
@@ -46,7 +46,7 @@ jmeter在linux上基于Jenkins持续集成参数化配置
 执行完成后，自动生成测试报告，点击【HTML Report】查看测试报告
 ----------------------------------------------------
 
-.. figure:: /jmeter/pytest/jmeter_jenkins_6.png
+.. figure:: /_static/jmeter/jmeter_jenkins_6.png
     :width: 15.0cm
 
 
