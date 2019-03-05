@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'qa study'
-copyright = u'2018, lvjunjie,sunyanhui'
+copyright = u'2019, lvjunjie,sunyanhui, lvjunjie84@hotmail.com'
 author = u'lvjunjie,sunyanhui'
 
 # The version info for the project you're documenting, acts as replacement for

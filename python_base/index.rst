@@ -1,7 +1,7 @@
 python基础
 ======================================
 
-先推荐一个不错的学习笔记网站：http://www.cnblogs.com/happyframework/p/3255962.html
+推荐学习网站：https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
 
 .. toctree::
    

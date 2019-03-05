@@ -23,6 +23,5 @@
 * TestRail
 测试用例管理平台
 
-
 * jenkins
 持续集成平台
