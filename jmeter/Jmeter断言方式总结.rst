@@ -241,6 +241,25 @@ SampleData：发送给服务器的数据；Ctx：(JmeterContext)：Jmrter上下�
 Vars(JmeterVariables)，获取Jmeter中定义的变量，或者设置变量；
 Props：(JmeterProperties)，获取JMeter中的属性，或者设置属性。
 
+举个例子，我们可以通过以下代码，当进行接口的响应断言，并且接口响应失败时打印或者在报告中输出错误的响应::
+
+    String response = "";
+    String Str = "\"code\":0"; //判断在响应中包含的内容
+    response = prev.getResponseDataAsString();
+    if (response == ""){
+        Failure = true;
+        FailureMessage = "系统无响应";//会输出在报告中
+        System.out.print( FailureMessage);//将结果打印到控制台，若失败率较高建议不要打印
+    }
+    else if((response.contains(Str)) == false){
+        Failure = true;
+        FailureMessage = "接口响应异常，接口实际响应内容为：" + response;//会输出在报告中
+        System.out.print(FailureMessage);//将结果打印到控制台，若失败率较高建议不要打印
+    }
+
+
+
+
 
 BSF断言
 ------------------------------------------------
