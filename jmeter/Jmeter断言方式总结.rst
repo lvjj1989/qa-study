@@ -229,16 +229,25 @@ BeanShell断言
     :width: 15.0cm
 
 作为脚本语言，能够方便的调用java类。
+
 Reset bsh.interpreter before each call:在每次调用Bean Shell之前重置bsh.interpreter类（bsh.interpreter是Bean Shell脚本语言的一种类，也可以理解为一种解析器）
+
 Parameters（String Parameters and String []bsh.args）:String参数（String []bsh.args是主类main函数的形式参数,是一个String 对象数组，可以用来获取命令行用户输入进去的参数）
+
 Script file：脚本文件（可以填入脚本文件路径）
+
 Script（see below for variables that are defined）:参照下文定义的变量（使脚本文件参照定义的变量来运行）
 
 log对象：写日志；SampleResult对象：可以从中获取响应对象，响应码等信息；Response对象：获取响应数据，只读；
+
 Failure：用例判断成功与否，Boolean类型，true代表失败；FailureMessage：失败信息；ResponseCode：响应码；
+
 ResponseMessage：响应信息；ResponseHeader：响应头信息；RequestHeader：请求头信息；SampleLabel：取样器Lable信息；
+
 SampleData：发送给服务器的数据；Ctx：(JmeterContext)：Jmrter上下文信息，从中可以获取到线程数，线程号等信息；
+
 Vars(JmeterVariables)，获取Jmeter中定义的变量，或者设置变量；
+
 Props：(JmeterProperties)，获取JMeter中的属性，或者设置属性。
 
 举个例子，我们可以通过以下代码，当进行接口的响应断言，并且接口响应失败时打印或者在报告中输出错误的响应::
