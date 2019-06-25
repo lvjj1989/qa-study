@@ -3,7 +3,6 @@ Python单元测试框架pytest
 
 .. toctree::
 
-	unittest.rst
 	pytest简介.rst
 	pytest编写规范.rst
 	pytest测试报告.rst
