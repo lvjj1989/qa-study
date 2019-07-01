@@ -16,27 +16,19 @@ fixture介绍
 
 	@pytest.fixture()
 	def before():
-	    print '\nbefore each test'
+	    print('\nbefore each test')
 
 	def test_1(before):
-	    print 'test_1()'
+	    print('test_1()')
 
 	def test_2(before):
-	    print 'test_2()'
+	    print('test_2()')
 	    assert 0
 
 下面是运行结果，test_1和test_2运行之前都调用了before，也就是before执行了两次。默认情况下，fixture是每个测试用例如果调用了该fixture就会执行一次的。
 
 ::
 
-	C:\Users\yatyang\PycharmProjects\pytest_example>pytest -v -s test_fixture_basic.py
-	============================= test session starts =============================
-	platform win32 -- Python 2.7.13, pytest-3.0.6, py-1.4.32, pluggy-0.4.0 -- C:\Python27\python.exe
-	cachedir: .cache
-	metadata: {'Python': '2.7.13', 'Platform': 'Windows-7-6.1.7601-SP1', 'Packages': {'py': '1.4.32', 'pytest': '3.0.6', 'pluggy': '0.4.0'}, 'JAVA_HOME': 'C:\\Program Files (x86)\\Java\\jd
-	k1.7.0_01', 'Plugins': {'html': '1.14.2', 'metadata': '1.3.0'}}
-	rootdir: C:\Users\PycharmProjects\pytest_example, inifile:
-	plugins: metadata-1.3.0, html-1.14.2
 	collected 2 items 
 
 	test_fixture_basic.py::test_1
@@ -54,7 +46,7 @@ fixture介绍
 	before = None
 
 	    def test_2(before):
-	        print 'test_2()'
+	        print('test_2()')
 	>       assert 0
 	E       assert 0
 
@@ -89,19 +81,19 @@ fixture介绍
 	class Test1:
 	    @pytest.mark.usefixtures("before")
 	    def test_3(self):
-	        print('test_1()')
+	        print('test_4()')
 
 	    @pytest.mark.usefixtures("before")
 	    def test_4(self):
-	        print('test_2()')
+	        print('test_4()')
 
 	@pytest.mark.usefixtures("before")
 	class Test2:
 	    def test_5(self):
-	        print('test_1()')
+	        print('test_5()')
 
 	    def test_6(self):
-	        print('test_2()')
+	        print('test_6()')
 
 3. 用autos调用fixture
 
