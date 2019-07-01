@@ -197,7 +197,9 @@ extend:扩展列表
     In [9]: t1.
                 t1.count
                 t1.index
+
 还有一些别的用法，如
+
 1. cmp(tuple1, tuple2) 比较两个元组元素。 
 #. len(tuple) 计算元组元素个数。
 #. max(tuple) 返回元组中元素最大值。
