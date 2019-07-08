@@ -17,5 +17,6 @@ jmeter性能测试
 	jmeter常用命令.rst
 	jmeter分布式.rst
 	jmeter持续集成.rst
+	jmeter性能测试过程中常用方法.rst
 
 
