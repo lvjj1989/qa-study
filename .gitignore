@@ -26,6 +26,7 @@ src/_pytest/_version.py
 doc/*/_build
 doc/*/.doctrees
 build/
+_build/
 dist/
 *.egg-info
 issue/
