@@ -1,7 +1,7 @@
 接口自动化框架常用结构
 =======================================
 
-推荐代码：https://github.com/lvjunjie84/pytest_interface
+.. 推荐代码：https://github.com/lvjunjie84/pytest_interface
 
 API
 -----------------------------------------
