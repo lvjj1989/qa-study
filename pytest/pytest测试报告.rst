@@ -60,6 +60,7 @@ pytest中需要安装第三方类库
 详情可见以下地址:
 https://docs.qameta.io/allure/#_pytest
 https://blog.csdn.net/HuJinke_/article/details/70405885?locationNum=11&fps=1
+推荐使用pytest单元测试框架+jenkins持续集成+allure报告，教程见：https://www.jianshu.com/p/200601e444a8
 这里就不做进一步展开了
 
 

@@ -23,6 +23,8 @@
 执行选择用例
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 * py.test test_mod.py，执行模块中的用例
+* py.test test_mod.py::TestClass，执行模块中的用例中个类
+* py.test test_mod.py::TestClass::test_case_def，执行模块中的用例中个类中的摸个测试用例函数
 * py.test somepath，执行路径中用例
 * py.test -k stringexpr，执行字符串表达式中的用例，比如"MyClass? and not method"，选择TestMyClass.test_something，排除了TestMyClass.test_method_simple。
 * py.test --pyargs pkg，导入pkg，使用其文件系统位置来查找和执行用例。执行pypkg目录下的所有用例。

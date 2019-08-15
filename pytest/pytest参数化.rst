@@ -5,8 +5,6 @@ pytest中使用@pytest.mark.parametrize进行参数化，可以来看一下下�
 
 ::
 
-	# coding=utf8
-
 
 	import pytest
 

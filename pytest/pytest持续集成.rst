@@ -77,5 +77,8 @@ https://docs.pytest.org/en/latest/
     :width: 15.0cm
 
 
+allure相关资料：
+https://docs.qameta.io/allure/#_pytest
+https://www.cnblogs.com/yrxns/p/8386267.html
 
-.. 参考代码：https://github.com/lvjunjie84/pytest_interface
+参考代码：https://github.com/lvjunjie84/pytest_interface
