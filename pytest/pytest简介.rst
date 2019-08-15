@@ -176,6 +176,7 @@ pytest会发现所有test_命名的函数，没有必要继承任何东西，我
 使用内置fixture
 --------------------------------------
 fixture是pytest中的一个特性，fixture可以请求任意资源，用文字不太好理解，我们就通过实例来理解吧。首先，通过以下命令可以找出所有pytest内置的fixture：
+
 ::
 
 	$ pytest --fixtures
