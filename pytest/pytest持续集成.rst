@@ -13,9 +13,7 @@ pip3 install requests
 pip3 install pytest
 pip3 install pytest-html
 pip3 install pytest-allure-adaptor
-pip3 install Jinja2
 pip3 install PyMySQL
-pip3 install redis
 
 
 
@@ -66,6 +64,13 @@ https://docs.pytest.org/en/latest/
 搭建持续集成
 --------------------------------------------------------------------
 
+1. 通过Jenkins下载allure插件
+#. 配置构建项目时添加构建后操作，Allure Report
+#. 执行pytest命令时，添加 ::
+
+	--alluredir ${WORKSPACE}/allure-results
+
+
 .. figure:: /_static/pytest/4.png
     :width: 15.0cm
 
@@ -73,8 +78,11 @@ https://docs.pytest.org/en/latest/
 生成allure测试报告
 --------------------------------------------------
 
+
+
 .. figure:: /_static/pytest/5.png
     :width: 15.0cm
+
 
 
 allure相关资料：
