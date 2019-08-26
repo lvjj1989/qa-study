@@ -138,8 +138,10 @@ pytest是python的一种单元测试框架，与python自带的unittest测试框
 	    with pytest.raises(SystemExit):
 	        f()
 
-当我们开发了多个测试时，可能会把它们分组到一个类中，我们现在可以使用pytest创建一个包含多个测试的类
+
+多个测试的类
 ------------------------------
+当我们开发了多个测试时，可能会把它们分组到一个类中，我们现在可以使用pytest创建一个包含多个测试的类
 ::
 
 	# content of test_class.py
