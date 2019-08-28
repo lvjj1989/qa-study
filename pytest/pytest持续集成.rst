@@ -90,4 +90,3 @@ allure相关资料：
 https://docs.qameta.io/allure/#_pytest
 https://www.cnblogs.com/yrxns/p/8386267.html
 
-参考代码：https://github.com/lvjj1989/pytest_interface

@@ -12,4 +12,3 @@ pytest
 	pytest预期异常.rst
 	pytest持续集成.rst
 	pytest使用方式和调用.rst
-	unittest.rst

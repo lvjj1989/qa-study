@@ -31,4 +31,8 @@ pytest编写规范
 	                   # e.g "test_mod.py::test_func" will select  
 	                               # only test_func in test_mod.py  
 
+或者通过::
+	python3 -m pytest ********
+	python -m python ********
+
 
