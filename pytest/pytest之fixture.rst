@@ -10,7 +10,7 @@ fixture介绍
 
  在函数声明之前加上“@pytest.fixture”。其他函数要来调用这个Fixture，只用把它当做一个输入的参数即可
 
- ::
+::
 
 	import pytest
 
