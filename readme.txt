@@ -13,6 +13,6 @@ make html
 _build中会自动生成HTML文件
 
 
-公网地址：http://lvjunjie.cn/qa-study
+公网地址：https://lvjunjie.cn/qa-study
 
 使用reStructuredText使用基础：https://www.jianshu.com/p/1885d5570b37
