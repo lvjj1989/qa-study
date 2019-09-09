@@ -13,7 +13,7 @@ pytest中mark标记
 
 	@pytest.mark.lvjj
 	def test_1():
-	    pass # perform some webtest test for your app
+	    pass 
 
 	@pytest.mark.lvjj
 	def test_2():
@@ -24,7 +24,7 @@ pytest中mark标记
 
 
 	if __name__ == "__main__":
-	    pytest.main(["-s", "test_server.py", "-m=webtest"])
+	    pytest.main(["-s", "test_server.py", "-m=lvjj"])
 
 
 如果我们只想只想@pytest.mark.lvjj中的测试用例，我们在只想命令函数的时候就使用::
@@ -38,7 +38,7 @@ pytest中mark标记
 
 	@pytest.mark.lvjj
 	def test_1():
-	    pass # perform some webtest test for your app
+	    pass 
 
 	@pytest.mark.lvjj
 	def test_2():
@@ -49,7 +49,7 @@ pytest中mark标记
 
 
 	if __name__ == "__main__":
-	    pytest.main(["-s", "test_server.py", "-m=not webtest"])
+	    pytest.main(["-s", "test_server.py", "-m=not lvjj"])
 
 或者执行命令::
 
