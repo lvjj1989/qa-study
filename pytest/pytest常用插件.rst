@@ -36,7 +36,11 @@ pytest常用插件
 
 并行运行
 -----------------------------------------
-pytest-xdist
+
+::
+
+	pip install pytest-xdist
+
 
 
 

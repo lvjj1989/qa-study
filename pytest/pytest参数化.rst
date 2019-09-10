@@ -7,6 +7,7 @@ pytest中使用@pytest.mark.parametrize进行参数化，可以来看一下下�
 
 	import pytest
 
+	# 测试数据
 	data = [
 		{
 			"num1": 1,
@@ -30,15 +31,15 @@ pytest中使用@pytest.mark.parametrize进行参数化，可以来看一下下�
 		}
 	]
 
-
+	# 被测函数
 	def fun_add(num_1, num_2):
 		return num_1 + num_2
 
-
-	@pytest.mark.parametrize('data_add', data)
-	def test_add(data_add):
-		assert fun_add(data_add['num1'], data_add['num2']) == data_add['res']
-
+	# 测试类	
+	class TestDemo:
+		@pytest.mark.parametrize('data_add', data)
+		def test_add(data_add):
+			assert fun_add(data_add['num1'], data_add['num2']) == data_add['res']
 
 
 	if __name__ == '__main__':
