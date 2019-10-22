@@ -74,7 +74,7 @@ https://docs.pytest.org/en/latest/
 .. figure:: /_static/pytest/4.png
     :width: 15.0cm
 
-**注：这里可能会有个坑，经测试pytest和pytest-allure-adaptor会存在着一些版本的兼容性问题，这里我用的pytest版本是4.0.2，pytest-allure-adaptor的版本是1.7.10*
+**注：这里可能会有个坑，经测试pytest和pytest-allure-adaptor会存在着一些版本的兼容性问题，这里我用的pytest版本是4.0.2，pytest-allure-adaptor的版本是1.7.10**
 
 生成allure测试报告
 --------------------------------------------------
