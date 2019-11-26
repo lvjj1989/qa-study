@@ -16,7 +16,7 @@ CSV Data Set Config可以制定文本文件这一行一行的提取文本内容�
 
 **File encoding**：读取参数文件的编码格式，建议使用UTF-8
 
-**Variable Names**：定义参数名称，用逗号隔开，将会与文件中的参数对应，如果这里的参数数量超过了文件中的数量，多余的参数将会取不到值。如果格式如：loginname,passWord，在金额meter中读取该参数的方式为${loginname}
+**Variable Names**：定义参数名称，用逗号隔开，将会与文件中的参数对应，如果这里的参数数量超过了文件中的数量，多余的参数将会取不到值。如果格式如：loginname，passWord，在Jmeter中读取该参数的方式为${loginname}、${passWord}
 
 **Delimiter**：用例分割文件的分隔符，默认是英文逗号，如果参数文件用的是tab分割，则输入：\t
 

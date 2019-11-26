@@ -1,2 +1,57 @@
 常用第三方库
 ======================================
+
+requests
+---------------------------------------
+
+requests是对urllib的一个特别好的封装，是最适合人类使用的http请求库
+
+
+安装方式
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+	pip install requsets
+
+导入方式
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
+
+	import requests
+
+
+发送请求
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+常见的请求发送为：
+::
+
+	res = requests.get(url="http(s)://xxxxxx.xxx",params={"k1": "v1", "k2": "v2"}, headers={"a": "a1", "b": "b1"})  # params为字典或字节序列，作为参数增加到url中
+	res = requests.post(url="http(s)://xxxxxx.xxx",data={"k1": "v1", "k2": "v2"}, headers={"a": "a1", "content-type": "application/x-www-form-urlencoded"})  # data在表单格式提交时首页
+	res = requests.post(url="http://xxxxxx.xxx",json={"k1": "v1", "k2": "v2"}, headers={"a": "a1", "content-type": " application/json"})  # json在json格式提交是使用
+	................
+
+其他常用的参数
+1. 超时设置：单位秒，支持小数点(float类型)，不配置则永久不超时 
+#. 代理设置：用于配置接口代理，通常需要抓包时使用，proxy={"http":"http://ip:port","https":"https://ip:port"}
+#. cookies：模拟浏览器请求时进程会用到，cookies={"a": "a1", "b": "b1"}
+
+还有别的一些不太常用的这里就不一一列举了作用了
+1. allow_redirects，布尔型，默认为True，重定向开关
+#. verify，布尔型，默认为True，认证SSL证书开关
+#. cert，本地SSL证书
+#. auth，元组，支持HTTP认证功能
+#. stream，布尔型，默认为True，获取内容立即下载开关
+#. files，字典类型，传输文件
+
+获取返回值：
+常见的返回值包括：
+::
+
+	res.status_code  # 接口响应码
+	res.text  # 响应内容，str格式
+	res.json()  # json格式时使用，会转成字典格式方便使用(非json格式时会报错)
+	res.content  # 响应内容，二进制格式
+	res.headers  # 响应的headers，字典格式，可以取值
+	res.encoding  # 响应编码
+	res.request.xxx  # xxx可以是url，headers等请求的数据，用于获取请求数据
