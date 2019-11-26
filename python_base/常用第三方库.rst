@@ -52,7 +52,7 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 
 	res.status_code  # 接口响应码
 	res.text  # 响应内容，str格式
-	res.json()  # json格式时使用，会转成字典格式方便使用(非json格式时会报错)
+	res.json()  # json格式时使用，会转成字典格式方便取值(非json格式时会报错)
 	res.content  # 响应内容，二进制格式
 	res.headers  # 响应的headers，字典格式，可以取值
 	res.encoding  # 响应编码
