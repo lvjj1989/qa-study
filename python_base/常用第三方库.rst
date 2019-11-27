@@ -29,6 +29,11 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 	res = requests.get(url="http(s)://xxxxxx.xxx",params={"k1": "v1", "k2": "v2"}, headers={"a": "a1", "b": "b1"})  # params为字典或字节序列，作为参数增加到url中
 	res = requests.post(url="http(s)://xxxxxx.xxx",data={"k1": "v1", "k2": "v2"}, headers={"a": "a1", "content-type": "application/x-www-form-urlencoded"})  # data在表单格式提交时首页
 	res = requests.post(url="http://xxxxxx.xxx",json={"k1": "v1", "k2": "v2"}, headers={"a": "a1", "content-type": " application/json"})  # json在json格式提交是使用
+	# 其他
+	res = requests.head()
+	res = requests.put()
+	res = requests.delete()
+	res = requests.patch()
 	................
 
 其他常用的参数
