@@ -35,6 +35,11 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 	res = requests.delete()
 	res = requests.patch()
 	................
+	# 或者通过requests.request(method,url,**kwargs)，如：
+	res = requests.request(method='GET',url="http://xxxxxx.xxx",......)
+	res = requests.request(method='POST', url="http://xxxxxx.xxx", ......)
+
+
 
 其他常用的参数
 
