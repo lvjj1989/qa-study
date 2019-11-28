@@ -44,7 +44,7 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 其他常用的参数
 
 1. 超时设置：单位秒，支持小数点(float类型)，不配置则永久不超时 
-#. 代理设置：用于配置接口代理，通常需要抓包时使用，proxy={"http":"http://ip:port","https":"https://ip:port"}
+#. 代理设置：用于配置接口代理，通常需要抓包时使用，proxies={"http":"http://ip:port","https":"https://ip:port"}
 #. cookies：模拟浏览器请求时进程会用到，cookies={"a": "a1", "b": "b1"}
 
 还有别的一些不太常用的这里就不一一列举了作用了
