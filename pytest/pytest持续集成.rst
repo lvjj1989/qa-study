@@ -54,6 +54,7 @@ pip3 install PyMySQL
 pytest基础教程：
 
 https://www.jianshu.com/p/a754e3d47671
+
 http://lvjunjie.cn/qa-study/pytest/index.html
 
 pytest官方文档：
