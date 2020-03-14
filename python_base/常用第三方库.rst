@@ -68,3 +68,27 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 	res.headers  # 响应的headers，字典格式，可以取值
 	res.encoding  # 响应编码
 	res.request.xxx  # xxx可以是url，headers等请求的数据，用于获取请求数据
+
+json
+--------------------------------
+
+导入方式
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
+	
+	import json
+
+常用方法
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+  :widths: 5 10
+  :header-rows: 1
+
+  * - 函数
+    - 叙述
+  * - json.dumps
+    - 将 Python 对象编码成JSON字符串
+  * - json.loads
+    - 将已编码的 JSON 字符串解码为Python对象
+
