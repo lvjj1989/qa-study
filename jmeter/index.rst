@@ -1,4 +1,4 @@
-jmeter性能测试
+Jmeter性能测试
 ===============================================
 
 工具下载地址：https://jmeter.apache.org/download_jmeter.cgi
@@ -13,10 +13,10 @@ jmeter性能测试
 	Jmeter常用监听器.rst
 	Jmeter断言方式总结.rst
 	Jmeter聚合报告.rst
-	jmeter配置到Jenkins.rst
-	jmeter常用命令.rst
-	jmeter分布式.rst
-	jmeter持续集成.rst
-	jmeter性能测试常用方法.rst
+	Jmeter配置到Jenkins.rst
+	Jmeter常用命令.rst
+	Jmeter分布式.rst
+	Jmeter持续集成.rst
+	Jmeter性能测试常用方法.rst
 
 

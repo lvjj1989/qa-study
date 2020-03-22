@@ -9,8 +9,9 @@
 1957–1978——证明为主(Demonstration Oriented)
 ---------------------------------------
 1957年，Charles Baker在他的一本书中对调试和测试进行了区分Debug和Testing：
-*调试(Debug)：确保程序做了程序员想它做的事情
-*测试(Testing)：确保程序解决了它该解决的问题
+
+* 调试(Debug)：确保程序做了程序员想它做的事情
+* 测试(Testing)：确保程序解决了它该解决的问题
 
 
 1979–1982——破坏为主(Destruction Oriented)

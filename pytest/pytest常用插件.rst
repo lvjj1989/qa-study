@@ -13,7 +13,7 @@ pytest常用插件
 
 	pip install -U pytest-rerunfailures
 
-在命令行中增加 --reruns NUM，NUM未失败重试的最大次数
+在命令行中增加 --reruns NUM，NUM为失败重试的最大次数
 ::
 
 	pytest test_se.py --reruns 3

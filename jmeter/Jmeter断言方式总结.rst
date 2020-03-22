@@ -25,7 +25,7 @@ URL样本：对样板的url进行断言。如果请求没有重定向（302）�
 
 响应代码：http status的断言，如200，404，500等。
 
-响应信息：http响应代码对应的响应信息，如：HTTP/1.1 200 Ok，HTTP/1.1 302 Found中的OK，Found
+响应信息：http响应代码对应的响应信息，如：HTTP/1.1 200 Ok，HTTP/1.2 Found中的OK，Found
 
 Response Headers:响应头部，如Content-Type: text/html。
 
