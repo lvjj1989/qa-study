@@ -15,53 +15,53 @@ http接口脚本实现
 
 ::
 
-	#!/usr/bin/python
-	# coding=utf-8
-	import requests
-	import unittest
-	 
-	 
-	class TestLogin(unittest.TestCase):
-	 
-	    @classmethod
-	    def setUpClass(cls):
-	        cls.login_url = 'http://127.0.0.1:5000/login'
-	        cls.info_url = 'http://127.0.0.1:5000/info'
-	        cls.username = 'admin'
-	        cls.password = '123456'
-	 
-	    def test_login(self):
-	        """ 测试登录 """
-	        data = {
-	            'username': self.username,
-	            'password': self.password
-	        }
-	 
-	        response = requests.post(self.login_url, data=data).json()
-	 
-	        assert response['code'] == 200
-	        assert response['msg'] == 'success'
-	 
-	    def test_info(self):
-	        """ 测试info接口 """
-	 
-	        data = {
-	            'username': self.username,
-	            'password': self.password
-	        }
-	 
-	        response_cookies = requests.post(self.login_url, data=data).cookies
-	        session = response_cookies.get('session')
-	        assert session
-	 
-	        info_cookies = {
-	            'session': session
-	        }
-	 
-	        response = requests.get(self.info_url, cookies=info_cookies).json()
-	        assert response['code'] == 200
-	        assert response['msg'] == 'success'
-	        assert response['data'] == 'info'
+#!/usr/bin/python
+# coding=utf-8
+import requests
+import unittest
+ 
+ 
+class TestLogin(unittest.TestCase):
+ 
+    @classmethod
+    def setUpClass(cls):
+        cls.login_url = 'http://127.0.0.1:5000/login'
+        cls.info_url = 'http://127.0.0.1:5000/info'
+        cls.username = 'admin'
+        cls.password = '123456'
+ 
+    def test_login(self):
+        """ 测试登录 """
+        data = {
+            'username': self.username,
+            'password': self.password
+        }
+ 
+        response = requests.post(self.login_url, data=data).json()
+ 
+        assert response['code'] == 200
+        assert response['msg'] == 'success'
+ 
+    def test_info(self):
+        """ 测试info接口 """
+ 
+        data = {
+            'username': self.username,
+            'password': self.password
+        }
+ 
+        response_cookies = requests.post(self.login_url, data=data).cookies
+        session = response_cookies.get('session')
+        assert session
+ 
+        info_cookies = {
+            'session': session
+        }
+ 
+        response = requests.get(self.info_url, cookies=info_cookies).json()
+        assert response['code'] == 200
+        assert response['msg'] == 'success'
+        assert response['data'] == 'info'
 
 
 优化
@@ -74,81 +74,81 @@ http接口脚本实现
 
 ::
 
-	#!/usr/bin/python
-	# coding=utf-8
-	import requests
-	import unittest
-	try:
-	    from urlparse import urljoin
-	except ImportError:
-	    from urllib.parse import urljoin
-	 
-	 
-	class DemoApi(object):
-	 
-	    def __init__(self, base_url):
-	        self.base_url = base_url
-	 
-	    def login(self, username, password):
-	        """
-	        登录接口
-	        :param username: 用户名
-	        :param password: 密码
-	        """
-	        url = urljoin(self.base_url, 'login')
-	        data = {
-	            'username': username,
-	            'password': password
-	        }
-	 
-	        return requests.post(url, data=data).json()
-	 
-	    def get_cookies(self, username, password):
-	        """
-	        获取登录cookies
-	        """
-	        url = urljoin(self.base_url, 'login')
-	        data = {
-	            'username': username,
-	            'password': password
-	        }
-	 
-	        return requests.post(url, data=data).cookies
-	 
-	    def info(self, cookies):
-	        """
-	        详情接口
-	        """
-	        url = urljoin(self.base_url, 'info')
-	        return requests.get(url, cookies=cookies).json()
-	 
-	 
-	class TestLogin(unittest.TestCase):
-	 
-	    @classmethod
-	    def setUpClass(cls):
-	        cls.base_url = 'http://127.0.0.1:5000'
-	        cls.username = 'admin'
-	        cls.password = '123456'
-	        cls.app = DemoApi(cls.base_url)
-	 
-	    def test_login(self):
-	        """
-	        测试登录
-	        """
-	        response = self.app.login(self.username, self.password)
-	        assert response['code'] == 200
-	        assert response['msg'] == 'success'
-	 
-	    def test_info(self):
-	        """
-	        测试获取详情信息
-	        """
-	        cookies = self.app.get_cookies(self.username, self.password)
-	        response = self.app.info(cookies)
-	        assert response['code'] == 200
-	        assert response['msg'] == 'success'
-	        assert response['data'] == 'info'
+#!/usr/bin/python
+# coding=utf-8
+import requests
+import unittest
+try:
+    from urlparse import urljoin
+except ImportError:
+    from urllib.parse import urljoin
+ 
+ 
+class DemoApi(object):
+ 
+    def __init__(self, base_url):
+        self.base_url = base_url
+ 
+    def login(self, username, password):
+        """
+        登录接口
+        :param username: 用户名
+        :param password: 密码
+        """
+        url = urljoin(self.base_url, 'login')
+        data = {
+            'username': username,
+            'password': password
+        }
+ 
+        return requests.post(url, data=data).json()
+ 
+    def get_cookies(self, username, password):
+        """
+        获取登录cookies
+        """
+        url = urljoin(self.base_url, 'login')
+        data = {
+            'username': username,
+            'password': password
+        }
+ 
+        return requests.post(url, data=data).cookies
+ 
+    def info(self, cookies):
+        """
+        详情接口
+        """
+        url = urljoin(self.base_url, 'info')
+        return requests.get(url, cookies=cookies).json()
+ 
+ 
+class TestLogin(unittest.TestCase):
+ 
+    @classmethod
+    def setUpClass(cls):
+        cls.base_url = 'http://127.0.0.1:5000'
+        cls.username = 'admin'
+        cls.password = '123456'
+        cls.app = DemoApi(cls.base_url)
+ 
+    def test_login(self):
+        """
+        测试登录
+        """
+        response = self.app.login(self.username, self.password)
+        assert response['code'] == 200
+        assert response['msg'] == 'success'
+ 
+    def test_info(self):
+        """
+        测试获取详情信息
+        """
+        cookies = self.app.get_cookies(self.username, self.password)
+        response = self.app.info(cookies)
+        assert response['code'] == 200
+        assert response['msg'] == 'success'
+        assert response['data'] == 'info'
 
 
 OK，在这一个版本中，我们不但在把登录接口的调用封装成了一个实例方法，实现了复用，而且还把host（self.base_url）提取了出来，但问题又来了，登录之后，
@@ -164,91 +164,91 @@ OK，在这一个版本中，我们不但在把登录接口的调用封装成了
 
 ::
 
-	#!/usr/bin/python
-	# coding=utf-8
-	import unittest
-	from pprint import pprint
-	from requests.sessions import Session
-	try:
-	    from urlparse import urljoin
-	except ImportError:
-	    from urllib.parse import urljoin
-	 
-	 
-	class DemoApi(object):
-	 
-	    def __init__(self, base_url):
-	        self.base_url = base_url
-	        # 创建session实例
-	        self.session = Session()
-	 
-	    def login(self, username, password):
-	        """
-	        登录接口
-	        :param username: 用户名
-	        :param password: 密码
-	        """
-	        url = urljoin(self.base_url, 'login')
-	        data = {
-	            'username': username,
-	            'password': password
-	        }
-	 
-	        response = self.session.post(url, data=data).json()
-	        print('\n*****************************************')
-	        print(u'\n1、请求url: \n%s' % url)
-	        print(u'\n2、请求头信息:')
-	        pprint(self.session.headers)
-	        print(u'\n3、请求参数:')
-	        pprint(data)
-	        print(u'\n4、响应:')
-	        pprint(response)
-	        return response
-	 
-	    def info(self):
-	        """
-	        详情接口
-	        """
-	        url = urljoin(self.base_url, 'info')
-	        response = self.session.get(url).json()
-	 
-	        print('\n*****************************************')
-	        print(u'\n1、请求url: \n%s' % url)
-	        print(u'\n2、请求头信息:')
-	        pprint(self.session.headers)
-	        print(u'\n3、请求cookies:')
-	        pprint(dict(self.session.cookies))
-	        print(u'\n4、响应:')
-	        pprint(response)
-	        return response
-	 
-	 
-	class TestLogin(unittest.TestCase):
-	 
-	    @classmethod
-	    def setUpClass(cls):
-	        cls.base_url = 'http://127.0.0.1:5000'
-	        cls.username = 'admin'
-	        cls.password = '123456'
-	        cls.app = DemoApi(cls.base_url)
-	 
-	    def test_login(self):
-	        """
-	        测试登录
-	        """
-	        response = self.app.login(self.username, self.password)
-	        assert response['code'] == 200
-	        assert response['msg'] == 'success'
-	 
-	    def test_info(self):
-	        """
-	        测试获取详情信息
-	        """
-	        self.app.login(self.username, self.password)
-	        response = self.app.info()
-	        assert response['code'] == 200
-	        assert response['msg'] == 'success'
-	        assert response['data'] == 'info'
+#!/usr/bin/python
+# coding=utf-8
+import unittest
+from pprint import pprint
+from requests.sessions import Session
+try:
+    from urlparse import urljoin
+except ImportError:
+    from urllib.parse import urljoin
+ 
+ 
+class DemoApi(object):
+ 
+    def __init__(self, base_url):
+        self.base_url = base_url
+        # 创建session实例
+        self.session = Session()
+ 
+    def login(self, username, password):
+        """
+        登录接口
+        :param username: 用户名
+        :param password: 密码
+        """
+        url = urljoin(self.base_url, 'login')
+        data = {
+            'username': username,
+            'password': password
+        }
+ 
+        response = self.session.post(url, data=data).json()
+        print('\n*****************************************')
+        print(u'\n1、请求url: \n%s' % url)
+        print(u'\n2、请求头信息:')
+        pprint(self.session.headers)
+        print(u'\n3、请求参数:')
+        pprint(data)
+        print(u'\n4、响应:')
+        pprint(response)
+        return response
+ 
+    def info(self):
+        """
+        详情接口
+        """
+        url = urljoin(self.base_url, 'info')
+        response = self.session.get(url).json()
+ 
+        print('\n*****************************************')
+        print(u'\n1、请求url: \n%s' % url)
+        print(u'\n2、请求头信息:')
+        pprint(self.session.headers)
+        print(u'\n3、请求cookies:')
+        pprint(dict(self.session.cookies))
+        print(u'\n4、响应:')
+        pprint(response)
+        return response
+ 
+ 
+class TestLogin(unittest.TestCase):
+ 
+    @classmethod
+    def setUpClass(cls):
+        cls.base_url = 'http://127.0.0.1:5000'
+        cls.username = 'admin'
+        cls.password = '123456'
+        cls.app = DemoApi(cls.base_url)
+ 
+    def test_login(self):
+        """
+        测试登录
+        """
+        response = self.app.login(self.username, self.password)
+        assert response['code'] == 200
+        assert response['msg'] == 'success'
+ 
+    def test_info(self):
+        """
+        测试获取详情信息
+        """
+        self.app.login(self.username, self.password)
+        response = self.app.info()
+        assert response['code'] == 200
+        assert response['msg'] == 'success'
+        assert response['data'] == 'info'
 
 大功告成，我们把多个相关接口调用封装到一个类中，使用同一个requests Session实例来保持cookies，并且在调用过程中打印出了日志，我们所有目标都实现了，
 但再看下脚本，又会感觉不太舒服，在每个方法里，都要写一遍print 1、2、3... 要拼url、还要很多细节等等，但其实我们真正需要做的只是拼出关键的参数（url参数、body参数或者传入headers信息），
@@ -256,71 +256,71 @@ OK，在这一个版本中，我们不但在把登录接口的调用封装成了
 
 来，我们再整理一下我们的需求:
 
-	首先，不想去重复做拼接url的操作
-	然后，不想每次都去手工打印日志
-	不想和requests session打交道
-	只想定义好参数就直接调用
+首先，不想去重复做拼接url的操作
+然后，不想每次都去手工打印日志
+不想和requests session打交道
+只想定义好参数就直接调用
 我们先看一下实现后，脚本可能是什么样:
 
 ::
 
-	class DemoApi(object):
-	 
-	    def __init__(self, base_url):
-	        self.base_url = base_url
-	 
-	    @request(url='login', method='post')
-	    def login(self, username, password):
-	        """
-	        登录接口
-	        """
-	        data = {
-	            'username': username,
-	            'password': password
-	        }
-	 
-	        return {'data': data}
-	 
-	    @request(url='info', method='get')
-	    def info(self):
-	        """
-	        详情接口
-	        """
-	        pass
+class DemoApi(object):
+ 
+    def __init__(self, base_url):
+        self.base_url = base_url
+ 
+    @request(url='login', method='post')
+    def login(self, username, password):
+        """
+        登录接口
+        """
+        data = {
+            'username': username,
+            'password': password
+        }
+ 
+        return {'data': data}
+ 
+    @request(url='info', method='get')
+    def info(self):
+        """
+        详情接口
+        """
+        pass
 
 调用登录接口的日志
 
 ::
 
-	******************************************************
-	1、接口描述
-	登录接口
-	 
-	2、请求url
-	http://127.0.0.1:5000/login
-	 
-	3、请求方法
-	post
-	 
-	4、请求headers
-	{
-	    "Accept": "*/*",
-	    "Accept-Encoding": "gzip, deflate",
-	    "Connection": "keep-alive",
-	    "User-Agent": "python-requests/2.7.0 CPython/2.7.10 Darwin/16.4.0"
-	}
-	 
-	5、body参数
-	{
-	    "password": "123456",
-	    "username": "admin"
-	}
-	 
-	6、响应结果
-	{
-	    "code": 200,
-	    "msg": "success"
-	}
+******************************************************
+1、接口描述
+登录接口
+ 
+2、请求url
+http://127.0.0.1:5000/login
+ 
+3、请求方法
+post
+ 
+4、请求headers
+{
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "User-Agent": "python-requests/2.7.0 CPython/2.7.10 Darwin/16.4.0"
+}
+ 
+5、body参数
+{
+    "password": "123456",
+    "username": "admin"
+}
+ 
+6、响应结果
+{
+    "code": 200,
+    "msg": "success"
+}
 
 扩展
 ------------------------------
@@ -404,8 +404,8 @@ pithy意为简洁有力的，意在简化自动化接口测试，提高测试效
 
 ::
 
-	pip install pithy-test
-	pip install pytest
+pip install pithy-test
+pip install pytest
 
 使用
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -413,45 +413,45 @@ pithy意为简洁有力的，意在简化自动化接口测试，提高测试效
 *一键生成测试项目*
 ::
 
-	>>>  pithy-cli init
-	请选择项目类型,输入api或者app: api
-	请输入项目名称,如pithy-api-test: pithy-api-test
-	开始创建pithy-api-test项目
-	开始渲染...
-	生成 api/.gitignore                   [√]
-	生成 api/apis/__init__.py             [√]
-	生成 api/apis/pithy_api.py            [√]
-	生成 api/cfg.yaml                     [√]
-	生成 api/db/__init__.py               [√]
-	生成 api/db/pithy_db.py               [√]
-	生成 api/README.MD                    [√]
-	生成 api/requirements.txt             [√]
-	生成 api/test_suites/__init__.py      [√]
-	生成 api/test_suites/test_login.py    [√]
-	生成 api/utils/__init__.py            [√]
-	生成成功,请使用编辑器打开该项目
+>>>  pithy-cli init
+请选择项目类型,输入api或者app: api
+请输入项目名称,如pithy-api-test: pithy-api-test
+开始创建pithy-api-test项目
+开始渲染...
+生成 api/.gitignore                   [√]
+生成 api/apis/__init__.py             [√]
+生成 api/apis/pithy_api.py            [√]
+生成 api/cfg.yaml                     [√]
+生成 api/db/__init__.py               [√]
+生成 api/db/pithy_db.py               [√]
+生成 api/README.MD                    [√]
+生成 api/requirements.txt             [√]
+生成 api/test_suites/__init__.py      [√]
+生成 api/test_suites/test_login.py    [√]
+生成 api/utils/__init__.py            [√]
+生成成功,请使用编辑器打开该项目
 
 *查看项目树*
 ::
 
-	>>> tree pithy-api-test
-	pithy-api-test
-	├── README.MD
-	├── apis
-	│   ├── __init__.py
-	│   └── pithy_api.py
-	├── cfg.yaml
-	├── db
-	│   ├── __init__.py
-	│   └── pithy_db.py
-	├── requirements.txt
-	├── test_suites
-	│   ├── __init__.py
-	│   └── test_login.py
-	└── utils
-	    └── __init__.py
-	 
-	4 directories, 10 files
+>>> tree pithy-api-test
+pithy-api-test
+├── README.MD
+├── apis
+│   ├── __init__.py
+│   └── pithy_api.py
+├── cfg.yaml
+├── db
+│   ├── __init__.py
+│   └── pithy_db.py
+├── requirements.txt
+├── test_suites
+│   ├── __init__.py
+│   └── test_login.py
+└── utils
+    └── __init__.py
+ 
+4 directories, 10 files
 
 
 调用HTTP登录接口示例
@@ -459,71 +459,71 @@ pithy意为简洁有力的，意在简化自动化接口测试，提高测试效
 
 ::
 
-	from pithy import request
-	 
-	@request(url='http://httpbin.org/post', method='post')
-	def post(self, key1='value1'):
-	    """ post method """
-	    data = {
-	        'key1': key1
-	    }
-	    return dict(data=data)
-	 
-	# 使用
-	response = post('test').to_json()     # 解析json字符,输出为字典
-	response = post('test').json          # 解析json字符,输出为字典
-	response = post('test').to_content()  # 输出为字符串
-	response = post('test').content       # 输出为字符串
-	response = post('test').get_cookie()  # 输出cookie对象
-	response = post('test').cookie        # 输出cookie对象
-	 
-	# 结果取值, 假设此处response = {'a': 1, 'b': { 'c': [1, 2, 3, 4]}}
-	response = post('13111111111', '123abc').json
-	 
-	print response.b.c   # 通过点号取值,结果为[1, 2, 3, 4]
-	 
-	print response('$.a') # 通过object path取值,结果为1
-	 
-	for i in response('$..c[@>3]'): # 通过object path取值,结果为选中c字典里大于3的元素
-	    print i
+from pithy import request
+ 
+@request(url='http://httpbin.org/post', method='post')
+def post(self, key1='value1'):
+    """ post method """
+    data = {
+        'key1': key1
+    }
+    return dict(data=data)
+ 
+# 使用
+response = post('test').to_json()     # 解析json字符,输出为字典
+response = post('test').json          # 解析json字符,输出为字典
+response = post('test').to_content()  # 输出为字符串
+response = post('test').content       # 输出为字符串
+response = post('test').get_cookie()  # 输出cookie对象
+response = post('test').cookie        # 输出cookie对象
+ 
+# 结果取值, 假设此处response = {'a': 1, 'b': { 'c': [1, 2, 3, 4]}}
+response = post('13111111111', '123abc').json
+ 
+print response.b.c   # 通过点号取值,结果为[1, 2, 3, 4]
+ 
+print response('$.a') # 通过object path取值,结果为1
+ 
+for i in response('$..c[@>3]'): # 通过object path取值,结果为选中c字典里大于3的元素
+    print i
 
 优化JSON、字典使用
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-	# 1、操作JSON的KEY
-	from pithy import JSONProcessor
-	dict_data = {'a': 1, 'b': {'a': [1, 2, 3, 4]}}
-	json_data = json.dumps(dict_data)
-	result = JSONProcessor(json_data)
-	print result.a     # 结果：1
-	print result.b.a   # 结果：[1, 2, 3, 4]
-	 
-	# 2、操作字典的KEY
-	dict_data = {'a': 1, 'b': {'a': [1, 2, 3, 4]}}
-	result = JSONProcessor(dict_data)
-	print result.a     # 1
-	print result.b.a   # [1, 2, 3, 4]
-	 
-	# 3、object path取值
-	raw_dict = {
-	    'key1':{
-	        'key2':{
-	            'key3': [1, 2, 3, 4, 5, 6, 7, 8]
-	        }
-	    }
-	}
-	 
-	jp = JSONProcessor(raw_dict)
-	for i in jp('$..key3[@>3]'):
-	    print i
-	 
-	# 4、其它用法
-	dict_1 = {'a': 'a'}
-	json_1 = '{"b": "b"}'
-	jp = JSONProcessor(dict_1, json_1, c='c')
-	print(jp)
+# 1、操作JSON的KEY
+from pithy import JSONProcessor
+dict_data = {'a': 1, 'b': {'a': [1, 2, 3, 4]}}
+json_data = json.dumps(dict_data)
+result = JSONProcessor(json_data)
+print result.a     # 结果：1
+print result.b.a   # 结果：[1, 2, 3, 4]
+ 
+# 2、操作字典的KEY
+dict_data = {'a': 1, 'b': {'a': [1, 2, 3, 4]}}
+result = JSONProcessor(dict_data)
+print result.a     # 1
+print result.b.a   # [1, 2, 3, 4]
+ 
+# 3、object path取值
+raw_dict = {
+    'key1':{
+        'key2':{
+            'key3': [1, 2, 3, 4, 5, 6, 7, 8]
+        }
+    }
+}
+ 
+jp = JSONProcessor(raw_dict)
+for i in jp('$..key3[@>3]'):
+    print i
+ 
+# 4、其它用法
+dict_1 = {'a': 'a'}
+json_1 = '{"b": "b"}'
+jp = JSONProcessor(dict_1, json_1, c='c')
+print(jp)
 
 更多使用方法
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -535,7 +535,7 @@ http://pithy-test.readthedocs.io/en/latest/
 在本文中，我们以提高脚本开发效率为前提，一步一步打造了一个简易的测试框架，但因水平所限，并未涉及测试数据初始化清理、测试中如何MOCK等话题，
 
 前路依然任重而道远，希望给大家一个启发，不足之处还望多多指点，非常感谢。
-	
+
 
 参考：
 
