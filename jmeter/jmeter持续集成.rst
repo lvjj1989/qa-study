@@ -82,9 +82,7 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
 4、开始压测
 
 
-5、Windows下本地机器作为负载机时，
-
-修改本地jmeter文件bin目录下jmeter.properties以下参数中：
+5、Windows下本地机器作为负载机时，修改本地jmeter文件bin目录下jmeter.properties以下参数中：
 
 remote_hosts=xxx.xxx.xxx.xxx:1099
 
