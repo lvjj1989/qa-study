@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-测试学习
+软件测试学习
 ======================================
 
 .. toctree::
@@ -16,10 +16,10 @@
    python_base/index.rst
    web/index.rst
    performance/index.rst
-   jmeter/index.rst
+   Jmeter/index.rst
    pytest/index.rst
    mysql/index.rst
-   jenkins/index.rst
+   Jenkins/index.rst
    Interview_skills/index.rst
 
 

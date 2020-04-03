@@ -206,4 +206,12 @@ len
     In [26]: len(l)
     Out[26]: 5
 
+range
+---------------------------------
+生成一个不可变序列，range(start, stop[,step])::
 
+    In [153]: range(11)
+    Out[153]: range(0, 11)
+
+    In [154]: range(0,11,1)
+    Out[154]: range(0, 11)

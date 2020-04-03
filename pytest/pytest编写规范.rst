@@ -32,6 +32,7 @@ pytest编写规范
 	                               # only test_func in test_mod.py  
 
 或者通过::
+
 	python3 -m pytest ********
 	python -m python ********
 
