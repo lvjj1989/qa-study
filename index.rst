@@ -16,11 +16,11 @@
    python_base/index.rst
    web/index.rst
    performance/index.rst
-   Jmeter/index.rst
+   jmeter/index.rst
    pytest/index.rst
    mysql/index.rst
-   Jenkins/index.rst
-   Interview_skills/index.rst
+   jenkins/index.rst
+   interview_skills/index.rst
 
 
 
