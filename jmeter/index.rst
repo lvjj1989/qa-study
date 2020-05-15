@@ -8,15 +8,15 @@ Jmeter性能测试
 
 .. toctree::
 
-	Jmeter基本结构.rst
-	Jmeter进行http接口测试.rst
-	Jmeter参数化.rst
-	Jmeter常用监听器.rst
-	Jmeter断言方式总结.rst
-	Jmeter聚合报告.rst
-	Jmeter常用命令.rst
-	Jmeter分布式.rst
-	Jmeter持续集成.rst
-	Jmeter性能测试常用方法.rst
+	jmeter基本结构.rst
+	jmeter进行http接口测试.rst
+	jmeter参数化.rst
+	jmeter常用监听器.rst
+	jmeter断言方式总结.rst
+	jmeter聚合报告.rst
+	jmeter常用命令.rst
+	jmeter分布式.rst
+	jmeter持续集成.rst
+	jmeter性能测试常用方法.rst
 
 
