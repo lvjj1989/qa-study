@@ -42,6 +42,26 @@ pytest常用插件
 	pip install pytest-xdist
 
 
+设定执行顺序
+--------------------------------------------
+
+
+
+::
+
+	pip  install  pytest-ordering
+
+根据order参数从小到大执行
+
+::
+	@pytest.mark.run(order=2)
+	def test_order1():
+	    print ("first test")
+	    assert True
+	@pytest.mark.run(order=1)
+	def test_order2():
+	    print ("second test")
+	    assert True
 
 
 测试时间限制

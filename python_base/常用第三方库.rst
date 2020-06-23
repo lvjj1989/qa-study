@@ -68,6 +68,8 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 	res.headers  # 响应的headers，字典格式，可以取值
 	res.encoding  # 响应编码
 	res.request.xxx  # xxx可以是url，headers等请求的数据，用于获取请求数据
+	res.elapsed.total_seconds  # 获取响应所用总时长，单位秒
+
 
 json
 --------------------------------
