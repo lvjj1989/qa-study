@@ -1,7 +1,7 @@
 python基础
 ======================================
 
-推荐学习网站：https://www.liaoxuefeng.com/wiki/006089557264a6b348958f449949df42a6d3a2e542c000
+推荐学习网站：https://www.liaoxuefeng.com/wiki/1016959663602400
 
 .. toctree::
    
