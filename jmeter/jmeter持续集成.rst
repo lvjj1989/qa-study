@@ -14,6 +14,7 @@ Jmeter在linux上基于Jenkins持续集成参数化配置
 
 线程组修改为：${__P(ThreadNumber,400)}
 执行时间修改为：${__P(Diration,300)}
+通过shell命令传递 -JThreadNumber=$ThreadNumber -JDiration=$Diration
 
 备注：若在shell未传递，则对应参数：线程数默认取400，执行时间默认300秒
 
