@@ -36,9 +36,7 @@ class TestLogin(unittest.TestCase):
             'username': self.username,
             'password': self.password
         }
- 
         response = requests.post(self.login_url, data=data).json()
- 
         assert response['code'] == 200
         assert response['msg'] == 'success'
  
@@ -49,15 +47,12 @@ class TestLogin(unittest.TestCase):
             'username': self.username,
             'password': self.password
         }
- 
         response_cookies = requests.post(self.login_url, data=data).cookies
         session = response_cookies.get('session')
         assert session
- 
         info_cookies = {
             'session': session
         }
- 
         response = requests.get(self.info_url, cookies=info_cookies).json()
         assert response['code'] == 200
         assert response['msg'] == 'success'
