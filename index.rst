@@ -20,7 +20,7 @@
    pytest/index.rst
    mysql/index.rst
    jenkins/index.rst
-   interview_skills/index.rst
+   Interview_skills/index.rst
 
 
 
