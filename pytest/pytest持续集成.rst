@@ -11,14 +11,17 @@ https://www.python.org/
 -------------------------------------------------------
 pip3 install requests
 pip3 install pytest
-pip3 install pytest-html
 pip3 install pytest-allure-adaptor
-pip3 install PyMySQL
+pip3 install pytest-html
 
+或者
+pip3 install requests
+pip3 install pytest-html
+pip3 install pytest
+pip3 install allure-pytest
 
-
-注：pip下载python包是从(https://pypi.python.org/ ) 下载的，pypi服务器在国外，因此国内访问可能速度会比较慢，但使用时可以指定国内源，也就是从国内的镜像服务器下载，
-如使用清华的源: pip3 install requests -i https://pypi.tuna.tsinghua.edu.cn/simple
+**注：pip下载python包是从(https://pypi.python.org/ ) 下载的，pypi服务器在国外，因此国内访问可能速度会比较慢，但使用时可以指定国内源，也就是从国内的镜像服务器下载如使用清华的源: pip3 install requests -i https://pypi.tuna.tsinghua.edu.cn/simple**
+**亲测发现pytest-allure-adaptor和allure-pytest会存在冲突，个人比较推荐使用第二种模式**
 
 
 安装Python IDE pycharm
@@ -75,7 +78,7 @@ https://docs.pytest.org/en/latest/
 .. figure:: /_static/pytest/4.png
     :width: 15.0cm
 
-**注：这里可能会有个坑，经测试pytest和pytest-allure-adaptor会存在着一些版本的兼容性问题，这里我用的pytest版本是4.0.2，pytest-allure-adaptor的版本是1.7.10**
+**注：这里可能会有个坑，如果你使用的是pytest-allure-adaptor，经测试pytest和pytest-allure-adaptor会存在着一些版本的兼容性问题，这里我使用过的pytest版本是4.0.2，pytest-allure-adaptor的版本是1.7.10**
 
 生成allure测试报告
 --------------------------------------------------

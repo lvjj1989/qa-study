@@ -67,4 +67,18 @@ pytest常用插件
 测试时间限制
 -----------------------------------------
 
+在正常时间下，pytest是没有测试时间限制的，但有时候需要控制测试用例执行执行，可以使用pytest-timeout。
+
+::
+
+	pip install pytest-timeout
+
+在命令行中添加 --timeout=X
+X为该条命令执行的总时间限制，单位秒
+
+::
+
+	pytest --timeout=0.5 test_xxx.py
+
+
 
