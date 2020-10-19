@@ -256,29 +256,29 @@ OK，在这一个版本中，我们不但在把登录接口的调用封装成了
 
 ::
 
-class DemoApi(object):
- 
-    def __init__(self, base_url):
-        self.base_url = base_url
- 
-    @request(url='login', method='post')
-    def login(self, username, password):
-        """
-        登录接口
-        """
-        data = {
-            'username': username,
-            'password': password
-        }
- 
-        return {'data': data}
- 
-    @request(url='info', method='get')
-    def info(self):
-        """
-        详情接口
-        """
-        pass
+    class DemoApi(object):
+     
+        def __init__(self, base_url):
+            self.base_url = base_url
+     
+        @request(url='login', method='post')
+        def login(self, username, password):
+            """
+            登录接口
+            """
+            data = {
+                'username': username,
+                'password': password
+            }
+     
+            return {'data': data}
+     
+        @request(url='info', method='get')
+        def info(self):
+            """
+            详情接口
+            """
+            pass
 
 调用登录接口的日志
 ******************************************************
