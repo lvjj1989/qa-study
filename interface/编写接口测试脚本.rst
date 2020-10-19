@@ -257,66 +257,67 @@ OK，在这一个版本中，我们不但在把登录接口的调用封装成了
 
 ::
 
-    class DemoApi(object):
-     
-        def __init__(self, base_url):
-            self.base_url = base_url
-     
-        @request(url='login', method='post')
-        def login(self, username, password):
-            """
-            登录接口
-            """
-            data = {
-                'username': username,
-                'password': password
-            }
-     
-            return {'data': data}
-     
-        @request(url='info', method='get')
-        def info(self):
-            """
-            详情接口
-            """
-            pass
+class DemoApi(object):
+ 
+    def __init__(self, base_url):
+        self.base_url = base_url
+ 
+    @request(url='login', method='post')
+    def login(self, username, password):
+        """
+        登录接口
+        """
+        data = {
+            'username': username,
+            'password': password
+        }
+ 
+        return {'data': data}
+ 
+    @request(url='info', method='get')
+    def info(self):
+        """
+        详情接口
+        """
+        pass
 
-
-
+调用登录接口的日志
 ******************************************************
-1、接口描述
-登录接口
- 
-2、请求url
-http://127.0.0.1:5000/login
- 
-3、请求方法
-post
- 
-4、请求headers
-{
-    "Accept": "*/*",
-    "Accept-Encoding": "gzip, deflate",
-    "Connection": "keep-alive",
-    "User-Agent": "python-requests/2.7.0 CPython/2.7.10 Darwin/16.4.0"
-}
- 
-5、body参数
-{
-    "password": "123456",
-    "username": "admin"
-}
- 
-6、响应结果
-{
-    "code": 200,
-    "msg": "success"
-}
+::
+
+    1、接口描述
+    登录接口
+     
+    2、请求url
+    http://127.0.0.1:5000/login
+     
+    3、请求方法
+    post
+     
+    4、请求headers
+    {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "keep-alive",
+        "User-Agent": "python-requests/2.7.0 CPython/2.7.10 Darwin/16.4.0"
+    }
+     
+    5、body参数
+    {
+        "password": "123456",
+        "username": "admin"
+    }
+     
+    6、响应结果
+    {
+        "code": 200,
+        "msg": "success"
+    }
 
 扩展
 ------------------------------
 
-ttp接口请求的姿势我们定义好了，我们还可以做些什么呢？
+http接口请求的姿势我们定义好了，我们还可以做些什么呢？
 
 * [x] 非HTTP协议接口
 * [x] 测试用例编写
@@ -404,8 +405,7 @@ pithy意为简洁有力的，意在简化自动化接口测试，提高测试效
 *一键生成测试项目*
 ::
 
-    >>> pithy-cli init
-
+    >>>  pithy-cli init
     请选择项目类型,输入api或者app: api
     请输入项目名称,如pithy-api-test: pithy-api-test
     开始创建pithy-api-test项目
@@ -491,7 +491,7 @@ pithy意为简洁有力的，意在简化自动化接口测试，提高测试效
     result = JSONProcessor(json_data)
     print result.a     # 结果：1
     print result.b.a   # 结果：[1, 2, 3, 4]
-     
+ 
     # 2、操作字典的KEY
     dict_data = {'a': 1, 'b': {'a': [1, 2, 3, 4]}}
     result = JSONProcessor(dict_data)
