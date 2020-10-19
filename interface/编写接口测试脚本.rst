@@ -19,7 +19,6 @@ http接口脚本实现
     import requests
     import unittest
      
-     
     class TestLogin(unittest.TestCase):
      
         @classmethod
