@@ -7,10 +7,10 @@ pytest预期异常
 
 ::
 
-	import pytest
+    import pytest
 
 
-	def test_add_raises():
-		with pytest.raises(AssertionError):
-			# 此处必须抛出AssertionError的异常，用例才会通过
-			assert 1 + 1 == 3
+    def test_add_raises():
+        with pytest.raises(AssertionError):
+            # 此处必须抛出AssertionError的异常，用例才会通过
+            assert 1 + 1 == 3

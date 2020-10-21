@@ -72,7 +72,7 @@ https://docs.pytest.org/en/latest/
 #. 配置构建项目时添加构建后操作，Allure Report
 #. 执行pytest命令时，添加 ::
 
-	--alluredir ${WORKSPACE}/allure-results
+        --alluredir ${WORKSPACE}/allure-results
 
 
 .. figure:: /_static/pytest/4.png
@@ -85,7 +85,7 @@ https://docs.pytest.org/en/latest/
 
 
 
-.. figure:: /_static/pytest/5.png
+.. figure:: /_static/pytest/allure_report.png
     :width: 15.0cm
 
 
