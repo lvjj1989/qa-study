@@ -9,31 +9,31 @@ pytest可以方便的生成测试报告，即可以生成HTML的测试报告，�
 
 ::
 
-	pip install pytest-html
+    pip install pytest-html
 
 **生成HTML格式报告：**
 
 ::
 
-	py.test --resultlog=path  
+    py.test --resultlog=path  
 
 或者：
 
 ::
 
-	py.test  --html=result.html
+    py.test  --html=result.html
 
 **生成XML格式的报告：**
 
 ::
 
-	py.test --junitxml=path  
+    py.test --junitxml=path  
 
 或者：
 
 ::
 
-	--junit-xml=result.xml
+    --junit-xml=result.xml
 
 
 url测试报告输出
@@ -43,7 +43,7 @@ url格式的报告是将测试结果发送给pastebin服务器，在用例执行
 运行命令：
 ::
 
-	pytest --pastebin=all #如果只想看失败的信息把all换成failed
+    pytest --pastebin=all #如果只想看失败的信息把all换成failed
 
 
 
@@ -55,7 +55,7 @@ pytest中需要安装第三方类库
 
 ::
 
-	pip install allure-pytest
+    pip install allure-pytest
 
 详情可见以下地址:
 https://docs.qameta.io/allure/#_pytest

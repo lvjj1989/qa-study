@@ -70,9 +70,10 @@ https://docs.pytest.org/en/latest/
 
 1. 通过Jenkins下载allure插件
 #. 配置构建项目时添加构建后操作，Allure Report
-#. 执行pytest命令时，添加 ::
+#. 执行pytest命令时，添加 
+::
 
-        --alluredir ${WORKSPACE}/allure-results
+    --alluredir ${WORKSPACE}/allure-results
 
 
 .. figure:: /_static/pytest/4.png

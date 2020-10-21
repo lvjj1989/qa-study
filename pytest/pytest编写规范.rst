@@ -20,20 +20,20 @@ pytest编写规范
 ::
 
 
-	py.test               # run all tests below current dir  
-	py.test test_mod.py   # run tests in module  
-	py.test somepath      # run all tests below somepath  
-	py.test -k stringexpr # only run tests with names that match the  
-	                      # the "string expression", e.g. "MyClass and not method"  
-	                      # will select TestMyClass.test_something  
-	                      # but not TestMyClass.test_method_simple  
-	py.test test_mod.py::test_func # only run tests that match the "node ID",  
-	                   # e.g "test_mod.py::test_func" will select  
-	                               # only test_func in test_mod.py  
+    py.test               # run all tests below current dir  
+    py.test test_mod.py   # run tests in module  
+    py.test somepath      # run all tests below somepath  
+    py.test -k stringexpr # only run tests with names that match the  
+                          # the "string expression", e.g. "MyClass and not method"  
+                          # will select TestMyClass.test_something  
+                          # but not TestMyClass.test_method_simple  
+    py.test test_mod.py::test_func # only run tests that match the "node ID",  
+                       # e.g "test_mod.py::test_func" will select  
+                                   # only test_func in test_mod.py  
 
 或者通过::
 
-	python3 -m pytest ********
-	python -m python ********
+    python3 -m pytest ********
+    python -m python ********
 
 

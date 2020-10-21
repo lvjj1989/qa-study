@@ -13,46 +13,46 @@ fixture介绍
 
 ::
 
-	import pytest
+    import pytest
 
-	@pytest.fixture()
-	def before():
-	    print('\nbefore each test')
+    @pytest.fixture()
+    def before():
+        print('\nbefore each test')
 
-	def test_1(before):
-	    print('test_1()')
+    def test_1(before):
+        print('test_1()')
 
-	def test_2(before):
-	    print('test_2()')
-	    assert 0
+    def test_2(before):
+        print('test_2()')
+        assert 0
 
 下面是运行结果，test_1和test_2运行之前都调用了before，也就是before执行了两次。默认情况下，fixture是每个测试用例如果调用了该fixture就会执行一次的。
 
 ::
 
-	collected 2 items 
+    collected 2 items 
 
-	test_fixture_basic.py::test_1
-	before each test
-	test_1()
-	PASSED
-	test_fixture_basic.py::test_2
-	before each test
-	test_2()
-	FAILED
+    test_fixture_basic.py::test_1
+    before each test
+    test_1()
+    PASSED
+    test_fixture_basic.py::test_2
+    before each test
+    test_2()
+    FAILED
 
-	================================== FAILURES ===================================
-	___________________________________ test_2 ____________________________________
+    ================================== FAILURES ===================================
+    ___________________________________ test_2 ____________________________________
 
-	before = None
+    before = None
 
-	    def test_2(before):
-	        print('test_2()')
-	>       assert 0
-	E       assert 0
+        def test_2(before):
+            print('test_2()')
+    >       assert 0
+    E       assert 0
 
-	test_fixture_basic.py:12: AssertionError
-	===================== 1 failed, 1 passed in 0.23 seconds ======================
+    test_fixture_basic.py:12: AssertionError
+    ===================== 1 failed, 1 passed in 0.23 seconds ======================
 
 
 调用fixture的三种方式
@@ -65,36 +65,36 @@ fixture介绍
 
 ::
 
-	import pytest
+    import pytest
 
-	@pytest.fixture()
-	def before():
-	    print('\nbefore each test')
+    @pytest.fixture()
+    def before():
+        print('\nbefore each test')
 
-	@pytest.mark.usefixtures("before")
-	def test_1():
-	    print('test_1()')
+    @pytest.mark.usefixtures("before")
+    def test_1():
+        print('test_1()')
 
-	@pytest.mark.usefixtures("before")
-	def test_2():
-	    print('test_2()')
+    @pytest.mark.usefixtures("before")
+    def test_2():
+        print('test_2()')
 
-	class Test1:
-	    @pytest.mark.usefixtures("before")
-	    def test_3(self):
-	        print('test_4()')
+    class Test1:
+        @pytest.mark.usefixtures("before")
+        def test_3(self):
+            print('test_4()')
 
-	    @pytest.mark.usefixtures("before")
-	    def test_4(self):
-	        print('test_4()')
+        @pytest.mark.usefixtures("before")
+        def test_4(self):
+            print('test_4()')
 
-	@pytest.mark.usefixtures("before")
-	class Test2:
-	    def test_5(self):
-	        print('test_5()')
+    @pytest.mark.usefixtures("before")
+    class Test2:
+        def test_5(self):
+            print('test_5()')
 
-	    def test_6(self):
-	        print('test_6()')
+        def test_6(self):
+            print('test_6()')
 
 3. 用autos调用fixture
 
@@ -102,27 +102,27 @@ fixture decorator一个optional的参数是autouse, 默认设置为False。 当�
 
 ::
 
-	import time
-	import pytest
+    import time
+    import pytest
 
-	@pytest.fixture(scope="module", autouse=True)
-	def mod_header(request):
-	    print('\n-----------------')
-	    print('module      : %s' % request.module.__name__)
-	    print('-----------------')
+    @pytest.fixture(scope="module", autouse=True)
+    def mod_header(request):
+        print('\n-----------------')
+        print('module      : %s' % request.module.__name__)
+        print('-----------------')
 
-	@pytest.fixture(scope="function", autouse=True)
-	def func_header(request):
-	    print('\n-----------------')
-	    print('function    : %s' % request.function.__name__)
-	    print('time        : %s' % time.asctime())
-	    print('-----------------')
+    @pytest.fixture(scope="function", autouse=True)
+    def func_header(request):
+        print('\n-----------------')
+        print('function    : %s' % request.function.__name__)
+        print('time        : %s' % time.asctime())
+        print('-----------------')
 
-	def test_one():
-	    print('in test_one()')
+    def test_one():
+        print('in test_one()')
 
-	def test_two():
-	    print('in test_two()')
+    def test_two():
+        print('in test_two()')
 
 fixture scope
 --------------------------------------------
@@ -141,12 +141,12 @@ fixture 返回值
 
 ::
 
-	import pytest
+    import pytest
 
-	@pytest.fixture(params=[1, 2, 3])
-	def test_data(request):
-	    return request.param
+    @pytest.fixture(params=[1, 2, 3])
+    def test_data(request):
+        return request.param
 
-	def test_not_2(test_data):
-	    print('test_data: %s' % test_data)
-	    assert test_data != 2
+    def test_not_2(test_data):
+        print('test_data: %s' % test_data)
+        assert test_data != 2
