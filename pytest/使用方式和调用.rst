@@ -4,9 +4,9 @@
 你可以通过以下方法进行调用
 ::
 
-	python -m pytest [...]
-	或者
-	py.test [...]
+        python -m pytest [...]
+        或者
+        py.test [...]
 
 获取版本，选项名，环境变量
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,8 +46,8 @@ Python带有一个内置的Python调试器称为PDB。pytest可以在命令行�
 
 ::
 
-	py.test -x --pdb # 失败时调用pdb，然后退出测试
-	py.test --pdb - maxfail=3＃ 前3次失败调用pdb。
+        py.test -x --pdb # 失败时调用pdb，然后退出测试
+        py.test --pdb - maxfail=3＃ 前3次失败调用pdb。
 
 
 Profiling测试执行时间
@@ -55,7 +55,7 @@ Profiling测试执行时间
 得到最执行慢的10个测试
 ::
 
-	py.test --durations=10 
+        py.test --durations=10 
 
 
 创建JUnitXML格式的文件
@@ -64,14 +64,14 @@ Profiling测试执行时间
 
 ::
 
-	py.test --junitxml=path #path是一个xml文件
+        py.test --junitxml=path #path是一个xml文件
 
 在3.1版本中：你可以通过配置junit_suite_name，设置测试集的xml项目根目录名称，
 
 ::
 
-	[pytest]
-	junit_suite_name = my_suite
+        [pytest]
+        junit_suite_name = my_suite
 
 
 

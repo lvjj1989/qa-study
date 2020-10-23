@@ -74,8 +74,7 @@ pytest常用插件
 
     pip install pytest-timeout
 
-在命令行中添加 --timeout=X
-X为该条命令执行的总时间限制，单位秒
+在命令行中添加 --timeout=X，X为该条命令执行的总时间限制，单位秒
 
 ::
 
