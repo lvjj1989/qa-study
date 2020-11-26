@@ -133,3 +133,49 @@
 
 输出为::
     {'b': 2}
+
+
+get()方法
+-----------------------------------
+
+::
+
+    dict.get(key, default=None)
+
+key -- 字典中要查找的键。
+default -- 如果指定键的值不存在时，返回该默认值。
+
+::
+
+    dict_test = {'key1': 'v1'}
+    print('key1 = ', dict_test.get('key1', 'default_v'))
+    print('key2 = ', dict_test.get('key2', 'default_v'))
+
+输出结果为：
+::
+    key1 =  v1
+    key2 =  default_v
+
+setdefault()方法
+-------------------------------------------
+
+::
+
+    dict.setdefault(key, default=None)
+
+key -- 查找的键值。
+default -- 键不存在时，设置的默认键值。
+
+与get不同的是，setdefault在没有找到key的时候，会将对于对于的key和default的值，加入到dict里
+
+::
+
+    dict_test = {'key1': 'v1'}
+    print("key2 = ", dict_test.setdefault('key2', 'v2'))
+    print(dict_test)
+
+输出结果为：
+::
+
+    key2 =  v2
+    {'key1': 'v1', 'key2': 'v2'}
