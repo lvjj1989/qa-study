@@ -32,6 +32,18 @@ pip下载python包是从https://pypi.python.org/下载的，pypi服务器在国�
 
 除了在命令行指定源外，也可以在本地配置，使用方法可以在网络上搜索一下
 
+其他常用源：
+清华：https://pypi.tuna.tsinghua.edu.cn/simple
+阿里云：http://mirrors.aliyun.com/pypi/simple/
+
+中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+
+华中理工大学：http://pypi.hustunique.com/
+
+山东理工大学：http://pypi.sdutlinux.org/
+
+豆瓣：http://pypi.douban.com/simple/
+
 -------------------
 
 安装ipython
