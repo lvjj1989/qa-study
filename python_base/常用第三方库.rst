@@ -12,7 +12,7 @@ requests是对urllib的一个特别好的封装，是最适合人类使用的htt
 
 ::
 
-	pip install requsets
+	pip install requests
 
 导入方式
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

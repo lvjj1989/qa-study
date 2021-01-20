@@ -233,5 +233,26 @@ print() 方法用于打印输出，最常见的一个函数。
   + end：用来设定以什么结尾。默认值是换行符 \n，我们可以换成其他字符串。
 
   + file：要写入的文件对象。
-  
+
   + flush：输出是否被缓存通常决定于file，但如果flush关键字参数为True，流会被强制刷新。
+
+::
+    
+    >>>print(1)  
+    1  
+    >>> print("Hello World")  
+    Hello World  
+     
+    >>> a = 1
+    >>> b = '2'
+    >>> print(a,b)
+    1 2
+     
+    >>> print("aaa""bbb")
+    aaabbb
+    >>> print("aaa","bbb")
+    aaa bbb
+    >>> 
+     
+    >>> print("www","lvjunjie","cn",sep=".")  # 设置间隔符
+    www.lvjunjie.cn
