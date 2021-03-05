@@ -58,7 +58,7 @@ pytest基础教程：
 
 https://www.jianshu.com/p/a754e3d47671
 
-http://lvjunjie.cn/qa-study/pytest/index.html
+https://lvjunjie.cn/qa-study/pytest/index.html
 
 pytest官方文档：
 https://docs.pytest.org/en/latest/
