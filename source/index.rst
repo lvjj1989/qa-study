@@ -7,17 +7,17 @@
    :maxdepth: 2
    :numbered:
 
-   ../welcome/index.rst
-   ../functional/index.rst
-   ../interface/index.rst
-   ../python_base/index.rst
-   ../web/index.rst
-   ../performance/index.rst
-   ../jmeter/index.rst
-   ../pytest/index.rst
-   ../mysql/index.rst
-   ../jenkins/index.rst
-   ../Interview_skills/index.rst
+   welcome/index.rst
+   functional/index.rst
+   interface/index.rst
+   python_base/index.rst
+   web/index.rst
+   performance/index.rst
+   jmeter/index.rst
+   pytest/index.rst
+   mysql/index.rst
+   jenkins/index.rst
+   Interview_skills/index.rst
 
 联系
 =======================
