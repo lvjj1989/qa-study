@@ -20,7 +20,7 @@ pip3 install pytest-html
 pip3 install pytest
 pip3 install allure-pytest
 
-**注：pip下载python包是从(https://pypi.python.org/ ) 下载的，pypi服务器在国外，因此国内访问可能速度会比较慢，但使用时可以指定国内源，也就是从国内的镜像服务器下载如使用清华的源: pip3 install requests -i https://pypi.tuna.tsinghua.edu.cn/simple**
+**注：pip下载python包是从(https://pypi.python.org/) 下载的，pypi服务器在国外，因此国内访问可能速度会比较慢，但使用时可以指定国内源，也就是从国内的镜像服务器下载如使用清华的源: pip3 install requests -i https://pypi.tuna.tsinghua.edu.cn/simple**
 **亲测发现pytest-allure-adaptor和allure-pytest会存在冲突，个人比较推荐使用第二种模式**
 
 
