@@ -1,6 +1,5 @@
 本教程作为软件测试人员能力提升与学习网站，欢迎大家集思广益，多提意见和建议
 
-
    
 
 联系
@@ -14,7 +13,7 @@
 本教程所有测试示例代码可在 `Github`_ 下载。
 
 
-.. _link: https://github.com/lvjj1989/qa-study
+.. _link: https://lvjunjie.cn/qa-study/
 
 本教程官网地址为 `link`_ 下载。
 
