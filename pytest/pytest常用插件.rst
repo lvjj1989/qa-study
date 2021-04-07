@@ -14,6 +14,7 @@ pytest常用插件
     pip install -U pytest-rerunfailures
 
 在命令行中增加 --reruns NUM，NUM为失败重试的最大次数
+
 ::
 
     pytest test_se.py --reruns 3
@@ -41,15 +42,19 @@ pytest常用插件
 
     pip install pytest-xdist
 
+pytest-xdist插件的 -n numprocesses 选项可以指定运行测试的处理器进程数，-n auto选项可以自动侦测系统里的CPU数码
+
+::
+
+    pytest -n 3 test_lvjj.py
+    pytest -n auto test_lvjj.py
 
 设定执行顺序
 --------------------------------------------
 
-
-
 ::
 
-    pip  install  pytest-ordering
+    pip install pytest-ordering
 
 根据order参数从小到大执行
 
@@ -78,7 +83,7 @@ pytest常用插件
 
 ::
 
-    pytest --timeout=0.5 test_xxx.py
+    pytest --timeout=3.5 test_xxx.py
 
 
 
