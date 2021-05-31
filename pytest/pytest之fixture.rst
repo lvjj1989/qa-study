@@ -127,7 +127,9 @@ fixture decorator一个optional的参数是autouse, 默认设置为False。 当�
 fixture scope
 --------------------------------------------
 
-function：每个test都运行，默认是function的scope class：每个class的所有test只运行一次 module：每个module的所有test只运行一次 session：每个session只运行一次
+* function：每个test都运行，默认是function的scope class：每个class的所有test只运行一次 
+* module：每个module的所有test只运行一次 
+* session：每个session只运行一次 
 
 比如你的所有test都需要连接同一个数据库，那可以设置为module，只需要连接一次数据库，对于module内的所有test，这样可以极大的提高运行效率。
 
