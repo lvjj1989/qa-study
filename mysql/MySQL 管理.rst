@@ -84,7 +84,9 @@ MySQL 用户设置
 	    -> TO 'zara'@'localhost'
 	    -> IDENTIFIED BY 'zara123';
 以上命令会在mysql数据库中的user表创建一条用户信息记录。
-注意: MySQL 的SQL语句以分号 (;) 作为结束标识。
+
+.. warning:: MySQL 的SQL语句以分号 (;) 作为结束标识。
+
 /etc/my.cnf 文件配置
 --------------------------------------
 一般情况下，你不需要修改该配置文件，该文件默认配置如下：
