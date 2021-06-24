@@ -99,7 +99,8 @@ Mysql安装后需要做的
 
 	[root@host]# mysql -u root -p
 	Enter password:*******
-	注意：在输入密码时，密码是不会显示了，你正确输入即可。
+
+.. warning:: 在输入密码时，密码是不会显示了，你正确输入即可。
 
 
 Window 上安装Mysql
