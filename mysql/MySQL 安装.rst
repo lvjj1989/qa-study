@@ -42,7 +42,8 @@ Linux平台上推荐使用RPM包来安装Mysql,MySQL AB提供了以下RPM包的�
 
 service mysqld start
 
-注意：如果我们是第一次启动 mysql 服务，mysql 服务器首先会进行初始化的配置。
+.. warning:: 如果我们是第一次启动 mysql 服务，mysql 服务器首先会进行初始化的配置。
+
 如果是 CentOS 7 版本，由于 MySQL数据库已从默认的程序列表中移除，可以使用 mariadb 代替：
 yum install mariadb-server mariadb 
 

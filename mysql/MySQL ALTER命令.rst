@@ -121,7 +121,8 @@ ALTER TABLE 对 Null 值和默认值的影响
 	Changing a Table Type:
 修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：
 
-**注意**：查看数据表类型可以使用 SHOW TABLE STATUS 语句。
+.. warning:: 查看数据表类型可以使用 SHOW TABLE STATUS 语句。
+
 ::
 
 	mysql> ALTER TABLE testalter_tbl ENGINE = MYISAM;

@@ -19,7 +19,6 @@ pytest编写规范
 
 ::
 
-
     py.test               # run all tests below current dir  
     py.test test_mod.py   # run tests in module  
     py.test somepath      # run all tests below somepath  

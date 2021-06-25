@@ -50,8 +50,10 @@ MySQL 用户设置
 	+-----------+---------+------------------+
 	1 row in set (0.00 sec)
 在添加用户时，请注意使用MySQL提供的 PASSWORD() 函数来对密码进行加密。 你可以在以上实例看到用户密码加密后为： 6f8c114b58f2ce9e.
-注意：在 MySQL5.7 中 user 表的 password 已换成了authentication_string。
-注意：在注意需要执行 FLUSH PRIVILEGES 语句。 这个命令执行后会重新载入授权表。
+.. warning:: 在 MySQL5.7 中 user 表的 password 已换成了authentication_string。
+
+.. warning:: 在注意需要执行 FLUSH PRIVILEGES 语句。 这个命令执行后会重新载入授权表。
+
 如果你不使用该命令，你就无法使用新创建的用户来连接mysql服务器，除非你重启mysql服务器。
 你可以在创建用户时，为用户指定权限，在对应的权限列中，在插入语句中设置为 'Y' 即可，用户权限列表如下：
 
