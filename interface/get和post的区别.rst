@@ -39,7 +39,9 @@ http协议从未规定get/post的请求长度限制是多少，限制URL长度�
   + Opera：Opera 浏览器的url长度限制为190 000 字符。Opera9 地址栏中输入190000字符时依然能正常编辑。
 
 - 服务器 
+
   + Apache：Apache能接受url长度限制为8192字符
+  
   + IIS：Microsoft Internet Information Server(IIS)能接受url长度限制为16384个字符。这个是可以通过修改的（IIS7）
 configuration/system.webServer/security/requestFiltering/requestLimits@maxQueryStringsetting.
 
