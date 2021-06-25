@@ -41,9 +41,8 @@ http协议从未规定get/post的请求长度限制是多少，限制URL长度�
 - 服务器 
 
   + Apache：Apache能接受url长度限制为8192字符
-  
-  + IIS：Microsoft Internet Information Server(IIS)能接受url长度限制为16384个字符。这个是可以通过修改的（IIS7）
-configuration/system.webServer/security/requestFiltering/requestLimits@maxQueryStringsetting.
+
+  + IIS：Microsoft Internet Information Server(IIS)能接受url长度限制为16384个字符。这个是可以通过修改的（IIS7）configuration/system.webServer/security/requestFiltering/requestLimits@maxQueryStringsetting.
 
 get的参数通常方式URL上，post的参数通常方式body里
 ---------------------------------------------
