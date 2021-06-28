@@ -16,6 +16,7 @@
    python_base/index.rst
    web/index.rst
    performance/index.rst
+   linux/index.rst
    jmeter/index.rst
    pytest/index.rst
    mysql/index.rst
