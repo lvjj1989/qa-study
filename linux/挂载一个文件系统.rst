@@ -1,2 +1,17 @@
 挂载一个文件系统
 ====================================
+
+::
+
+	mount /dev/hda2 /mnt/hda2 挂载一个叫做hda2的盘 - 确定目录 '/ mnt/hda2' 已经存在
+	umount /dev/hda2 卸载一个叫做hda2的盘 - 先从挂载点 '/ mnt/hda2' 退出
+	fuser -km /mnt/hda2 当设备繁忙时强制卸载
+	umount -n /mnt/hda2 运行卸载操作而不写入 /etc/mtab 文件- 当文件为只读或当磁盘写满时非常有用
+	mount /dev/fd0 /mnt/floppy 挂载一个软盘
+	mount /dev/cdrom /mnt/cdrom 挂载一个cdrom或dvdrom
+	mount /dev/hdc /mnt/cdrecorder 挂载一个cdrw或dvdrom
+	mount /dev/hdb /mnt/cdrecorder 挂载一个cdrw或dvdrom
+	mount -o loop file.iso /mnt/cdrom 挂载一个文件或ISO镜像文件
+	mount -t vfat /dev/hda5 /mnt/hda5 挂载一个Windows FAT32文件系统
+	mount /dev/sda1 /mnt/usbdisk 挂载一个usb 捷盘或闪存设备
+	mount -t smbfs -o username=user,password=pass //WinClient/share /mnt/share 挂载一个windows网络共享
