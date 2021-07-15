@@ -8,7 +8,7 @@
 
 ::
 
-	:rpm –ivh wu-ftpd-2.6.2-8.i386.rpm 
+	rpm –ivh wu-ftpd-2.6.2-8.i386.rpm 
 	i： # 作用rpm的安装模式 
 	v:  # 校验文件信息
 	h:  # 以＃号显示安装进度
@@ -20,7 +20,7 @@
 
 ::
 
-	：rpm –e wu-ftpd 
+	rpm –e wu-ftpd 
 
 .. warning:: 注意：这里必须使用软件名“wu-ftpd”或”wu-ftpd-2.6.2-8而不是使用当初安装时的软件包名.wu-ftpd-2.6.2-8.i386.rpm
 
