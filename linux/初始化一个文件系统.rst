@@ -1,0 +1,11 @@
+初始化一个文件系统
+======================================
+
+::
+
+	mkfs /dev/hda1  # 在hda1分区创建一个文件系统
+	mke2fs /dev/hda1  # 在hda1分区创建一个linux ext2的文件系统
+	mke2fs -j /dev/hda1  # 在hda1分区创建一个linux ext3(日志型)的文件系统
+	mkfs -t vfat 32 -F /dev/hda1  # 创建一个 FAT32 文件系统
+	fdformat -n /dev/fd0  # 格式化一个软盘
+	mkswap /dev/hda3  # 创建一个swap文件系统
