@@ -2,7 +2,7 @@ RPM包
 ===============================
 
 ::
-	
+
 	rpm -ivh package.rpm  # 安装一个rpm包
 	rpm -ivh --nodeeps package.rpm  # 安装一个rpm包而忽略依赖关系警告
 	rpm -U package.rpm  # 更新一个rpm包但不改变其配置文件
