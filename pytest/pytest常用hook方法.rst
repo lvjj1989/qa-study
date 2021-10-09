@@ -71,6 +71,7 @@ conftest.py内容::
 
 pytest_terminal_summary
 ---------------------------------------------
+
 用例执行完成后，获取到执行的结果，快速统计用例的执行情况。
 关于TerminalReporter类可以在_pytest.terminal中查看到
 
@@ -184,7 +185,9 @@ Reporting 报告钩子
 
 调试/相互作用钩
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 很少有可以用于特殊报告或与异常交互的挂钩：
+
 * pytest_internalerror(excrepr: ExceptionRepr, excinfo: ExceptionInfo[BaseException]) 要求内部错误。返回True以禁止对将INTERNALERROR消息直接打印到sys.stderr的回退处理。
 * pytest_keyboard_interrupt(excinfo: ExceptionInfo[Union[KeyboardInterrupt, Exit]]) 要求键盘中断。
 * pytest_exception_interact(node: Union[Item, Collector], call: CallInfo[Any], report: Union[CollectReport, TestReport]) 在引发可能可以交互处理的异常时调用。
