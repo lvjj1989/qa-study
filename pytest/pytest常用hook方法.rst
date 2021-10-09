@@ -1,4 +1,4 @@
-pytest常用hook方法
+pytest常用hooks方法
 ================================================
 
 pytest_runtest_makereport
