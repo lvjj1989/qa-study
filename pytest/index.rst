@@ -13,3 +13,4 @@ pytest
         pytest持续集成.rst
         pytest使用方式和调用.rst
         pytest常用插件.rst
+        pytest常用hook方法.rst
