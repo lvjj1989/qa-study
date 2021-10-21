@@ -129,6 +129,7 @@ setuptools
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 初始化钩子需要插件和conftest.py文件
+
 * pytest_addoption(parser): 注册argparse样式的选项和ini样式的配置值，这些值在测试运行开始时被调用一次。
 * pytest_addhooks(pluginmanager): 在插件注册时调用，以允许通过调用来添加新的挂钩
 * pytest_configure(config): 许插件和conftest文件执行初始配置。
