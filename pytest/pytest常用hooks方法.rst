@@ -6,7 +6,8 @@ pytest_runtest_makereport
 
 
 pytest_runtest_makereport这个钩子方法，了解用例的执行过程，并获取到每个用例的执行结果。
-相关的源码，在``_pytest/runner.py``下::
+相关的源码，在 ``_pytest/runner.py`` 
+下::
 
 	from _pytest import runner
 
