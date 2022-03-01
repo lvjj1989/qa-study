@@ -62,6 +62,7 @@ Jmeter在linux上基于Jenkins持续集成参数化配置
 
 System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
 
+
 点击运行，再重新构建脚本即可。
 
 
