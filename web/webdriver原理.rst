@@ -1,6 +1,6 @@
 selenium webdriver原理
 ======================================
-我们来结合下图简单讨论下webdriver的理，以chromedriver为例
+我们来结合下图简单讨论下webdriver的原理，以chromedriver为例
 当你运行chromedriver时，chromedriver会在本地启动一个web服务，这个服务定义了一些api，你可以通过调用这些web api来操作浏览器，
 详情可查看 https://w3c.github.io/webdriver/webdriver-spec.html#list-of-endpoints 
 
