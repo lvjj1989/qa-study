@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. pytest &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.1. pytest介绍" href="pytest简介.html" />
+    <link rel="prev" title="7.25. 软件包管理命令(RPM)" href="../linux/软件包管理命令(RPM).html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. pytest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html">8.1. pytest介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html">8.2. pytest编写规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html">8.3. pytest测试报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest参数化.html">8.4. pytest参数化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html">8.5. pytest之fixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest中mark标记.html">8.6. pytest中mark标记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest预期异常.html">8.7. pytest预期异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html">8.8. pytest持续集成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html">8.9. pytest常用插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html">8.10. pytest常用hooks方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>8. pytest</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pytest/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pytest">
+<h1>8. pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pytest简介.html">8.1. pytest介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id1">8.1.1. pytest简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id2">8.1.2. 安装pytest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id3">8.1.3. 一个实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id4">8.1.4. 再一个实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id5">8.1.5. 如何获取帮助信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#raises">8.1.6. 使用raises可以帮助我们断言某些代码会引发某个异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id6">8.1.7. 多个测试的类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#fixture">8.1.8. 使用内置fixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#fixturescope">8.1.9. fixture的scope参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html#id7">8.1.10. 最佳实践</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest编写规范.html">8.2. pytest编写规范</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html#id1">8.2.1. 如何编写pytest测试样例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html#id2">8.2.2. 如何执行pytest测试样例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest测试报告.html">8.3. pytest测试报告</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html#id1">8.3.1. 测试报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html#url">8.3.2. url测试报告输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html#allure">8.3.3. allure测试报告</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest参数化.html">8.4. pytest参数化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest参数化.html#fixture">8.4.1. 使用fixture实现参数化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest之fixture.html">8.5. pytest之fixture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html#fixture">8.5.1. fixture介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html#id1">8.5.2. 调用fixture的三种方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html#fixture-scope">8.5.3. fixture scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html#id2">8.5.4. fixture 返回值</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest中mark标记.html">8.6. pytest中mark标记</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest中mark标记.html#id1">8.6.1. 指定用例测试执行实现冒烟测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest中mark标记.html#id2">8.6.2. 跳过测试用例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytest中mark标记.html#skip">8.6.2.1. skip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest中mark标记.html#skipif">8.6.2.2. skipif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest中mark标记.html#xfail">8.6.2.3. xfail</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest预期异常.html">8.7. pytest预期异常</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest持续集成.html">8.8. pytest持续集成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#python">8.8.1. 安装python环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#id1">8.8.2. 推荐安装以下第三方类库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#python-ide-pycharm">8.8.3. 安装Python IDE pycharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#id2">8.8.4. 构建Python项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#pycharm">8.8.5. 配置Pycharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#id3">8.8.6. 通过pytest自动化测试框架编写接口自动化测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#id4">8.8.7. 搭建持续集成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html#allure">8.8.8. 生成allure测试报告</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest常用插件.html">8.9. pytest常用插件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html#id1">8.9.1. 失败重试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html#id2">8.9.2. 重复运行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html#id3">8.9.3. 并行运行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html#id4">8.9.4. 设定执行顺序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html#id5">8.9.5. 测试时间限制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytest常用hooks方法.html">8.10. pytest常用hooks方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html#pytest-runtest-makereport">8.10.1. pytest_runtest_makereport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html#pytest-collection-modifyitems">8.10.2. pytest_collection_modifyitems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html#pytest-terminal-summary">8.10.3. pytest_terminal_summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html#pytest-report-teststatus">8.10.4. pytest_report_teststatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html#api">8.10.5. 钩子函数集合API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pytest常用hooks方法.html#setuptools">8.10.5.1. setuptools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest常用hooks方法.html#id1">8.10.5.2. 初始化挂钩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest常用hooks方法.html#collection">8.10.5.3. collection 收集钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest常用hooks方法.html#runtest">8.10.5.4. 测试运行(runtest)钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest常用hooks方法.html#reporting">8.10.5.5. Reporting 报告钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pytest常用hooks方法.html#id2">8.10.5.6. 调试/相互作用钩</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../linux/软件包管理命令(RPM).html" class="btn btn-neutral float-left" title="7.25. 软件包管理命令(RPM)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pytest简介.html" class="btn btn-neutral float-right" title="8.1. pytest介绍" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

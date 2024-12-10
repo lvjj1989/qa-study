@@ -1,0 +1,116 @@
+自己写接口
+======================================
+
+基于python flask，自行编写HTTP接口
+
+准备工作
+--------------------------------------
+
+::
+
+    pip install flask
+    pip install flask_restful
+
+脚本编写
+--------------------------------------
+
+使用pycharm新建一个文件叫api.py，然后粘贴进去如下内容::
+
+    from flask import Flask
+    from flask_restful import reqparse, abort, Api, Resource
+
+    app = Flask(__name__)
+    api = Api(app)
+
+    TODOS = {
+        'todo1': {'task': 'build an API'},
+        'todo2': {'task': '?????'},
+        'todo3': {'task': 'profit!'},
+    }
+
+
+    def abort_if_todo_doesnt_exist(todo_id):
+        if todo_id not in TODOS:
+            abort(404, message="Todo {} doesn't exist".format(todo_id))
+
+    parser = reqparse.RequestParser()
+    parser.add_argument('task')
+
+
+    # Todo
+    # shows a single todo item and lets you delete a todo item
+    class Todo(Resource):
+        def get(self, todo_id):
+            abort_if_todo_doesnt_exist(todo_id)
+            return TODOS[todo_id]
+
+        def delete(self, todo_id):
+            abort_if_todo_doesnt_exist(todo_id)
+            del TODOS[todo_id]
+            return '', 204
+
+        def put(self, todo_id):
+            args = parser.parse_args()
+            task = {'task': args['task']}
+            TODOS[todo_id] = task
+            return task, 201
+
+
+    # TodoList
+    # shows a list of all todos, and lets you POST to add new tasks
+    class TodoList(Resource):
+        def get(self):
+            return TODOS
+
+        def post(self):
+            args = parser.parse_args()
+            todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
+            todo_id = 'todo%i' % todo_id
+            TODOS[todo_id] = {'task': args['task']}
+            return TODOS[todo_id], 201
+
+    ##
+    ## Actually setup the Api resource routing here
+    ##
+    api.add_resource(TodoList, '/todos')
+    api.add_resource(Todo, '/todos/<todo_id>')
+
+
+    if __name__ == '__main__':
+        app.run(debug=True)
+
+然后在pycharm上运行这个文件，或者在命令行执行 ``python api.py`` ，然后服务就启动起来了::
+
+    $ python api.py
+    * Running on http://127.0.0.1:5000/
+    * Restarting with reloader
+
+
+脚本解析
+--------------------------------------
+可以暂时不理会脚本是怎么实现的，这段脚本是从flask_restfull的官方文档粘下来的， http://flask-restful.readthedocs.io/en/0.3.5/quickstart.html#full-example 
+
+这段脚本主要实现了维护TODO LIST的功能，实现了如下几个接口
+
+.. list-table::
+  :widths: 15 20 20
+  :header-rows: 1
+
+  * - 路径
+    - 方法
+    - 说明
+  * - /todos
+    - GET
+    - 获取TODO列表
+  * - /todo/<todo_id>
+    - GET
+    - 获取单个TODO任务
+  * - /todos/<todo_id>
+    - DELETE
+    - 删除指定TODO
+  * - todos
+    - POST
+    - 添加一个新TODO
+  * - /todo/<todo_id>
+    - put
+    - 更新一个TODO

@@ -1,0 +1,195 @@
+字典
+======================================
+字典和列表一样，是python里面非常重要的一个基础数据结构，通俗的理解，字典就像其名一样，一个单词对应一个解释，如'a':'我是小a','lvjj':我是lvjj，字典对象里可以包含0个或多个键值对(key-value)
+
+定义一个字典
+--------------------------------------
+有两种方式可以定义字典::
+
+    d1 = {'name': 'lvjj'}
+    d2 = dict(name='lvjj')
+
+    print(d1)
+    print(d2)
+
+输出为::
+
+    {'name': 'lvjj'}
+    {'name': 'lvjj'}
+
+添加元素
+--------------------------------------
+
+::
+
+    d1 = {}
+    d1['a'] = 1
+    print(d1)
+
+    d2 = {}
+    d2.update(b=2)
+    print(d2)
+
+取值
+--------------------------------------
+
+::
+
+  d1 = {'a': 1, 'b': 2}
+  print(d1['a'])
+  print(d1['c'])
+
+输出为::
+
+    1
+    Traceback (most recent call last):
+      File "C:/Documents and Settings/Administrator/PycharmProjects/study/demo2.py", line 5, in <module>
+        print(d1['c'])
+    KeyError: 'c'
+
+除了使用[]取值外，还可以使用get，并且设置默认值::
+
+    d1 = {'a': 1, 'b': 2}
+    print(d1.get('a'))
+    print(d1.get('c', 0))
+
+输出为::
+
+    1
+    0
+
+取出字典的key到列表
+--------------------------------------
+
+::
+
+    d1 = {'a': 1, 'b': 2}
+    print(d1.keys())
+
+输出为::
+
+    ['a', 'b']
+
+取出字典的value到列表
+--------------------------------------
+
+::
+
+    d1 = {'a': 1, 'b': 2}
+    print(d1.values())
+
+输出为::
+
+    [1, 2]
+
+取出字典的键值对为到列表
+--------------------------------------
+
+::
+
+    d1 = {'a': 1, 'b': 2}
+    print(d1.items())
+
+输出为::
+
+    [('a', 1), ('b', 2)]
+
+遍历字典的键值对
+--------------------------------------
+
+::
+
+    d1 = {'a': 1, 'b': 2}
+    for k, v in d1.items():
+        print('key: %s, key: %s' % (k, v))
+
+输出为::
+
+    key: a, key: 1
+    key: b, key: 2
+
+判断某个key是否在字典中
+--------------------------------------
+
+::
+
+    d1 = {'a': 1, 'b': 2}
+    print('a' in d1)
+    print('c' in d1)
+
+输出为::
+
+    True
+    False
+
+删除某个key:
+
+
+::
+
+    d1 = {'a': 1, 'b': 2}
+    d1.pop('a')
+    print(d1)
+
+输出为::
+    {'b': 2}
+
+
+get()方法
+-----------------------------------
+
+::
+
+    dict.get(key, default=None)
+
+key -- 字典中要查找的键。
+default -- 如果指定键的值不存在时，返回该默认值。
+
+::
+
+    dict_test = {'key1': 'v1'}
+    print('key1 = ', dict_test.get('key1', 'default_v'))
+    print('key2 = ', dict_test.get('key2', 'default_v'))
+
+输出结果为：
+::
+    key1 =  v1
+    key2 =  default_v
+
+setdefault()方法
+-------------------------------------------
+
+::
+
+    dict.setdefault(key, default=None)
+
+key -- 查找的键值。
+default -- 键不存在时，设置的默认键值。
+
+与get不同的是，setdefault在没有找到key的时候，会将对于对于的key和default的值，加入到dict里
+
+::
+
+    dict_test = {'key1': 'v1'}
+    print("key2 = ", dict_test.setdefault('key2', 'v2'))
+    print(dict_test)
+
+输出结果为：
+::
+
+    key2 =  v2
+    {'key1': 'v1', 'key2': 'v2'}
+
+update()方法
+-----------------------------------------
+在执行 update() 方法时，如果被更新的字典中己包含对应的键值对，那么原value 会被覆盖；如果被更新的字典中不包含对应的键值对，则该键值对被添加进去。
+::
+
+    dict_test = {'one': 1, 'two': 2, 'three': 3}
+    dict_test.update({'one':4.5, 'four': 9.3})
+    print(dict_test)
+输出结果为：
+::
+
+    {'one': 4.5, 'two': 2, 'three': 3, 'four': 9.3}
+

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.10. pytest常用hooks方法 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. mysql" href="../mysql/index.html" />
+    <link rel="prev" title="8.9. pytest常用插件" href="pytest常用插件.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">8. pytest</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html">8.1. pytest介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html">8.2. pytest编写规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html">8.3. pytest测试报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest参数化.html">8.4. pytest参数化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html">8.5. pytest之fixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest中mark标记.html">8.6. pytest中mark标记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest预期异常.html">8.7. pytest预期异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html">8.8. pytest持续集成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html">8.9. pytest常用插件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.10. pytest常用hooks方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-runtest-makereport">8.10.1. pytest_runtest_makereport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-collection-modifyitems">8.10.2. pytest_collection_modifyitems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-terminal-summary">8.10.3. pytest_terminal_summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest-report-teststatus">8.10.4. pytest_report_teststatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">8.10.5. 钩子函数集合API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setuptools">8.10.5.1. setuptools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">8.10.5.2. 初始化挂钩</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection">8.10.5.3. collection 收集钩子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#runtest">8.10.5.4. 测试运行(runtest)钩子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reporting">8.10.5.5. Reporting 报告钩子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">8.10.5.6. 调试/相互作用钩</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">8. pytest</a> &raquo;</li>
+      <li>8.10. pytest常用hooks方法</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pytest/pytest常用hooks方法.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pytesthooks">
+<h1>8.10. pytest常用hooks方法<a class="headerlink" href="#pytesthooks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pytest-runtest-makereport">
+<h2>8.10.1. pytest_runtest_makereport<a class="headerlink" href="#pytest-runtest-makereport" title="Permalink to this headline">¶</a></h2>
+<p>pytest_runtest_makereport这个钩子方法，了解用例的执行过程，并获取到每个用例的执行结果。
+相关的源码，在 <code class="docutils literal notranslate"><span class="pre">_pytest/runner.py</span></code>
+下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">_pytest</span> <span class="kn">import</span> <span class="n">runner</span>
+
+<span class="c1"># 对应源码</span>
+<span class="k">def</span> <span class="nf">pytest_runtest_makereport</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">call</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; return a :py:class:`_pytest.runner.TestReport` object</span>
+<span class="sd">    for the given :py:class:`pytest.Item` and</span>
+<span class="sd">    :py:class:`_pytest.runner.CallInfo`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>这里item是测试用例，call是测试步骤，具体执行过程如下：</p>
+<ul class="simple">
+<li>先执行call.when=’setup’ 返回setup 的执行结果</li>
+<li>然后执行call.when=’call’ 返回call 的执行结果</li>
+<li>最后执行call.when=’teardown’返回teardown 的执行结果</li>
+</ul>
+<p><strong>运行案例</strong>
+conftest.py写pytest_runtest_makereport内容:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># conftest.py</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">hookimpl</span><span class="p">(</span><span class="n">hookwrapper</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tryfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pytest_runtest_makereport</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">call</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------------------------&#39;</span><span class="p">)</span>
+
+    <span class="c1"># 获取钩子方法的调用结果</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="k">yield</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;用例执行结果&#39;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+
+    <span class="c1"># 3. 从钩子方法的调用结果中获取测试报告</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;测试报告：</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">report</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;步骤：</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">report</span><span class="o">.</span><span class="n">when</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;nodeid：</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">report</span><span class="o">.</span><span class="n">nodeid</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;description:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">((</span><span class="s1">&#39;运行结果: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">report</span><span class="o">.</span><span class="n">outcome</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pytest-collection-modifyitems">
+<h2>8.10.2. pytest_collection_modifyitems<a class="headerlink" href="#pytest-collection-modifyitems" title="Permalink to this headline">¶</a></h2>
+<p>pytest_collection_modifyitems是当测试用例收集完成后，可以改变测试用例集合(items)的顺序</p>
+<p>conftest.py内容:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pytest_collection_modifyitems</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;收集到的测试用例:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">items</span><span class="p">)</span>
+
+    <span class="c1"># sort排序，根据用例名称item.name 排序</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;排序后的用例：</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">items</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;用例名:</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>重新排序后就可以按用例的名称顺序执行了。</p>
+</div>
+<div class="section" id="pytest-terminal-summary">
+<h2>8.10.3. pytest_terminal_summary<a class="headerlink" href="#pytest-terminal-summary" title="Permalink to this headline">¶</a></h2>
+<p>用例执行完成后，获取到执行的结果，快速统计用例的执行情况。
+关于TerminalReporter类可以在_pytest.terminal中查看到</p>
+<p>conftest.py中写个 pytest_terminal_summary 函数收集测试结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pytest_terminal_summary</span><span class="p">(</span><span class="n">terminalreporter</span><span class="p">,</span> <span class="n">exitstatus</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;收集测试结果&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">terminalreporter</span><span class="o">.</span><span class="n">stats</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;total:&quot;</span><span class="p">,</span> <span class="n">terminalreporter</span><span class="o">.</span><span class="n">_numcollected</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;passed:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">terminalreporter</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;passed&#39;</span><span class="p">,</span> <span class="p">[])))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;failed:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">terminalreporter</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;failed&#39;</span><span class="p">,</span> <span class="p">[])))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">terminalreporter</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="p">[])))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;skipped:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">terminalreporter</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;skipped&#39;</span><span class="p">,</span> <span class="p">[])))</span>
+    <span class="c1"># terminalreporter._sessionstarttime 会话开始时间</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">terminalreporter</span><span class="o">.</span><span class="n">_sessionstarttime</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total times:&#39;</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="s1">&#39;seconds&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pytest-report-teststatus">
+<h2>8.10.4. pytest_report_teststatus<a class="headerlink" href="#pytest-report-teststatus" title="Permalink to this headline">¶</a></h2>
+<p>打印整个用例的测试结果
+pytest_report_teststatus(report, config): 返回各个测试阶段的result,</p>
+<ul class="simple">
+<li>when==’setup’ 用例的前置操作</li>
+<li>when==’call’ 用例的执行</li>
+<li>when==’teardown’ 用例的后置操作</li>
+</ul>
+<p>可以用when属性来区分不同阶段:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pytest_report_teststatus</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;turn . into √，turn F into x&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">report</span><span class="o">.</span><span class="n">when</span> <span class="o">==</span> <span class="s1">&#39;call&#39;</span> <span class="ow">and</span> <span class="n">report</span><span class="o">.</span><span class="n">failed</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">report</span><span class="o">.</span><span class="n">outcome</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;failed&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">report</span><span class="o">.</span><span class="n">when</span> <span class="o">==</span> <span class="s1">&#39;call&#39;</span> <span class="ow">and</span> <span class="n">report</span><span class="o">.</span><span class="n">passed</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">report</span><span class="o">.</span><span class="n">outcome</span><span class="p">,</span> <span class="s1">&#39;√&#39;</span><span class="p">,</span> <span class="s1">&#39;passed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api">
+<h2>8.10.5. 钩子函数集合API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>最后附上所有常用的钩子函数集合</p>
+<div class="section" id="setuptools">
+<h3>8.10.5.1. setuptools<a class="headerlink" href="#setuptools" title="Permalink to this headline">¶</a></h3>
+<p>引导挂钩要求足够早注册的插件(内部和setuptools插件)，可以使用的钩子</p>
+<ul class="simple">
+<li>pytest_load_initial_conftests(early_config,parser,args): 在命令行选项解析之前实现初始conftest文件的加载。</li>
+<li>pytest_cmdline_preparse(config,args): (不建议使用)在选项解析之前修改命令行参数。</li>
+<li>pytest_cmdline_parse(pluginmanager,args): 返回一个初始化的配置对象,解析指定的args。</li>
+<li>pytest_cmdline_main(config): 要求执行主命令行动作。默认实现将调用configure hooks和runtest_mainloop。</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>8.10.5.2. 初始化挂钩<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>初始化钩子需要插件和conftest.py文件</p>
+<ul class="simple">
+<li>pytest_addoption(parser): 注册argparse样式的选项和ini样式的配置值，这些值在测试运行开始时被调用一次。</li>
+<li>pytest_addhooks(pluginmanager): 在插件注册时调用，以允许通过调用来添加新的挂钩</li>
+<li>pytest_configure(config): 许插件和conftest文件执行初始配置。</li>
+<li>pytest_unconfigure(config): 在退出测试过程之前调用。</li>
+<li>pytest_sessionstart(session): 在Session创建对象之后，执行收集并进入运行测试循环之前调用。</li>
+<li>pytest_sessionfinish(session,exitstatus): 在整个测试运行完成后调用，就在将退出状态返回系统之前。</li>
+<li>pytest_plugin_registered(plugin,manager):一个新的pytest插件已注册。</li>
+</ul>
+</div>
+<div class="section" id="collection">
+<h3>8.10.5.3. collection 收集钩子<a class="headerlink" href="#collection" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>pytest_collection(session): 执行给定会话的收集协议。</li>
+<li>pytest_collect_directory(path, parent): 在遍历目录以获取集合文件之前调用。</li>
+<li>pytest_collect_file(path, parent) 为给定的路径创建一个收集器，如果不相关，则创建“无”。</li>
+<li>pytest_pycollect_makemodule(path: py._path.local.LocalPath, parent) 返回给定路径的模块收集器或无。</li>
+<li>pytest_pycollect_makeitem(collector: PyCollector, name: str, obj: object) 返回模块中Python对象的自定义项目/收集器，或者返回None。在第一个非无结果处停止</li>
+<li>pytest_generate_tests(metafunc: Metafunc) 生成(多个)对测试函数的参数化调用。</li>
+<li>pytest_make_parametrize_id(config: Config, val: object, argname: str) 返回val 将由&#64; pytest.mark.parametrize调用使用的给定用户友好的字符串表示形式，如果挂钩不知道，则返回None val。</li>
+<li>pytest_collection_modifyitems(session: Session, config: Config, items: List[Item]) 在执行收集后调用。可能会就地过滤或重新排序项目。</li>
+<li>pytest_collection_finish(session: Session) 在执行并修改收集后调用。</li>
+</ul>
+</div>
+<div class="section" id="runtest">
+<h3>8.10.5.4. 测试运行(runtest)钩子<a class="headerlink" href="#runtest" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>pytest_runtestloop(session: Session) 执行主运行测试循环(收集完成后)。</li>
+<li>pytest_runtest_protocol(item: Item, nextitem: Optional[Item]) 对单个测试项目执行运行测试协议。</li>
+<li>pytest_runtest_logstart(nodeid: str, location: Tuple[str, Optional[int], str]) 在运行单个项目的运行测试协议开始时调用。</li>
+<li>pytest_runtest_logfinish(nodeid: str, location: Tuple[str, Optional[int], str])在为单个项目运行测试协议结束时调用。</li>
+<li>pytest_runtest_setup(item: Item) 调用以执行测试项目的设置阶段。</li>
+<li>pytest_runtest_call(item: Item) 调用以运行测试项目的测试(调用阶段)。</li>
+<li>pytest_runtest_teardown(item: Item, nextitem: Optional[Item]) 调用以执行测试项目的拆卸阶段。</li>
+<li>pytest_runtest_makereport(item: Item, call: CallInfo[None]) 被称为为_pytest.reports.TestReport测试项目的每个设置，调用和拆卸运行测试阶段创建一个。</li>
+<li>pytest_pyfunc_call(pyfuncitem: Function) 调用基础测试功能。</li>
+</ul>
+</div>
+<div class="section" id="reporting">
+<h3>8.10.5.5. Reporting 报告钩子<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>pytest_collectstart(collector: Collector) 收集器开始收集。</li>
+<li>pytest_make_collect_report(collector: Collector) 执行collector.collect()并返回一个CollectReport。</li>
+<li>pytest_itemcollected(item: Item) 我们刚刚收集了一个测试项目。</li>
+<li>pytest_collectreport(report: CollectReport) 收集器完成收集。</li>
+<li>pytest_deselected(items: Sequence[Item]) 要求取消选择的测试项目，例如按关键字。</li>
+<li>pytest_report_header(config: Config, startdir: py._path.local.LocalPath) 返回要显示为标题信息的字符串或字符串列表，以进行终端报告。</li>
+<li>pytest_report_collectionfinish(config: Config, startdir: py._path.local.LocalPath, items: Sequence[Item]) 返回成功完成收集后将显示的字符串或字符串列表。</li>
+<li>pytest_report_teststatus(report: Union[CollectReport, TestReport], config: Config) 返回结果类别，简写形式和详细词以进行状态报告。</li>
+<li>pytest_terminal_summary(terminalreporter: TerminalReporter, exitstatus: ExitCode, config: Config) 在终端摘要报告中添加一个部分。</li>
+<li>pytest_fixture_post_finalizer(fixturedef: FixtureDef[Any], request: SubRequest) 在夹具拆除之后但在清除缓存之前调用，因此夹具结果fixturedef.cached_result仍然可用(不是 None)</li>
+<li>pytest_warning_captured(warning_message: warnings.WarningMessage, when: Literal[‘config’, ‘collect’, ‘runtest’], item: Optional[Item], location: Optional[Tuple[str, int, str]]) (已弃用)处理内部pytest警告插件捕获的警告。</li>
+<li>pytest_warning_recorded(warning_message: warnings.WarningMessage, when: Literal[‘config’, ‘collect’, ‘runtest’], nodeid: str, location: Optional[Tuple[str, int, str]]) 处理内部pytest警告插件捕获的警告。</li>
+<li>pytest_runtest_logreport(report: TestReport) 处理项目的_pytest.reports.TestReport每个设置，调用和拆卸运行测试阶段产生的结果。</li>
+<li>pytest_assertrepr_compare(config: Config, op: str, left: object, right: object) 返回失败断言表达式中的比较的说明。</li>
+<li>pytest_assertion_pass(item: Item, lineno: int, orig: str, expl: str) (实验性的)在断言通过时调用。</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>8.10.5.6. 调试/相互作用钩<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>很少有可以用于特殊报告或与异常交互的挂钩：</p>
+<ul class="simple">
+<li>pytest_internalerror(excrepr: ExceptionRepr, excinfo: ExceptionInfo[BaseException]) 要求内部错误。返回True以禁止对将INTERNALERROR消息直接打印到sys.stderr的回退处理。</li>
+<li>pytest_keyboard_interrupt(excinfo: ExceptionInfo[Union[KeyboardInterrupt, Exit]]) 要求键盘中断。</li>
+<li>pytest_exception_interact(node: Union[Item, Collector], call: CallInfo[Any], report: Union[CollectReport, TestReport]) 在引发可能可以交互处理的异常时调用。</li>
+<li>pytest_enter_pdb(config: Config, pdb: pdb.Pdb) 调用了pdb.set_trace()。</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pytest常用插件.html" class="btn btn-neutral float-left" title="8.9. pytest常用插件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mysql/index.html" class="btn btn-neutral float-right" title="9. mysql" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

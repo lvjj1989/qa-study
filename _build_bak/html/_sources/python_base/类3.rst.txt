@@ -1,0 +1,80 @@
+类(3)
+======================================
+这一节重点讨论一下继承和命名空间
+
+继承
+---------------------------------------
+继承就是老子有的，儿子也有，先上例子::
+
+    # coding=utf-8
+
+    class Human(object):
+
+        def run(self):
+            print'i can run'
+
+        def wc(self):
+            print('就地解决')
+
+
+        
+    class Man(Human):
+
+        def wc(self):
+            print('去男厕所')
+
+    class Woman(Human):
+
+        def wc(self):
+            print('去男厕所')
+
+    class LadyBoy(Human):
+
+        def wc(self):
+            print('???')
+
+
+    human = Human()
+    man = Man()
+    woman = Woman()
+    lady_boy = LadyBoy()
+
+    human.run()
+    human.wc()
+
+    man.run()
+    man.wc()
+
+    woman.run()
+    woman.wc()
+
+    lady_boy.run()
+    lady_boy.wc()
+
+子类可以享用在父类中定义的方法，而且可以覆盖父类的方法。python是支持多继承的，但是不推荐新手使用。
+
+子类覆盖父类方法时，也可以在子类中调用父类的方法，使用方法如下::
+
+
+
+
+多态
+---------------------------------------
+TODO
+
+命名空间
+---------------------------------------
+TODO
+
+运算符重载
+---------------------------------------
+TODO
+
+
+一切都是对象
+---------------------------------------
+TODO
+
+元类
+---------------------------------------
+TODO

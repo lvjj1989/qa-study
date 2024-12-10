@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.5. 编写接口测试脚本 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.6. 接口自动化框架常用结构" href="接口自动化框架常用结构.html" />
+    <link rel="prev" title="3.4. http和https的区别" href="http和https的区别.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 接口测试</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="接口测试概述.html">3.1. 接口测试概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">3.2. HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get和post的区别.html">3.3. get和post的区别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http和https的区别.html">3.4. http和https的区别</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.5. 编写接口测试脚本</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.5.1. 测试思路</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#http">3.5.1.1. http接口脚本实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.5.2. 优化</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.5.2.1. 封装接口调用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cookies-log">3.5.2.2. 保持cookies&amp;增加log信息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.5.3. 扩展</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">3.5.3.1. 持续集成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">3.5.3.2. 接口测试用例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">3.5.3.3. 测试工具类</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pithy">3.5.4. pithy测试框架介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">3.5.4.1. 安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">3.5.4.2. 使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">3.5.4.3. 调用HTTP登录接口示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json">3.5.4.4. 优化JSON、字典使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">3.5.4.5. 更多使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">3.5.5. 总结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="接口自动化框架常用结构.html">3.6. 接口自动化框架常用结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">3.7. JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="自己写接口.html">3.8. 自己写接口</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">3. 接口测试</a> &raquo;</li>
+      <li>3.5. 编写接口测试脚本</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/interface/编写接口测试脚本.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>3.5. 编写接口测试脚本<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>3.5.1. 测试思路<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>简单的单接口测试可以通过测试工具实现，如jmeter、postman、soupui等</li>
+<li>如果是http接口，可以使用基于python的requests库 [<a class="reference external" href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html">http://docs.python-requests.org/zh_CN/latest/user/quickstart.html</a>] 库模拟发送HTTP请求</li>
+<li>可以使用python标准库里unittest或者pytest写测试case</li>
+</ul>
+<div class="section" id="http">
+<h3>3.5.1.1. http接口脚本实现<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestLogin</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">login_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:5000/login&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">info_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:5000/info&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
+
+    <span class="k">def</span> <span class="nf">test_login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; 测试登录 &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span>
+
+    <span class="k">def</span> <span class="nf">test_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; 测试info接口 &quot;&quot;&quot;</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span>
+        <span class="p">}</span>
+        <span class="n">response_cookies</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">cookies</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="n">response_cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">session</span>
+        <span class="n">info_cookies</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;session&#39;</span><span class="p">:</span> <span class="n">session</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info_url</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">info_cookies</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;info&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>3.5.2. 优化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>3.5.2.1. 封装接口调用<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>写完这个测试登录脚本，你或许会发现，在整个项目的测试过程，登录可能不止用到一次，如果每次都这么写，会不会太冗余了？ 对，确实太冗余了，
+下面做一下简单的封装，把登录接口的调用封装到一个方法里，把调用参数暴漏出来，示例脚本如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+
+
+<span class="k">class</span> <span class="nc">DemoApi</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span>
+
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        登录接口</span>
+<span class="sd">        :param username: 用户名</span>
+<span class="sd">        :param password: 密码</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">password</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_cookies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        获取登录cookies</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">password</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">cookies</span>
+
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cookies</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        详情接口</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">cookies</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">TestLogin</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:5000&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">DemoApi</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        测试登录</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span>
+
+    <span class="k">def</span> <span class="nf">test_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        测试获取详情信息</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cookies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;info&#39;</span>
+</pre></div>
+</div>
+<p>OK，在这一个版本中，我们不但在把登录接口的调用封装成了一个实例方法，实现了复用，而且还把host（self.base_url）提取了出来，但问题又来了，登录之后，</p>
+<p>登录接口的http响应会把session以 cookie的形式set到客户端，之后的接口都会使用此session去请求，还有，就是在接口调用过程中，希望可以把日志打印出来，</p>
+<p>以便调试或者出错时查看。好吧，我们再来改一版。</p>
+</div>
+<div class="section" id="cookies-log">
+<h3>3.5.2.2. 保持cookies&amp;增加log信息<a class="headerlink" href="#cookies-log" title="Permalink to this headline">¶</a></h3>
+<p>使用requests库里的同一个Session对象(它也会在同一个Session 实例发出的所有请求之间保持 cookie)，即可解决上面的问题，示例代码如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># coding=utf-8</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">requests.sessions</span> <span class="kn">import</span> <span class="n">Session</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+
+
+<span class="k">class</span> <span class="nc">DemoApi</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span>
+        <span class="c1"># 创建session实例</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        登录接口</span>
+<span class="sd">        :param username: 用户名</span>
+<span class="sd">        :param password: 密码</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">password</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">*****************************************&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">1、请求url: </span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">2、请求头信息:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">3、请求参数:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">4、响应:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        详情接口</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">*****************************************&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">1、请求url: </span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">2、请求头信息:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">3、请求cookies:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">cookies</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">4、响应:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+
+<span class="k">class</span> <span class="nc">TestLogin</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:5000&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;admin&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">DemoApi</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        测试登录</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span>
+
+    <span class="k">def</span> <span class="nf">test_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        测试获取详情信息</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;info&#39;</span>
+</pre></div>
+</div>
+<p>大功告成，我们把多个相关接口调用封装到一个类中，使用同一个requests Session实例来保持cookies，并且在调用过程中打印出了日志，我们所有目标都实现了，
+但再看下脚本，又会感觉不太舒服，在每个方法里，都要写一遍print 1、2、3… 要拼url、还要很多细节等等，但其实我们真正需要做的只是拼出关键的参数（url参数、body参数或者传入headers信息），
+可不可以只需定义必须的信息，然后把其它共性的东西都封装起来呢，统一放到一个地方去管理？</p>
+<p>来，我们再整理一下我们的需求:</p>
+<p>首先，不想去重复做拼接url的操作
+然后，不想每次都去手工打印日志
+不想和requests session打交道
+只想定义好参数就直接调用
+我们先看一下实现后，脚本可能是什么样:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DemoApi</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span>
+
+    <span class="nd">@request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        登录接口</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">password</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span>
+
+    <span class="nd">@request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;get&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        详情接口</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h4>3.5.2.2.1. 调用登录接口的日志<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1、接口描述
+登录接口
+
+2、请求url
+http://127.0.0.1:5000/login
+
+3、请求方法
+post
+
+4、请求headers
+{
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,
+    &quot;Connection&quot;: &quot;keep-alive&quot;,
+    &quot;User-Agent&quot;: &quot;python-requests/2.7.0 CPython/2.7.10 Darwin/16.4.0&quot;
+}
+
+5、body参数
+{
+    &quot;password&quot;: &quot;123456&quot;,
+    &quot;username&quot;: &quot;admin&quot;
+}
+
+6、响应结果
+{
+    &quot;code&quot;: 200,
+    &quot;msg&quot;: &quot;success&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>3.5.3. 扩展<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>http接口请求的姿势我们定义好了，我们还可以做些什么呢？</p>
+<ul class="simple">
+<li>[x] 非HTTP协议接口</li>
+<li>[x] 测试用例编写</li>
+<li>[x] 配置文件管理</li>
+<li>[x] 测试数据管理</li>
+<li>[x] 工具类编写</li>
+<li>[x] 测试报告生成</li>
+<li>[x] 持续集成</li>
+</ul>
+<p>需要做的还是挺多的，要做什么不要做什么，或者先做哪个，我觉得可以根据以下几点去判断：
+* 是否有利于提高团队生产效率
+* 是否有利于提高测试质量
+* 有没有现成的例子可以用</p>
+<p>下面就几项主要的点进行一下说明，限于篇幅，不再展开了</p>
+<p>目前python的主流单元测试框均有report插件，因此不建议自己再编写，除非有特殊需求的。</p>
+<ul class="simple">
+<li>pytest：推荐使用pytest-html和allure pytest</li>
+<li>unittest：推荐使用HTMLTestRunner</li>
+</ul>
+<div class="section" id="id7">
+<h3>3.5.3.1. 持续集成<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>持续集成推荐使用Jenkins，运行环境、定时任务、触发运行、邮件发送等一系列功能均可以在Jenkins上实现。</p>
+</div>
+<div class="section" id="id8">
+<h3>3.5.3.2. 接口测试用例<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>推荐遵守如下规则：</p>
+<ul class="simple">
+<li>原子性：每个用例保持独立，彼此不耦合，以降低干扰；</li>
+<li>专一性：一个用例应该专注于验证一件事情，而不是做很多事情，一个测试点不要重复验证；</li>
+<li>稳定性：绝大多数用例应该是非常稳定的，也就是说不会经常因为除环境以外的因素挂掉，因为如果在一个测试项目中有很多不稳定的用例的话，测试结果就不能很好的反应项目质量；</li>
+<li>分类清晰：有相关性的用例应写到一个模块或一个测试类里，这样做即方便维护，又提高了报告的可读性；</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>3.5.3.3. 测试工具类<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>这个可以根据项目情况去做，力求简化一些类库的使用，数据库访问、日期时间、序列化与反序列化等数据处理，或者封装一些常用操作，如随机生成订单号等等，以提高脚本编写效率。</p>
+<p>常见的方式有写在代码里、写在配置文件里(xml、yaml、json、.py、excel等)、写在数据库里等，该处没有什么好推荐的，建议根据个人喜好，怎么方便怎么来就可以。</p>
+</div>
+</div>
+<div class="section" id="pithy">
+<h2>3.5.4. pithy测试框架介绍<a class="headerlink" href="#pithy" title="Permalink to this headline">¶</a></h2>
+<p>pithy意为简洁有力的，意在简化自动化接口测试，提高测试效率</p>
+<ul class="simple">
+<li>项目地址：<a class="reference external" href="https://github.com/yuyu1987/pithy-test">https://github.com/yuyu1987/pithy-test</a></li>
+<li>帮助文档：<a class="reference external" href="http://pithy-test.readthedocs.io/en/latest/">http://pithy-test.readthedocs.io/en/latest/</a></li>
+</ul>
+<p>目前实现的功能如下：</p>
+<ul class="simple">
+<li>一键生成测试项目</li>
+<li>http client封装</li>
+<li>thrift接口封装</li>
+<li>简化配置文件使用</li>
+<li>优化JSON、日期等工具使用</li>
+</ul>
+<p>编写测试用例推荐使用pytest，pytest(<a class="reference external" href="https://docs.pytest.org/en/latest/">https://docs.pytest.org/en/latest/</a>)提供了很多测试工具以及插件，可以满足大部分测试需求。</p>
+<div class="section" id="id10">
+<h3>3.5.4.1. 安装<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pithy</span><span class="o">-</span><span class="n">test</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>3.5.4.2. 使用<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><em>一键生成测试项目</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">pithy</span><span class="o">-</span><span class="n">cli</span> <span class="n">init</span>
+<span class="go">请选择项目类型,输入api或者app: api</span>
+<span class="go">请输入项目名称,如pithy-api-test: pithy-api-test</span>
+<span class="go">开始创建pithy-api-test项目</span>
+<span class="go">开始渲染...</span>
+<span class="go">生成 api/.gitignore                   [√]</span>
+<span class="go">生成 api/apis/__init__.py             [√]</span>
+<span class="go">生成 api/apis/pithy_api.py            [√]</span>
+<span class="go">生成 api/cfg.yaml                     [√]</span>
+<span class="go">生成 api/db/__init__.py               [√]</span>
+<span class="go">生成 api/db/pithy_db.py               [√]</span>
+<span class="go">生成 api/README.MD                    [√]</span>
+<span class="go">生成 api/requirements.txt             [√]</span>
+<span class="go">生成 api/test_suites/__init__.py      [√]</span>
+<span class="go">生成 api/test_suites/test_login.py    [√]</span>
+<span class="go">生成 api/utils/__init__.py            [√]</span>
+<span class="go">生成成功,请使用编辑器打开该项目</span>
+</pre></div>
+</div>
+<p><em>查看项目树</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="n">pithy</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">test</span>
+<span class="go">pithy-api-test</span>
+<span class="go">├── README.MD</span>
+<span class="go">├── apis</span>
+<span class="go">│   ├── __init__.py</span>
+<span class="go">│   └── pithy_api.py</span>
+<span class="go">├── cfg.yaml</span>
+<span class="go">├── db</span>
+<span class="go">│   ├── __init__.py</span>
+<span class="go">│   └── pithy_db.py</span>
+<span class="go">├── requirements.txt</span>
+<span class="go">├── test_suites</span>
+<span class="go">│   ├── __init__.py</span>
+<span class="go">│   └── test_login.py</span>
+<span class="go">└── utils</span>
+<span class="go">    └── __init__.py</span>
+</pre></div>
+</div>
+<p>4 directories, 10 files</p>
+</div>
+<div class="section" id="id12">
+<h3>3.5.4.3. 调用HTTP登录接口示例<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pithy</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="nd">@request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key1</span><span class="o">=</span><span class="s1">&#39;value1&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; post method &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="n">key1</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 使用</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>     <span class="c1"># 解析json字符,输出为字典</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span>          <span class="c1"># 解析json字符,输出为字典</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_content</span><span class="p">()</span>  <span class="c1"># 输出为字符串</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>       <span class="c1"># 输出为字符串</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_cookie</span><span class="p">()</span>  <span class="c1"># 输出cookie对象</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cookie</span>        <span class="c1"># 输出cookie对象</span>
+
+<span class="c1"># 结果取值, 假设此处response = {&#39;a&#39;: 1, &#39;b&#39;: { &#39;c&#39;: [1, 2, 3, 4]}}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">post</span><span class="p">(</span><span class="s1">&#39;13111111111&#39;</span><span class="p">,</span> <span class="s1">&#39;123abc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span>
+
+<span class="nb">print</span> <span class="n">response</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span>   <span class="c1"># 通过点号取值,结果为[1, 2, 3, 4]</span>
+
+<span class="nb">print</span> <span class="n">response</span><span class="p">(</span><span class="s1">&#39;$.a&#39;</span><span class="p">)</span> <span class="c1"># 通过object path取值,结果为1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span><span class="p">(</span><span class="s1">&#39;$..c[@&gt;3]&#39;</span><span class="p">):</span> <span class="c1"># 通过object path取值,结果为选中c字典里大于3的元素</span>
+    <span class="nb">print</span> <span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json">
+<h3>3.5.4.4. 优化JSON、字典使用<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1、操作JSON的KEY</span>
+<span class="kn">from</span> <span class="nn">pithy</span> <span class="kn">import</span> <span class="n">JSONProcessor</span>
+<span class="n">dict_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}}</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dict_data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">JSONProcessor</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">result</span><span class="o">.</span><span class="n">a</span>     <span class="c1"># 结果：1</span>
+<span class="nb">print</span> <span class="n">result</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">a</span>   <span class="c1"># 结果：[1, 2, 3, 4]</span>
+
+<span class="c1"># 2、操作字典的KEY</span>
+<span class="n">dict_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">JSONProcessor</span><span class="p">(</span><span class="n">dict_data</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">result</span><span class="o">.</span><span class="n">a</span>     <span class="c1"># 1</span>
+<span class="nb">print</span> <span class="n">result</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">a</span>   <span class="c1"># [1, 2, 3, 4]</span>
+
+<span class="c1"># 3、object path取值</span>
+<span class="n">raw_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;key1&#39;</span><span class="p">:{</span>
+        <span class="s1">&#39;key2&#39;</span><span class="p">:{</span>
+            <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">jp</span> <span class="o">=</span> <span class="n">JSONProcessor</span><span class="p">(</span><span class="n">raw_dict</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">jp</span><span class="p">(</span><span class="s1">&#39;$..key3[@&gt;3]&#39;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">i</span>
+
+<span class="c1"># 4、其它用法</span>
+<span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">}</span>
+<span class="n">json_1</span> <span class="o">=</span> <span class="s1">&#39;{&quot;b&quot;: &quot;b&quot;}&#39;</span>
+<span class="n">jp</span> <span class="o">=</span> <span class="n">JSONProcessor</span><span class="p">(</span><span class="n">dict_1</span><span class="p">,</span> <span class="n">json_1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>3.5.4.5. 更多使用方法<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://pithy-test.readthedocs.io/en/latest/">http://pithy-test.readthedocs.io/en/latest/</a></p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>3.5.5. 总结<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>在本文中，我们以提高脚本开发效率为前提，一步一步打造了一个简易的测试框架，但因水平所限，并未涉及测试数据初始化清理、测试中如何MOCK等话题，</p>
+<p>前路依然任重而道远，希望给大家一个启发，不足之处还望多多指点，非常感谢。</p>
+<p>参考：</p>
+<p>[1] requests：<a class="reference external" href="http://www.python-requests.org/en/master/">http://www.python-requests.org/en/master/</a></p>
+<p>[2] thriftpy：<a class="reference external" href="http://thriftpy.readthedocs.io/en/latest/">http://thriftpy.readthedocs.io/en/latest/</a></p>
+<p>[3] objectpath：<a class="reference external" href="http://objectpath.org/">http://objectpath.org/</a></p>
+<p>[4] pytest：<a class="reference external" href="https://docs.pytest.org">https://docs.pytest.org</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="http和https的区别.html" class="btn btn-neutral float-left" title="3.4. http和https的区别" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="接口自动化框架常用结构.html" class="btn btn-neutral float-right" title="3.6. 接口自动化框架常用结构" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

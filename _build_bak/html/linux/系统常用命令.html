@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.24. 系统常用命令 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.25. 软件包管理命令(RPM)" href="软件包管理命令(RPM).html" />
+    <link rel="prev" title="7.23. 复制文件目录" href="复制文件目录.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. Linux基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="基本命令.html">7.1. 基本命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="关机.html">7.2. 关机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件和目录.html">7.3. 文件和目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件搜索.html">7.4. 文件搜索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="挂载一个文件系统.html">7.5. 挂载一个文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="磁盘空间.html">7.6. 磁盘空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="用户和群组.html">7.7. 用户和群组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件的权限.html">7.8. 文件的权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件的特殊属性.html">7.9. 文件的特殊属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="打包和压缩文件.html">7.10. 打包和压缩文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RPM包.html">7.11. RPM包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YUM软件包升级器.html">7.12. YUM软件包升级器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deb包.html">7.13. deb包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="查看文件内容.html">7.14. 查看文件内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文本处理.html">7.15. 文本处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符设置和文件格式转换.html">7.16. 字符设置和文件格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件系统分析.html">7.17. 文件系统分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="初始化一个文件系统.html">7.18. 初始化一个文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SWAP文件系统.html">7.19. SWAP文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="备份.html">7.20. 备份</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列出目录内容.html">7.21. 列出目录内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="查看文件的类型.html">7.22. 查看文件的类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="复制文件目录.html">7.23. 复制文件目录</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.24. 系统常用命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.24.1. 显示命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">7.24.2. 输出查看命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.24.3. 查看硬件信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">7.24.4. 关机、重启</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">7.24.5. 归档、压缩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">7.24.6. 查找</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#whow">7.24.7. who或w命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dmesg">7.24.8. dmesg命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#df">7.24.9. df命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#du">7.24.10. du命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#free">7.24.11. free命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vim">7.24.12. VIM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">7.24.12.1. 命令模式（常规模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">7.24.12.2. 插入模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ex">7.24.12.3. ex模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="软件包管理命令(RPM).html">7.25. 软件包管理命令(RPM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">7. Linux基础</a> &raquo;</li>
+      <li>7.24. 系统常用命令</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/系统常用命令.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>7.24. 系统常用命令<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>7.24.1. 显示命令<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>date:  # 查看或设置当前系统的时间：格式化显示时间：+%Y--%m--%d；
+date -s:  # 设置当前系统的时间
+hwclock(clock):  # 显示硬件时钟时间(需要管理员权限)；
+
+cal:  # 查看日历
+# 格式cal [参数] 月年
+cal： # 显示当月的日历
+cal 4 2004 ： # 显示2004年4月的日历
+
+cal -y 2003： # 显示2003年的日历
+uptime： # 查看系统运行时间
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>7.24.2. 输出查看命令<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo： # 显示输入的内容  追加文件echo &quot;liuyazhuang&quot; &gt;&gt; liuyazhuang.txt
+
+cat： # 显示文件内容,也可以将数个文件合并成一个文件。
+
+# 格式：格式：cat[参数]&lt;文件名&gt;
+cat  test.txt： # 显示test.txt文件内容
+cat  test.txt | more  ： # 逐页显示test.txt文件中的内容
+cat  test.txt &gt;&gt; test1.txt ： # 将test.txt的内容附加到test1.txt文件之后
+cat  test.txt test2.txt &gt;readme.txt :  # 将test.txt和test2.txt文件合并成readme.txt 文件
+
+head: # 显示文件的头几行（默认10行）
+-n:  # 指定显示的行数格式：head -n 文件名
+
+tail： # 显示文件的末尾几行（默认10行）-n：指定显示的行数   -f：追踪显示文件更新 （一般用于查看日志，命令不会退出，而是持续显示新加入的内容）
+格式：tail[参数]&lt;文件名&gt;
+tail -10 /etc/passwd ：  #  显示/etc/passwd/文件的倒数10行内容
+tail +10 /etc/passwd ：  # 显示/etc/passwd/文件从第10行开始到末尾的内容
+
+more：  # 用于翻页显示文件内容（只能向下翻页）
+# more命令是一般用于要显示的内容会超过一个画面长度的情况。为了避免画  面显示时瞬间就闪过去，用户可以使用more命令，让画面在显示满一页时暂停，此时可按空格健继续显示下一个画面，或按Q键停止显示。
+ls  -al  |more： # 以长格形式显示etc目录下的文件列表，显示满一个画面便暂停，可 按空格键继续显示下一画面，或按Q键跳离
+
+less： # 翻页显示文件内容（带上下翻页）按下上键分页，按q退出、‘
+less命令的用法与more命令类似，也可以用来浏览超过一页的文件。所不同  的是less 命令除了可以按空格键向下显示文件外，还可以利用上下键来卷动文件。当要结束浏览时，只要在less命令的提示符“：”下按Q键即可。
+
+ls  -al | less： # 以长格形式列出/etc目录中所有的内容。用户可按上下键浏览或按Q键跳离
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>7.24.3. 查看硬件信息<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ispci：查看PCI设备  -v：查看详细信息
+Isusb：查看USB设备 -v：查看详细信息
+Ismod：查看加载的模块(驱动)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>7.24.4. 关机、重启<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>shutdown  # 关闭、重启计算机
+# shutdown[关机、重启]时间  -h关闭计算机   -r：重启计算机
+shutdown -h now  # 立即关机
+shutdown -h +10  # 10分钟后关机
+shutdown -h 23:30  # 23:30分关机
+shutdown -r now  # 立即重启
+
+poweroff： # 立即关闭计算机
+reboot： # 立即重启计算机
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>7.24.5. 归档、压缩<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>zip:  # 压缩文件  zip liuyazhuang.zip myfile  格式为：“zip 压缩后的zip文件文件名”
+unzip： # 解压文件  unzip liuyazhuang.zip
+gzip： # 压缩文件 gzip 文件名
+
+tar： # 归档文件
+tar -cvf out.tar liuyazhuang   # 打包一个归档（将文件&quot;liuyazhuang&quot;打包成一个归档）
+tar -xvf liuyazhuang.tar      # 释放一个归档（释放liuyazhuang.tar归档）
+tar -cvzf backup.tar.gz/etc
+-z:  # 参数将归档后的归档文件进行gzip压缩以减少大小。
+-c： # 创建一个新tar文件
+-v： # 显示运行过程的信息
+-f： # 指定文件名
+-z： # 调用gzip压缩命令进行压缩
+-t： # 查看压缩文件的内容
+-x： # 解开tar文件
+tar  -cvf test.tar  *： # 将所有文件打包成test.tar,扩展名.tar需自行加上
+tar  -zcvf test.tar.gz  *： # 将所有文件打包成test.tar,再用gzip命令压缩
+tar -tf   test.tar ： # 查看test.tar文件中包括了哪些文件
+tar -xvf test.tar        # 将test.tar解开
+tar -zxvf foo.tar.gz    # 解压缩
+
+# gzip各gunzip命令
+gziptest.txt ：  # 压缩文件时，不需要任何参数
+gizp–l test.txt.gz：  # 显示压缩率
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>7.24.6. 查找<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>locate： # 快速查找文件、文件夹：locate keyword
+此命令需要预先建立数据库，数据库默认每天更新一次，可用updatedb命令手工建立、更新数据库。欢迎关注我们，公号终码一生。
+find查找位置查找参数
+如：
+find . -name *liuyazhuang*  # 查找当前目录下名称中含有&quot;liuyazhuang&quot;的文件
+find / -name *.conf   # 查找根目录下（整个硬盘）下后缀为.conf的文件
+find / -perm 777  # 查找所有权限是777的文件
+find / -type d  # 返回根目录下所有的目录
+find . -name &quot;a*&quot;-exec ls -l {} \;
+find功能： # 用来寻找文件或目录。 格式：find [&lt;路径&gt;] [匹配条件]
+find / -name httpd.conf   # 搜索系统根目录下名为httpd.conf的文件
+</pre></div>
+</div>
+</div>
+<div class="section" id="whow">
+<h2>7.24.7. who或w命令<a class="headerlink" href="#whow" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>功能：查看当前系统中有哪些用户登录
+格式：who/w[参数]
+</pre></div>
+</div>
+</div>
+<div class="section" id="dmesg">
+<h2>7.24.8. dmesg命令<a class="headerlink" href="#dmesg" title="Permalink to this headline">¶</a></h2>
+<p>功能：显示系统诊断信息、操作系统版本号、物理内存的大小以及其它信息</p>
+</div>
+<div class="section" id="df">
+<h2>7.24.9. df命令<a class="headerlink" href="#df" title="Permalink to this headline">¶</a></h2>
+<p>功能：用于查看文件系统的各个分区的占用情况</p>
+</div>
+<div class="section" id="du">
+<h2>7.24.10. du命令<a class="headerlink" href="#du" title="Permalink to this headline">¶</a></h2>
+<p>功能：查看某个目录中各级子目录所使用的硬盘空间数格式：du [参数] &lt;目录名&gt;</p>
+</div>
+<div class="section" id="free">
+<h2>7.24.11. free命令<a class="headerlink" href="#free" title="Permalink to this headline">¶</a></h2>
+<p>功能：用于查看系统内存，虚拟内存（交换空间）的大小占用情况</p>
+</div>
+<div class="section" id="vim">
+<h2>7.24.12. VIM<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h2>
+<p>VIM是一款功能强大的命令行文本编辑器，在Linux中通过vim命令可以启动vim编辑器。 一般使用vim + 目标文件路径 的形式使用vim</p>
+<p>如果目标文件存在，则vim打开目标文件，如果目标文件不存在，则vim新建并打开该文件 :q：退出vim编辑器</p>
+<p>VIM模式vim拥有三种模式：</p>
+<div class="section" id="id8">
+<h3>7.24.12.1. 命令模式（常规模式）<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>vim启动后，默认进入命令模式，任何模式都可以通过esc键回到命令模式（可以多按几次），命令模式下可以键入不同的命令完成选择、复制、粘贴、撤销等操作。</p>
+<p>命名模式常用命令如下：</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>i :  # 在光标前插入文本；
+o:  # 在当前行的下面插入新行；
+dd:  # 删除整行；
+yy：  # 将当前行的内容放入缓冲区（复制当前行）
+n+yy :  # 将n行的内容放入缓冲区（复制n行）
+p:  # 将缓冲区中的文本放入光标后（粘贴）
+u：  # 撤销上一个操作
+r:  # 替换当前字符
+/:   # 查找关键字
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>7.24.12.2. 插入模式<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>在命令模式下按 ” i “键，即可进入插入模式，在插入模式可以输入编辑文本内容，使用esc键可以返回命令模式。</p>
+</div>
+<div class="section" id="ex">
+<h3>7.24.12.3. ex模式<a class="headerlink" href="#ex" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>在命令模式中按” :</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&quot;键可以进入ex模式，光标会移动到底部，在这里可以保存修改或退出vim.
+ext模式常用命令如下：
+:w  # 保存当前的修改
+:q  # 退出
+:q!  # 强制退出，保存修改
+:x  # 保存并退出，相当于:wq
+:set number  # 显示行号
+:!  # 系统命令  执行一个系统命令并显示结果
+:sh  # 切换到命令行，使用ctrl+d切换回vim
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="复制文件目录.html" class="btn btn-neutral float-left" title="7.23. 复制文件目录" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="软件包管理命令(RPM).html" class="btn btn-neutral float-right" title="7.25. 软件包管理命令(RPM)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.10. 类(1) &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.11. 类(2)" href="类2.html" />
+    <link rel="prev" title="4.9. 函数" href="函数.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. python基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="安装.html">4.1. 环境安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="数据类型和变量.html">4.2. 数据类型和变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运行python.html">4.3. 运行python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列表元组.html">4.4. 列表和元组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字典.html">4.5. 字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符串.html">4.6. 字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="运算.html">4.7. 运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="流程控制.html">4.8. 流程控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="函数.html">4.9. 函数</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.10. 类(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.10.1. 面向对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.10.2. 编写一个类</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="类2.html">4.11. 类(2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="类3.html">4.12. 类(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="异常处理.html">4.13. 异常处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="模块和包.html">4.14. 模块和包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="内建函数.html">4.15. 内建函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用标准库.html">4.16. 常用标准库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="常用第三方库.html">4.17. 常用第三方库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="练习.html">4.18. 练习题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">4. python基础</a> &raquo;</li>
+      <li>4.10. 类(1)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python_base/类1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>4.10. 类(1)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>类是比较重要的内容，因为在python中，所有的所有都是对象</p>
+<div class="section" id="id2">
+<h2>4.10.1. 面向对象<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>面向对象是对现实世界的抽象，以便可以使用人类的思维去思考解决问题，思考一下，你平时是怎么描述一个帅哥呢？</p>
+<ul class="simple">
+<li>个子很高</li>
+<li>身材很好</li>
+<li>很有钱，可以买飞机</li>
+<li>很浪漫</li>
+</ul>
+<p>你能从这几点中分析出来规律吗？ 什么样的（很浪漫， 个子很高，身材很好）帅哥，有什么（钱），可以干什么（买飞机），这就是人类的思维去描述一类对象，我们来翻译成代码:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShuaiGe</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shen_gao</span> <span class="o">=</span> <span class="mi">187</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shen_cai</span> <span class="o">=</span> <span class="s1">&#39;very good&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">money</span> <span class="o">=</span> <span class="mi">100000000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">if_lang_man</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">mai_fei_ji</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;A380&quot;</span>
+</pre></div>
+</div>
+<p>既然大家很喜欢，那我们就new一个出来:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shuai_ge1</span> <span class="o">=</span> <span class="n">ShuaiGe</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shuai_ge1</span><span class="o">.</span><span class="n">mai_fei_ji</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>这就是面向对象，类是实例的模版，大家可以看到，面向对象其实很简单的，那与面向过程又有什么区别呢？其实除了语法，差异最大的就是思维，举个例子：我们需要造一个计算器，需要实现计算器，来实现加减乘除，下面我们分别使用面向过程和面向对象来实现</p>
+<p>面向过程:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;add&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+    <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;sub&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+    <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;mul&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+    <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;div&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;error, unsupported operation&#39;</span>
+
+
+<span class="n">calc</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>面向对象:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calc</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+
+    <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calc</span><span class="p">()</span>
+<span class="n">calc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>大家体会一下</p>
+</div>
+<div class="section" id="id3">
+<h2>4.10.2. 编写一个类<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>先上个例子:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sex</span> <span class="o">=</span> <span class="n">sex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i can run !!!&#39;</span><span class="p">)</span>
+
+<span class="n">xiao_sun</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;boy&#39;</span><span class="p">,</span> <span class="s1">&#39;xiao sun&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xiao_sun</span><span class="o">.</span><span class="n">sex</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xiao_sun</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">xiao_sun</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>大家先试着理解一下，下面来分析一下</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/定义类.png"><img alt="../_images/定义类.png" src="../_images/定义类.png" style="width: 15.0cm;" /></a>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code> 是指实例对象本身，比如生成对象小明，<code class="docutils literal notranslate"><span class="pre">self</span></code> 就是小明，生成了对象小李，<code class="docutils literal notranslate"><span class="pre">self</span></code> 就是小李，<code class="docutils literal notranslate"><span class="pre">self</span></code> 在实例方法的第一个位置，但对象调用时是不需要传的，至于为什么需要这样写，我们后面再说</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="函数.html" class="btn btn-neutral float-left" title="4.9. 函数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="类2.html" class="btn btn-neutral float-right" title="4.11. 类(2)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

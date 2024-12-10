@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.5. 挂载一个文件系统 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.6. 磁盘空间" href="磁盘空间.html" />
+    <link rel="prev" title="7.4. 文件搜索" href="文件搜索.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. Linux基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="基本命令.html">7.1. 基本命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="关机.html">7.2. 关机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件和目录.html">7.3. 文件和目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件搜索.html">7.4. 文件搜索</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.5. 挂载一个文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="磁盘空间.html">7.6. 磁盘空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="用户和群组.html">7.7. 用户和群组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件的权限.html">7.8. 文件的权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件的特殊属性.html">7.9. 文件的特殊属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="打包和压缩文件.html">7.10. 打包和压缩文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RPM包.html">7.11. RPM包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YUM软件包升级器.html">7.12. YUM软件包升级器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deb包.html">7.13. deb包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="查看文件内容.html">7.14. 查看文件内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文本处理.html">7.15. 文本处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符设置和文件格式转换.html">7.16. 字符设置和文件格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件系统分析.html">7.17. 文件系统分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="初始化一个文件系统.html">7.18. 初始化一个文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SWAP文件系统.html">7.19. SWAP文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="备份.html">7.20. 备份</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列出目录内容.html">7.21. 列出目录内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="查看文件的类型.html">7.22. 查看文件的类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="复制文件目录.html">7.23. 复制文件目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="系统常用命令.html">7.24. 系统常用命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="软件包管理命令(RPM).html">7.25. 软件包管理命令(RPM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">7. Linux基础</a> &raquo;</li>
+      <li>7.5. 挂载一个文件系统</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/挂载一个文件系统.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>7.5. 挂载一个文件系统<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda2</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hda2</span> <span class="n">挂载一个叫做hda2的盘</span> <span class="o">-</span> <span class="n">确定目录</span> <span class="s1">&#39;/ mnt/hda2&#39;</span> <span class="n">已经存在</span>
+<span class="n">umount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda2</span> <span class="n">卸载一个叫做hda2的盘</span> <span class="o">-</span> <span class="n">先从挂载点</span> <span class="s1">&#39;/ mnt/hda2&#39;</span> <span class="n">退出</span>
+<span class="n">fuser</span> <span class="o">-</span><span class="n">km</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hda2</span> <span class="n">当设备繁忙时强制卸载</span>
+<span class="n">umount</span> <span class="o">-</span><span class="n">n</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hda2</span> <span class="n">运行卸载操作而不写入</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mtab</span> <span class="n">文件</span><span class="o">-</span> <span class="n">当文件为只读或当磁盘写满时非常有用</span>
+<span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">fd0</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">floppy</span> <span class="n">挂载一个软盘</span>
+<span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cdrom</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">cdrom</span> <span class="n">挂载一个cdrom或dvdrom</span>
+<span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdc</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">cdrecorder</span> <span class="n">挂载一个cdrw或dvdrom</span>
+<span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">cdrecorder</span> <span class="n">挂载一个cdrw或dvdrom</span>
+<span class="n">mount</span> <span class="o">-</span><span class="n">o</span> <span class="n">loop</span> <span class="n">file</span><span class="o">.</span><span class="n">iso</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">cdrom</span> <span class="n">挂载一个文件或ISO镜像文件</span>
+<span class="n">mount</span> <span class="o">-</span><span class="n">t</span> <span class="n">vfat</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda5</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hda5</span> <span class="n">挂载一个Windows</span> <span class="n">FAT32文件系统</span>
+<span class="n">mount</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda1</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdisk</span> <span class="n">挂载一个usb</span> <span class="n">捷盘或闪存设备</span>
+<span class="n">mount</span> <span class="o">-</span><span class="n">t</span> <span class="n">smbfs</span> <span class="o">-</span><span class="n">o</span> <span class="n">username</span><span class="o">=</span><span class="n">user</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="k">pass</span> <span class="o">//</span><span class="n">WinClient</span><span class="o">/</span><span class="n">share</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">share</span> <span class="n">挂载一个windows网络共享</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="文件搜索.html" class="btn btn-neutral float-left" title="7.4. 文件搜索" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="磁盘空间.html" class="btn btn-neutral float-right" title="7.6. 磁盘空间" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

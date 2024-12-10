@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jmeter在linux上基于Jenkins持续集成参数化配置 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Jmeter在linux上基于Jenkins持续集成参数化配置</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Jmeter/jmeter持续集成.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="jmeterlinuxjenkins">
+<h1>Jmeter在linux上基于Jenkins持续集成参数化配置<a class="headerlink" href="#jmeterlinuxjenkins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jmeter">
+<h2>在本地完成Jmeter脚本<a class="headerlink" href="#jmeter" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="shell">
+<h2>编写线程组时，将线程数与执行时间时进行参数化处理，从shell脚本中获取字段值<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_jenkins_1.png"><img alt="../_images/jmeter_jenkins_1.png" src="../_images/jmeter_jenkins_1.png" style="width: 15.0cm;" /></a>
+</div>
+<p>线程组修改为：${__P(ThreadNumber,400)}
+执行时间修改为：${__P(Diration,300)}</p>
+<p>通过shell命令传递 -JThreadNumber=$ThreadNumber -JDiration=$Diration</p>
+<p>备注：若在shell未传递，则对应参数：线程数默认取400，执行时间默认300秒</p>
+</div>
+<div class="section" id="jmxlinux">
+<h2>保存后将生成的jmx文件上传到Linux服务器对应的路径上，配置任务<a class="headerlink" href="#jmxlinux" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_jenkins_3.png"><img alt="../_images/jmeter_jenkins_3.png" src="../_images/jmeter_jenkins_3.png" style="width: 15.0cm;" /></a>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_jenkins_2.png"><img alt="../_images/jmeter_jenkins_2.png" src="../_images/jmeter_jenkins_2.png" style="width: 15.0cm;" /></a>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_jenkins_5.png"><img alt="../_images/jmeter_jenkins_5.png" src="../_images/jmeter_jenkins_5.png" style="width: 15.0cm;" /></a>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>点击构建，配置线程数等<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_jenkins_4.png"><img alt="../_images/jmeter_jenkins_4.png" src="../_images/jmeter_jenkins_4.png" style="width: 15.0cm;" /></a>
+</div>
+<p>点击【立即构建】，开始自动执行性能测试（建议先2个线程，10秒执行测试一下）</p>
+</div>
+<div class="section" id="html-report">
+<h2>执行完成后，自动生成测试报告，点击【HTML Report】查看测试报告<a class="headerlink" href="#html-report" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jmeter_jenkins_6.png"><img alt="../_images/jmeter_jenkins_6.png" src="../_images/jmeter_jenkins_6.png" style="width: 15.0cm;" /></a>
+</div>
+<p>若报告中数据无法正常显示，原因可能为Jenkins中html安全问题导致，</p>
+<p>进入系统管理——&gt;脚本命令行——&gt;输入：</p>
+<p>System.setProperty(“hudson.model.DirectoryBrowserSupport.CSP”, “”)</p>
+<p>点击运行，再重新构建脚本即可。</p>
+</div>
+<div class="section" id="id2">
+<h2>分布式压测（或者将本地机器作为调度机，其他服务器作为负载机）<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在较大并发量时推荐使用分布式压测，修改Jenkins是中的shell脚本即可</p>
+<p>方法流程：</p>
+<p>1、修改控制机中jmeter.properties 文件remote_host参数，remote_host=127.0.0.1,xxx.xxx.xxx.xxx:1099
+(xxx.xxx.xxx.xxx为负载机ip，可配置多个，逗号隔开)</p>
+<p>2、启动负载机中jmeter-server</p>
+<p>3、在shell命令中增加-r，修改【-JThreadNumber=$ThreadNumber -JDiration=$Diration】为【-GThreadNumber=$ThreadNumber -GDiration=$Diration】
+(-J为局部变量配置，如果需要分布式压测，需要将命令行参数带到负载机中，需要用-G全部变量配置)</p>
+<p>4、开始压测</p>
+<p>5、Windows下本地机器作为负载机时，修改本地jmeter文件bin目录下jmeter.properties以下参数中：</p>
+<p>remote_hosts=xxx.xxx.xxx.xxx:1099</p>
+<p>server.rmi.ssl.disable=true</p>
+<p>启动时点击【运行】——&gt;【远程启动】</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

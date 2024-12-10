@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.6. pytest中mark标记 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.7. pytest预期异常" href="pytest预期异常.html" />
+    <link rel="prev" title="8.5. pytest之fixture" href="pytest之fixture.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">8. pytest</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html">8.1. pytest介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html">8.2. pytest编写规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html">8.3. pytest测试报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest参数化.html">8.4. pytest参数化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html">8.5. pytest之fixture</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.6. pytest中mark标记</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">8.6.1. 指定用例测试执行实现冒烟测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">8.6.2. 跳过测试用例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#skip">8.6.2.1. skip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skipif">8.6.2.2. skipif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xfail">8.6.2.3. xfail</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytest预期异常.html">8.7. pytest预期异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html">8.8. pytest持续集成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用插件.html">8.9. pytest常用插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html">8.10. pytest常用hooks方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">8. pytest</a> &raquo;</li>
+      <li>8.6. pytest中mark标记</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pytest/pytest中mark标记.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pytestmark">
+<h1>8.6. pytest中mark标记<a class="headerlink" href="#pytestmark" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>8.6.1. 指定用例测试执行实现冒烟测试<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在测试过程中，可能出现业务场景，指定某个文件的某几条测试用例进行测试
+这个时候我们就可以使用&#64;pytest.mark.xxx(xxx可以自行定义)，比如以下代码:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">lvjj</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">lvjj</span>
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">test_3</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;test_server.py&quot;</span><span class="p">,</span> <span class="s2">&quot;-m=lvjj&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>如果我们只想只想&#64;pytest.mark.lvjj中的测试用例，我们在只想命令函数的时候就使用:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">m</span> <span class="n">lvjj</span>
+</pre></div>
+</div>
+<p>如果我们想只想除了&#64;pytest.mark.lvjj以外的其他测试用例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">lvjj</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">lvjj</span>
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">test_3</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;test_server.py&quot;</span><span class="p">,</span> <span class="s2">&quot;-m=not lvjj&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>或者执行命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;not lvjj&quot;</span>
+</pre></div>
+</div>
+<p>在这里我们通常会标记冒烟测试用例，如：&#64;pytest.mark.smoke，这样就能实现pytest的冒烟测试了</p>
+</div>
+<div class="section" id="id2">
+<h2>8.6.2. 跳过测试用例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>pytest自身内置了一些标记，如：skip、skipif、xfail。</p>
+<div class="section" id="skip">
+<h3>8.6.2.1. skip<a class="headerlink" href="#skip" title="Permalink to this headline">¶</a></h3>
+<p>对于那些尚未开发完成的测试用例，最好的处理方式就是略过而不执行测试，这个时候，skip就可以发挥作用了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s2">&quot;跳过原因&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span><span class="o">==</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>该条测试用例不会被真正执行，测试用例状态为：SKIPPED</p>
+<p>所以，要跳过某个测试,只需要简单地在测试函数上方添加epytest.mark.skip()装饰器即可。</p>
+</div>
+<div class="section" id="skipif">
+<h3>8.6.2.2. skipif<a class="headerlink" href="#skipif" title="Permalink to this headline">¶</a></h3>
+<p>我们可以给跳过测试用例加上一些条件，当条件满足时，测试用例才会被掉过，这里就需要用到skipif了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s1">&#39;测试skipif&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">A</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s1">&#39;测试skipif&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="xfail">
+<h3>8.6.2.3. xfail<a class="headerlink" href="#xfail" title="Permalink to this headline">¶</a></h3>
+<p>在使用pytest时，有些用例我们预计他可能会失败，这个时候就需要使用xfail了，当测试用例失败时，会被跳过，不会影响继续执行测试用例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">test_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">test_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pytest之fixture.html" class="btn btn-neutral float-left" title="8.5. pytest之fixture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pytest预期异常.html" class="btn btn-neutral float-right" title="8.7. pytest预期异常" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

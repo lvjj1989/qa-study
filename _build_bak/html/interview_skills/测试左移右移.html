@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11.4. 测试左移右移 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. 联系" href="../source/index.html" />
+    <link rel="prev" title="11.3. 理论基础" href="理论基础题.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">11. 面试相关</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="面试流程.html">11.1. 面试流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="关于自我介绍.html">11.2. 关于自身情况叙述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="理论基础题.html">11.3. 理论基础</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11.4. 测试左移右移</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">11.4.1. 测试左移</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">11.4.2. 测试右移</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">11. 面试相关</a> &raquo;</li>
+      <li>11.4. 测试左移右移</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/interview_skills/测试左移右移.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>11.4. 测试左移右移<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>大家熟悉的测试工作可能是，接到项目后参与需求评审，然后根据需求文档写写用例，准备测试脚本和测试数据，等开发提测之后正式开始测试、提bug、回归，测试通过后上预发布然后上线，这个项目就算是结束了。但是这样在开发阶段会不会被人说测试工作量不饱和呢？如果开发质量差的时候，会不会导致测试时间过长而延期？</p>
+<p>目前可能听的比较多的会说测试左移右移，我们来大致了解一下</p>
+<div class="section" id="id2">
+<h2>11.4.1. 测试左移<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>测试左移就是在提测前，QA人员提前介入。
+在需求评审时不是单纯的了解需求，也需要去评估需求的质量，分析需求是否合理和完整。
+在开发阶段，也需要参与设计方案的设计，了解开发的实现方式。毕竟不少开发可能只对他熟悉负责的那一块，没有办法把整个流程进行串联。作为QA人员，需要提前评估改动范围以及是否有遗漏的模块和系统。
+QA人员还可以通过提供测试案例或者自动化测试脚本的方式给开发，让开发在设计时考虑地更加全面，同时方便开发在时进行联调和自测，有助于提高产品质量和后期测试工作的顺利展开。越早暴露问题并解决，成本就后越低。QA同学还需要不断地培养产品和开发同学的质量意识，必要时提供技术支持，协助产品、开发更好的进行测试，也可以提供一些测试工具，测试脚本，运营工具，来协助开发、产品、运营同学进行提升效率。</p>
+</div>
+<div class="section" id="id3">
+<h2>11.4.2. 测试右移<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>测试右移就是在项目上线后，QA同学仍然需要时时关注线上质量
+绝对不可以认为功能上线QA同学就可以退出了。通过线上接口、数据等监控和预警，可以及时发现问题并迅速跟进解决，将影响范围降到最低。
+在开发设计时就要考虑预警功能，系统层(如果服务器的CPU，内存消耗情况)、应用层(接口的响应时间，是否存在超时请求)、业务层(访问量，订单量，数据库数据入库情况)等，如果出现异常的时候通过各种有效的方式通知相关同学。技术同学要比业务方先发现问题，通过日志查看用户使用量较高的场景，从而优化补充测试用例。</p>
+<p>无论测试测试左移或者右移，都是QA同学的能力体现，也是为了项目更好更快的上线，抢占市场，从而赚钱。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="理论基础题.html" class="btn btn-neutral float-left" title="11.3. 理论基础" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../source/index.html" class="btn btn-neutral float-right" title="12. 联系" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+文件系统分析
+=================================
+
+::
+
+	badblocks -v /dev/hda1  # 检查磁盘hda1上的坏磁块
+	fsck /dev/hda1  # 修复/检查hda1磁盘上linux文件系统的完整性
+	fsck.ext2 /dev/hda1  # 修复/检查hda1磁盘上ext2文件系统的完整性
+	e2fsck /dev/hda1  # 修复/检查hda1磁盘上ext2文件系统的完整性
+	e2fsck -j /dev/hda1  # 修复/检查hda1磁盘上ext3文件系统的完整性
+	fsck.ext3 /dev/hda1  # 修复/检查hda1磁盘上ext3文件系统的完整性
+	fsck.vfat /dev/hda1  # 修复/检查hda1磁盘上fat文件系统的完整性
+	fsck.msdos /dev/hda1  # 修复/检查hda1磁盘上dos文件系统的完整性
+	dosfsck /dev/hda1  # 修复/检查hda1磁盘上dos文件系统的完整性

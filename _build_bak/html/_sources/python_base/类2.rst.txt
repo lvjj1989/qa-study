@@ -1,0 +1,79 @@
+类(2)
+======================================
+上一节讲了一些理论和基础，但都没展开，比如类变量（属性）与实例变量（属性），静态方法，实例方法，类方法等等，我们先讨论几张图，后面再讲这些的话会轻松一点儿
+
+理解类和对象
+---------------------------------------
+接上节的例子，我们画一个图
+
+.. figure:: /_static/python/类原理1.png
+    :width: 22.0cm
+
+来解释一下，当加载一个类时，会为该类分配一块区域用来存在数据和方法，如图左所示，当使用 ``xiao_sun = Student('boy', 'xiao sun')`` 后，生成了一个新对象 ``xiao sun`` ，并为它分配了一块区域，如图右所示，
+在它的属性里已经有了sex和name，因为生成实例对象后，会自动调用类的 ``__init__`` 初始化方法，给对象新增两个属性，实例对象本身并不持有这些方法，当需要调用方法时，如 ``xiao_sun.run()`` ，
+其实python解释器会执行 ``Student.run(xiao_sun)`` 
+
+类属性/实例属性
+---------------------------------------
+或者也可以称为类变量/实例变量，无所谓都一个意思。我们之前看到的属性都是实例也就是对象才持有的，类并持有，类持有的属性就是类属性，如下图所示:
+
+.. figure:: /_static/python/类原理2.png
+    :width: 22.0cm
+
+这一次，我们把一个name属性放到了类的空间内，这个属性就称为类属性，表达方式如下::
+
+    class Student(object):
+
+        name = '你猜'
+
+        def __init__(self, sex, name):
+            self.sex = sex
+            self.name = name
+
+        def run(self):
+            print('i can run !!!')
+
+类属性和实例属性的区别就是，类属性存在于类空间里，实例属性存在于对象空间里。
+
+类方法/实例方法/静态方法
+---------------------------------------
+刚刚我们已经有使用过实例方法了，大家应该注意到方法定义的第一个参数是self，即实例对象，这就是实例方法的特征，与其类似，类方法的第一个参数是 ``cls`` 即类，静态方法即不需要 ``self`` 、 也不需要 ``cls``，看下面的例子::
+
+    class Student(object):
+
+        name = '你猜'
+
+        def __init__(self, sex, name):
+            self.sex = sex
+            self.name = name
+
+        def say_self_name(self):
+            print(self.name)
+
+        @classmethod
+        def say_cls_name(cls):
+            print(cls.name)
+
+        @staticmethod
+        def say_whose_name():
+            print('whose name?')
+
+    # 生成对象
+    xiao_sun = Student('boy', 'xiao sun')
+
+    # 使用类调用类方法
+    Student.say_cls_name()
+    # 使用类调用实例方法
+    Student.say_self_name()  # 会报错
+    # 使用类调用静态方法
+    Student.say_whose_name()
+
+    # 使用对象调用类方法
+    xiao_sun.say_cls_name()
+    # 使用对象调用实例方法
+    xiao_sun.say_self_name()
+    # 使用对象调用静态方法
+    xiao_sun.say_whose_name()
+
+
+换句话说，类方法，可以操作类属性，实例方法可以操作实例属性，静态方法谁都操作不了

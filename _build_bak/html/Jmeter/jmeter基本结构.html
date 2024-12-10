@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jmeter基本结构 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Jmeter基本结构</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Jmeter/jmeter基本结构.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="jmeter">
+<h1>Jmeter基本结构<a class="headerlink" href="#jmeter" title="Permalink to this headline">¶</a></h1>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/Jmeter体系结构.png"><img alt="../_images/Jmeter体系结构.png" src="../_images/Jmeter体系结构.png" style="width: 20.0cm;" /></a>
+</div>
+<div class="section" id="id1">
+<h2>取样器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>取样器有被称为采样器，用来模拟用户操作，向服务器（被测系统）发送HTTP请求、webservice请求或者Java请求等。我们可以把HTTP请求原件看出一个没有界面的浏览器，它可以发送HTTP请求，介绍服务器的相应数据。
+它基本涵盖了我们常见的所有协议。比如HTTP、ftp、Java、JMS、LDAP、MAIL、MongoDB、SMTP、SOAP、TCP、Junit等，还支持BeanShell脚本。</p>
+<p>访问路径：【测试计划】——【线程组】——【Sampler】。</p>
+</div>
+<div class="section" id="id2">
+<h2>断言<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>断言用来帮助验证结果是否正确，相当于loadrunner中的检查点，可以帮助我们判断请求是否成功返回且是否符合要求。
+常用的有响应断言，叫复杂的断言方式可以用BeanShell来完成。详情见jmeter断言方式总结专题</p>
+<p>访问路径：【测试计划】——【断言】</p>
+</div>
+<div class="section" id="id3">
+<h2>监听器<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Jmeter的测试结果需要添加监听器来进行收集，Jmeter的监听器主要包含以下两个任务</p>
+<ol class="arabic simple">
+<li>添加结果监听器，并保存测试结果到文件，这些结果数据可以提供再次分析使用。</li>
+<li>展示结果，Jmeter可以以表格及图形的形式展现结果，方便测试人员分析测试结果。在开发测试脚本时，不可避免需要调试，监听器也提供了辅助（比如查看结果树）。</li>
+</ol>
+<p>访问路径：【测试计划】——【监听器】</p>
+<p><strong>取样器、断言、监听器组合在一起就可以帮助我们完成发送请求、验证结果及记录结果三项基本工作。</strong></p>
+</div>
+<div class="section" id="id4">
+<h2>前置处理器<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>在测试脚本开发的过程中，我们通常需要做一些前期准备，如环境配置、参数设置、数据库连接建立等，我们通常会议前置处理器来完成这个功能。</p>
+<p>访问路径：【测试计划】——【前置处理器】</p>
+</div>
+<div class="section" id="id5">
+<h2>配置元件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>性能测试中，为了模拟大量用户我们往往需要参数化，Jmeter中的参数化通过配置元件来完成，比如CSV Data Set Config，它可以帮助我们con文件中读取测试数据。另外Jmeter也提供的众多函数，来帮助我们生成动态数据，同时他也可以用来记录服务器中的返回数据，比如Http Cache Manger自动记录服务器返回的Cache信息。说白了，它为取样器提供了预备数据，然后由取样器发出请求。</p>
+<p>访问路径：【测试计划】——【配置原件】</p>
+</div>
+<div class="section" id="id6">
+<h2>后置处理器<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>后置处理器一般放在取样器之后，用来处理服务器的返回结果。比如正则表达式提取器，它支持正则表达式的方式提前数据。</p>
+<p>访问路径：【测试计划】——【后置处理器】</p>
+</div>
+<div class="section" id="id7">
+<h2>控制器<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>在进行需求前置登录的场景时，我们通常只需要登录一次，取到登录信息后开始调用其他数据接口，这时候我们就可以使用仅一次控制器来完成。当然，控制器有很多种，不同的控制器可以完成我们不同的需求。</p>
+<p>访问路径：【测试计划】——【线程组】——【逻辑控制器】</p>
+</div>
+<div class="section" id="id8">
+<h2>定时器<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>为了足够真实的模拟用户负载，我们有时会需要模拟这些请求在同一时刻发送，Jmeter中可以通过定时器来完成足够功能，当然定时器不只这一个功能，每种不同的功能可以基本上满足我们所有的需求。</p>
+<p>访问路径：【测试计划】——【线程组】——【定时器】</p>
+</div>
+<div class="section" id="id9">
+<h2>线程组<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>性能测试需要模拟大量用户，线程组用来完成这个工作，一个线程组代表一个用户。线程组除了设置线程数外，还可以设置运行时长。定时运行等。另外第三方插件Jmeter Plugin的拓展也让Jmeter的场景设计更加丰富。</p>
+<p>访问路径：【测试计划】——【Threads（Users）】</p>
+</div>
+<div class="section" id="id10">
+<h2>工作台<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>工作平台，它不直接参与运行，它的功能主要用：</p>
+<ol class="arabic simple">
+<li>我们用Jmeter运行HTTP脚本时，可以在它下面建立一个HTTP代理服务器元件，设置代理信息然后进行录制；</li>
+<li>设置服务器监控（HTTP Mirror Server），不建议用这个功能来做监控，容易对Jmeter负责产生影响；</li>
+<li>显示当前Jmeter属性信息；</li>
+<li>备份脚本，我们在调试脚本的过程中，可以把它作为一个原件暂存区。</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.9. pytest常用插件 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.10. pytest常用hooks方法" href="pytest常用hooks方法.html" />
+    <link rel="prev" title="8.8. pytest持续集成" href="pytest持续集成.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">8. pytest</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pytest简介.html">8.1. pytest介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest编写规范.html">8.2. pytest编写规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest测试报告.html">8.3. pytest测试报告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest参数化.html">8.4. pytest参数化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest之fixture.html">8.5. pytest之fixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest中mark标记.html">8.6. pytest中mark标记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest预期异常.html">8.7. pytest预期异常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytest持续集成.html">8.8. pytest持续集成</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.9. pytest常用插件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">8.9.1. 失败重试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">8.9.2. 重复运行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">8.9.3. 并行运行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">8.9.4. 设定执行顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">8.9.5. 测试时间限制</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pytest常用hooks方法.html">8.10. pytest常用hooks方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">8. pytest</a> &raquo;</li>
+      <li>8.9. pytest常用插件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pytest/pytest常用插件.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pytest">
+<h1>8.9. pytest常用插件<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>8.9.1. 失败重试<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在做测试的时候我们通常会遇到网络波动，这时我们需要做失败重试机制，确认失败后才进行失败告警或者在报告中体现</p>
+<p>在pytest中，我们通常会使用安装pytest-rerunfailures来进行失败重试</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">pytest</span><span class="o">-</span><span class="n">rerunfailures</span>
+</pre></div>
+</div>
+<p>在命令行中增加 –reruns NUM，NUM为失败重试的最大次数</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">test_se</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">reruns</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>8.9.2. 重复运行<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span><span class="o">-</span><span class="n">repeat</span>
+</pre></div>
+</div>
+<p>在执行命令中添加–count=NUM NUM为每条用例需要执行的次数</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">test_se</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">count</span><span class="o">=</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>8.9.3. 并行运行<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span><span class="o">-</span><span class="n">xdist</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>测试运行并行化</strong>：如果有多个CPU或主机，则可以将它们用于组合的测试运行。 这样可以加快开发速度或使用远程计算机的特殊资源。</li>
+<li><strong>–looponfail</strong>：在子进程中重复运行测试。 每次运行之后，pytest都会等到项目中的文件更改后再运行之前失败的测试。 重复此过程，直到所有测试通过，然后再次执行完整运行。</li>
+<li><strong>跨平台覆盖</strong>：您可以指定不同的Python解释程序或不同的平台，并在所有这些平台上并行运行测试。</li>
+</ul>
+<p>pytest-xdist插件的 -n numprocesses 选项可以指定运行测试的处理器进程数，-n auto选项可以自动侦测系统里的CPU数量</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">-</span><span class="n">n</span> <span class="mi">3</span> <span class="n">test_lvjj</span><span class="o">.</span><span class="n">py</span>
+<span class="n">pytest</span> <span class="o">-</span><span class="n">n</span> <span class="n">auto</span> <span class="n">test_lvjj</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>8.9.4. 设定执行顺序<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span><span class="o">-</span><span class="n">ordering</span>
+</pre></div>
+</div>
+<p>根据order参数从小到大执行</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_order1</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;first test&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="kc">True</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_order2</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;second test&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>8.9.5. 测试时间限制<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>在正常时间下，pytest是没有测试时间限制的，但有时候需要控制测试用例执行执行，可以使用pytest-timeout。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pytest</span><span class="o">-</span><span class="n">timeout</span>
+</pre></div>
+</div>
+<p>在命令行中添加 –timeout=X，X为该条命令执行的总时间限制，单位秒</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="mf">3.5</span> <span class="n">test_xxx</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pytest持续集成.html" class="btn btn-neutral float-left" title="8.8. pytest持续集成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pytest常用hooks方法.html" class="btn btn-neutral float-right" title="8.10. pytest常用hooks方法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

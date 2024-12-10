@@ -1,0 +1,9 @@
+字符设置和文件格式转换
+======================================
+
+::
+
+	dos2unix filedos.txt fileunix.txt  # 将一个文本文件的格式从MSDOS转换成UNIX
+	unix2dos fileunix.txt filedos.txt  # 将一个文本文件的格式从UNIX转换成MSDOS
+	recode ..HTML < page.txt > page.html  # 将一个文本文件转换成html
+	recode -l | more  # 显示所有允许的转换格式

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.1. 接口测试概述 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2. HTTP" href="http.html" />
+    <link rel="prev" title="3. 接口测试" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 接口测试</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. 接口测试概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 什么是接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.2. 怎么开展接口测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">3.1.3. 使用python做接口自动化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">3.2. HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get和post的区别.html">3.3. get和post的区别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http和https的区别.html">3.4. http和https的区别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="编写接口测试脚本.html">3.5. 编写接口测试脚本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="接口自动化框架常用结构.html">3.6. 接口自动化框架常用结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">3.7. JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="自己写接口.html">3.8. 自己写接口</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">3. 接口测试</a> &raquo;</li>
+      <li>3.1. 接口测试概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/interface/接口测试概述.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>3.1. 接口测试概述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>首先我们先看一下经典金字塔</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/jinzita.jpg"><img alt="../_images/jinzita.jpg" src="../_images/jinzita.jpg" style="width: 15.0cm;" /></a>
+</div>
+<p>这个金字塔从底层到上层依次是单元测试、服务测试、UI测试，越接近接近底层，收益成本比越高，我这要说的就是服务测试，也叫做接口测试、API测试</p>
+<div class="section" id="id2">
+<h2>3.1.1. 什么是接口<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>通常我们接触到的接口分以下几种</p>
+<ul class="simple">
+<li>系统内部服务层级之间的接口调用，比如后端服务应用层调用service层的接口，service层掉用DAO层的接口，这个地方的接口测试属性白盒范畴，一般开发自己做就可以了</li>
+<li>服务之间的接口调用，比如你有两个服务，一个是用户中心，一个是订单中心，订单中心会去调用户中心的服务，查询用户信息，这些接口我们一般是要测试的</li>
+<li>系统之间的接口调用，比如你商户系统会去调公共服务系统的接口</li>
+</ul>
+<p>说完的接口的种类，那么怎么理解接口呢，通俗一点就是输入数据，返回数据，不同种类的接口应用层协议可能不一样，传输的数据格式也可能不一样，在这里我们主要介绍HTTP接口，因为这种接口使用的最广泛，搞明白之后，其它接口大同小异，无非是client不一样而已</p>
+</div>
+<div class="section" id="id3">
+<h2>3.1.2. 怎么开展接口测试<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>一般来说，我们开展接口测试的流程如下:</p>
+<ol class="arabic simple">
+<li>需求确定后，开发出API文档</li>
+<li>拿到API文档，编写接口测试用例</li>
+<li>开发交付</li>
+<li>实施接口测试</li>
+</ol>
+<p>接口测试用例跟常规的功能测试用例基本一样，可以从接口功能测试、接口业务测试、接口性能测试、接口安全测试等角度考虑</p>
+<p>接口功能的关注点是</p>
+<ol class="arabic simple">
+<li>接口每个参数输入正确与错误</li>
+<li>接口参数缺失</li>
+<li>接口参数边界值</li>
+<li>接口参数类型</li>
+<li>接口并发调用</li>
+</ol>
+<p>接口业务测试主要是从业务的角度出发，把接口组合成一条业务链，比如登录之后下个订单，然后再取消，数据库中的数据是否正确等等</p>
+<p>接口的性能测试是指接口是否满足业务的要求，比如业务要求系统可以满足50个人同时下单，那么下单这个接口就要可以承担50 TPS，目前业内一般使用JMETER去做性能测试</p>
+<p>针对接口的功能和业务逻辑测试，如果采用手工的方式可以使用POSTMAN、HTTPCLIENT等工具，也可以使用JMETER、SOAPUI工具，同时也可以自己写脚本去测试，这种方式更为灵活，更容易实现一些复杂的场景和业务逻辑</p>
+</div>
+<div class="section" id="python">
+<h2>3.1.3. 使用python做接口自动化<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>使用python做接口自动化测试是非常简单的，python入门非常简单，通过短时间的学习后，就可以开展自动化测试了，但需要掌握如下知识:</p>
+<ul class="simple">
+<li>理解HTTP</li>
+<li>熟悉python基础，python数据类型、函数、模块、类</li>
+<li>熟悉常用的python模块，如requests、json、configobj、pyyaml等</li>
+<li>熟悉python单元测试框架，如unittest、pytest、nose等</li>
+<li>熟悉python操作数据库的方法</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="3. 接口测试" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="http.html" class="btn btn-neutral float-right" title="3.2. HTTP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

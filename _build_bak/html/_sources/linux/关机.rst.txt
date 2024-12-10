@@ -1,0 +1,13 @@
+关机
+=================================
+
+::
+
+	shutdown -h now  # 关闭系统(1)
+	init 0  # 关闭系统(2)
+	telinit 0  # 关闭系统(3)
+	shutdown -h hours:minutes &  # 按预定时间关闭系统
+	shutdown -c  # 取消按预定时间关闭系统
+	shutdown -r now  # 重启(1)
+	reboot  # 重启(2)
+	logout  # 注销

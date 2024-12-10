@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.23. 复制文件目录 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.24. 系统常用命令" href="系统常用命令.html" />
+    <link rel="prev" title="7.22. 查看文件的类型" href="查看文件的类型.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. Linux基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="基本命令.html">7.1. 基本命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="关机.html">7.2. 关机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件和目录.html">7.3. 文件和目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件搜索.html">7.4. 文件搜索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="挂载一个文件系统.html">7.5. 挂载一个文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="磁盘空间.html">7.6. 磁盘空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="用户和群组.html">7.7. 用户和群组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件的权限.html">7.8. 文件的权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件的特殊属性.html">7.9. 文件的特殊属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="打包和压缩文件.html">7.10. 打包和压缩文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RPM包.html">7.11. RPM包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YUM软件包升级器.html">7.12. YUM软件包升级器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deb包.html">7.13. deb包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="查看文件内容.html">7.14. 查看文件内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文本处理.html">7.15. 文本处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="字符设置和文件格式转换.html">7.16. 字符设置和文件格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="文件系统分析.html">7.17. 文件系统分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="初始化一个文件系统.html">7.18. 初始化一个文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SWAP文件系统.html">7.19. SWAP文件系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="备份.html">7.20. 备份</a></li>
+<li class="toctree-l2"><a class="reference internal" href="列出目录内容.html">7.21. 列出目录内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="查看文件的类型.html">7.22. 查看文件的类型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7.23. 复制文件目录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cp">7.23.1. cp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#touch">7.23.2. touch+文件名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mv">7.23.3. mv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rm">7.23.4. rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mkdir">7.23.5. mkdir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">7.23.6. rm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grep">7.23.7. grep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ln">7.23.8. ln命令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="系统常用命令.html">7.24. 系统常用命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="软件包管理命令(RPM).html">7.25. 软件包管理命令(RPM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">7. Linux基础</a> &raquo;</li>
+      <li>7.23. 复制文件目录</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/复制文件目录.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id1">
+<h1>7.23. 复制文件目录<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cp">
+<h2>7.23.1. cp<a class="headerlink" href="#cp" title="Permalink to this headline">¶</a></h2>
+<p>复制文件和目录 cp源文件（文件夹）目标文件（文件夹）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>常用参数：-r:递归复制整个目录树；-v：显示详细信息；
+复制文件夹时要在cp命令后面加一个-r参数：
+如：cp -r 源文件夹  目标文件夹
+</pre></div>
+</div>
+</div>
+<div class="section" id="touch">
+<h2>7.23.2. touch+文件名<a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h2>
+<p>当文件不存在的时候，创建相应的文件；当文件存在的时候，修改文件的创建时间。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>功能：生成一个空文件或修改文件的存取/修改的时间记录值。
+touch * ：将当前下的文件时间修改为系统的当前时间
+touch –d 20040210 test：将test文件的日期改为20040210
+touch abc ：若abc文件存在，则修改为系统的当前时间；若不存在，则生成一个为当前时间的空文件
+</pre></div>
+</div>
+</div>
+<div class="section" id="mv">
+<h2>7.23.3. mv<a class="headerlink" href="#mv" title="Permalink to this headline">¶</a></h2>
+<p>文件 目标目录：移动或重命名文件或目录（如果指定文件名，则可以重命名文件）。可以将文件及目录移到另一目录下，或更改文件及目录的名称。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>格式为：mv [参数]&lt;源文件或目录&gt; &lt;目标文件或目录&gt;
+mva.txt ../：将a.txt文件移动上层目录
+mv a.txt b.txt：将a.txt改名为b.txt
+mvdir2 ../：将dir2目录上移一层
+</pre></div>
+</div>
+</div>
+<div class="section" id="rm">
+<h2>7.23.4. rm<a class="headerlink" href="#rm" title="Permalink to this headline">¶</a></h2>
+<p>删除文件</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>常用参数：-i：交互式   -r：递归的删除包括目录中的所有内容
+</pre></div>
+</div>
+</div>
+<div class="section" id="mkdir">
+<h2>7.23.5. mkdir<a class="headerlink" href="#mkdir" title="Permalink to this headline">¶</a></h2>
+<p>创建文件夹</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>mkdir +文件夹名称： # 创建文件夹；
+mkdir -p dir1/dir2 ： # 在当前目录下创建dir1目录，并在dir1目录下创建dir2目录， 也就是连续创建两个目录（dir1/和dir1/dir2）</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>7.23.6. rm<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm -r +文件夹名称： # 删除文件夹（空文件夹和非空文件夹都可删除）
+rmdir 文件夹名称： # 删除文件夹（只能删除空文件夹）
+rmdir –p dir1/dir2： # 删除dir1下的dir2目录，若dir1目录为空也删除它
+rm： # 删除当前目录下的所有文件
+-f参数： # 强制删除文件 rm –f *.txt：强制删除所有以后缀名为txt文件
+-i参数：# 删除文件时询问
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rm –i  * ： # 删除当前目录下的所有文件会有如下提示：
+rm:backup:is a directory    # 遇到目录会略过
+rm: remove &#39;myfiles.txt&#39; ? Y  #
+删除文件时会询问，可按Y或N键表示允许或拒绝删除文件
+
+-r参数： # 递归删除（连子目录一同删除，这是一个相当常用的参数）
+rm  -r test ： # 删除test目录（含test目录下所有文件和子目录）
+rm  -r  *： # 删除所有文件（含当前目录所有文件、所有子目录和子目录下的文件） 一般在删除目录时r和f一起用，避免麻烦
+rm  -rf test ： # 强行删除、不加询问
+</pre></div>
+</div>
+</div>
+<div class="section" id="grep">
+<h2>7.23.7. grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<p>功能：在文件中搜索匹配的字符并进行输出</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>格式：grep[参数] &lt;要找的字串&gt; &lt;要寻找字 串的源文件&gt;
+greplinux test.txt：搜索test.txt文件中字符串linux并输出
+</pre></div>
+</div>
+</div>
+<div class="section" id="ln">
+<h2>7.23.8. ln命令<a class="headerlink" href="#ln" title="Permalink to this headline">¶</a></h2>
+<p>功能：在文件和目录之间建立链接
+格式：ln [参数] &lt;源文件或目录&gt; &lt;目标文件或目录&gt;链接分“软链接”和“硬链接”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.软链接:
+ln–s /usr/share/do  doc ： # 创建一个链接文件doc,并指向目录/usr/share/do
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2.硬链接:
+ln  /usr/share/test  hard： # 创建一个硬链接文件hard，这时对于test文件对应 的存储区域来说，又多了一个文件指向它
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="查看文件的类型.html" class="btn btn-neutral float-left" title="7.22. 查看文件的类型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="系统常用命令.html" class="btn btn-neutral float-right" title="7.24. 系统常用命令" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jmeter性能测试常用方法 &mdash; qa study 2.0 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> qa study
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/index.html">1. 欢迎进入软件测试的世界</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/index.html">2. 功能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">3. 接口测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_base/index.html">4. python基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">5. web自动化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">6. 性能测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">7. Linux基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest/index.html">8. pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mysql/index.html">9. mysql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">10. 持续集成Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interview_skills/index.html">11. 面试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/index.html">12. 联系</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qa study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Jmeter性能测试常用方法</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Jmeter/jmeter性能测试常用方法.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="jmeter">
+<h1>Jmeter性能测试常用方法<a class="headerlink" href="#jmeter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jenkinsjmeter">
+<h2>从Jenkins中获取参数到jmeter脚本<a class="headerlink" href="#jenkinsjmeter" title="Permalink to this headline">¶</a></h2>
+<p>在Jenkins中可以添加配置参数，会加入到临时的环境变量中，在Jenkins通过BeanShel脚本变可以获取到Jenkins的参数</p>
+<div class="section" id="jenkins-jmeter">
+<h3>在Jenkins中添加参数，是你需要透传给jmeter的<a class="headerlink" href="#jenkins-jmeter" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/j_userd_1.png"><img alt="../_images/j_userd_1.png" src="../_images/j_userd_1.png" style="width: 15.0cm;" /></a>
+</div>
+</div>
+<div class="section" id="jmeter-beanshell-preprocessor">
+<h3>在jmeter添加一个前置处理器，BeanShell PreProcessor，输入以下代码：<a class="headerlink" href="#jmeter-beanshell-preprocessor" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">DataId</span><span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;data_id&quot;</span><span class="p">);</span>
+<span class="nb">vars</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;DataId&quot;</span><span class="p">,</span><span class="n">DataId</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jmeter-dataid-jenkinsdata-id">
+<h3>在jmeter脚本脚本中通过 ${DataId}，获取Jenkins中配置的data_id<a class="headerlink" href="#jmeter-dataid-jenkinsdata-id" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="beanshell-response">
+<h2>beanshell断言，可以在报告中展示异常的response<a class="headerlink" href="#beanshell-response" title="Permalink to this headline">¶</a></h2>
+<p>在性能测试中，我们如果只使用了响应断言，那边在用例失败时，我们只知道响应里面没有需要的断言数据，但不知道实际响应了什么，这时候我们就可以把响应断言修改成以下的beanshell断言，这样失败时，FailureMessage就会出现在我们的报告中</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/j_userd_2.png"><img alt="../_images/j_userd_2.png" src="../_images/j_userd_2.png" style="width: 15.0cm;" /></a>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/j_userd_3.png"><img alt="../_images/j_userd_3.png" src="../_images/j_userd_3.png" style="width: 15.0cm;" /></a>
+</div>
+<p>代码如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">response</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">Str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">code</span><span class="se">\&quot;</span><span class="s2">:0&quot;</span><span class="p">;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">getResponseDataAsString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">response</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+    <span class="n">Failure</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+    <span class="n">FailureMessage</span> <span class="o">=</span> <span class="s2">&quot;系统无响应&quot;</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span> <span class="n">FailureMessage</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">((</span><span class="n">response</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">Str</span><span class="p">))</span> <span class="o">==</span> <span class="n">false</span><span class="p">){</span>
+    <span class="n">Failure</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+    <span class="n">FailureMessage</span> <span class="o">=</span> <span class="s2">&quot;接口响应异常，接口实际响应内容为：&quot;</span> <span class="o">+</span> <span class="n">response</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">FailureMessage</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>多个字符串断言，如Str1和Str2两者存在其一即为通过，代码如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>String response = &quot;&quot;;
+String Str1 = &quot;assert_str1&quot;;
+String Str2 = &quot;assert_str2&quot;;
+response = prev.getResponseDataAsString();
+if (response == &quot;&quot;){
+    Failure = true;
+    FailureMessage = &quot;系统无响应&quot;;
+// System.out.print( FailureMessage);
+}
+else if(!(response.contains(Str1) || response.contains(Str2))){
+    Failure = true;
+FailureMessage = &quot;接口响应异常，接口实际响应内容为：&quot; + response;
+// System.out.print(FailureMessage);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="jmeterbeanshell">
+<h2>jmeter使用Beanshell预处理器从指定列表中获取随机值<a class="headerlink" href="#jmeterbeanshell" title="Permalink to this headline">¶</a></h2>
+<p>新增beanshell前置处理器</p>
+<p>代码如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">随机字符串</span>
+<span class="n">String</span><span class="p">[]</span> <span class="n">nation</span> <span class="o">=</span> <span class="n">new</span> <span class="n">String</span><span class="p">[]{</span><span class="s2">&quot;china&quot;</span><span class="p">,</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span> <span class="s2">&quot;UK&quot;</span><span class="p">};</span>
+<span class="n">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Random</span><span class="p">();</span>
+<span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">nextInt</span><span class="p">(</span><span class="n">nation</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>
+<span class="nb">vars</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;mynation&quot;</span><span class="p">,</span><span class="n">nation</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="o">//</span><span class="n">随机数字</span>
+<span class="n">String</span><span class="p">[]</span> <span class="n">num</span> <span class="o">=</span> <span class="n">new</span> <span class="n">String</span><span class="p">[]{</span><span class="s2">&quot;8&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;7&quot;</span><span class="p">};</span>
+<span class="n">Random</span> <span class="n">r</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Random</span><span class="p">();</span>
+<span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">nextInt</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>
+<span class="nb">vars</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;anum&quot;</span><span class="p">,</span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>然后在脚本中使用${mynation}或者${anum}变可以获取对应参数</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">数量较多时推荐使用csv，当然也可以使用随机函数，但是在性能测试中不推荐使用随机函数，部分随机函数生成时的性能较差，无法提供足够的负载</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>仅一次控制器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在编写性能测试是，有时候部分场景我们只希望执行一次，如登录，这时候我们就可以使用【仅一次控制器】，将登录接口加入到仅一次控制器中。这样每个线程只会执行一次登录。</p>
+<p><strong>方法：在线程组中添加逻辑控制器，仅一次控制器</strong></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, lvjunjie,sunyanhui, lvjunjie84@hotmail.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

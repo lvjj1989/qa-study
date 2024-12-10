@@ -1,0 +1,22 @@
+备份
+===================================
+
+::
+	
+	dump -0aj -f /tmp/home0.bak /home  # 制作一个 '/home' 目录的完整备份
+	dump -1aj -f /tmp/home0.bak /home  # 制作一个 '/home' 目录的交互式备份
+	restore -if /tmp/home0.bak  # 还原一个交互式备份
+	rsync -rogpav --delete /home /tmp  # 同步两边的目录
+	rsync -rogpav -e ssh --delete /home ip_address:/tmp  # 通过SSH通道rsync
+	rsync -az -e ssh --delete ip_addr:/home/public /home/local  # 通过ssh和压缩将一个远程目录同步到本地目录
+	rsync -az -e ssh --delete /home/local ip_addr:/home/public  # 通过ssh和压缩将本地目录同步到远程目录
+	dd bs=1M if=/dev/hda | gzip | ssh user@ip_addr 'dd of=hda.gz'  # 通过ssh在远程主机上执行一次备份本地磁盘的操作
+	dd if=/dev/sda of=/tmp/file1  # 备份磁盘内容到一个文件
+	tar -Puf backup.tar /home/user  # 执行一次对 '/home/user' 目录的交互式备份操作
+	( cd /tmp/local/ && tar c . ) | ssh -C user@ip_addr 'cd /home/share/ && tar x -p'  # 通过ssh在远程目录中复制一个目录内容
+	( tar c /home ) | ssh -C user@ip_addr 'cd /home/backup-home && tar x -p'  # 通过ssh在远程目录中复制一个本地目录
+	tar cf - . | (cd /tmp/backup ; tar xf - )  # 本地将一个目录复制到另一个地方，保留原有权限及链接
+	find /home/user1 -name '*.txt' | xargs cp -av --target-directory=/home/backup/ --parents  # 从一个目录查找并复制所有以 '.txt'  # 结尾的文件到另一个目录
+	find /var/log -name '*.log' | tar cv --files-from=- | bzip2 > log.tar.bz2  # 查找所有以 '.log' 结尾的文件并做成一个bzip包
+	dd if=/dev/hda of=/dev/fd0 bs=512 count=1  # 做一个将 MBR (Master Boot Record)内容复制到软盘的动作
+	dd if=/dev/fd0 of=/dev/hda bs=512 count=1  # 从已经保存到软盘的备份中恢复MBR内容

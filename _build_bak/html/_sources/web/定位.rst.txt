@@ -1,0 +1,100 @@
+定位
+=====================================
+元素定位是一个做WEB UI自动化经常使用的，非常重要，但掌握并不十分困难
+
+HTML
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HTML是一种标记语言，在前端中的作用是告诉浏览器展示什么内容，比如展示一个输入框，展示一个表格或者按钮等
+CSS是用来告诉浏览器怎么展示这些元素，比如展示成什么颜色，大小以及一些其它特性
+Javascript是用来做交互的，比如点击一个按钮后，提交数据发送给服务器，或者增加/移除一个元素
+我们在selenium webdriver中定位元素，了解下HTML就可了
+看下面的一个页面
+
+::
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>DEMO</title>
+	    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	 
+	<form class="form-horizontal" role="form">
+	 
+	    <!--名字输入框-->
+	    <div class="form-group">
+	        <label for="firstname" class="col-sm-2 control-label">名字</label>
+	        <div class="col-sm-10">
+	            <input type="text" class="form-control" name="firstname" id="firstname" placeholder="请输入名字">
+	        </div>
+	    </div>
+	 
+	    <!--姓氏输入框-->
+	    <div class="form-group">
+	        <label for="lastname" class="col-sm-2 control-label">姓</label>
+	        <div class="col-sm-10">
+	            <input type="text" class="form-control"  name="lastname" id="lastname" placeholder="请输入姓">
+	        </div>
+	    </div>
+	 
+	    <!--记得我-->
+	    <div class="form-group">
+	        <div class="col-sm-offset-2 col-sm-10">
+	            <div class="checkbox">
+	                <label> <input type="checkbox" name="rememberMe" id="rememberMe"> 请记住我 </label>
+	            </div>
+	        </div>
+	    </div>
+	 
+	    <!--登录-->
+	    <div class="form-group">
+	        <div class="col-sm-offset-2 col-sm-10">
+	            <button type="submit" class="btn btn-default" name="loginButton" id="loginButton">登录</button>
+	        </div>
+	    </div>
+	 
+	</form>
+	 
+	</body>
+	</html>
+
+
+ID、name、class name...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+除了xpath和css selector外，其它的定位方法都是比较简单的，我们一一说明
+
+*通过ID定位：*
+
+ID就像是学生的学号或者身份证，一般不会重复，所以如果需要定位的元素有这个属性，用ID定位就可以了
+针对我们上方的html中的名字输入框，代码如下：
+
+::
+
+	driver.find_element_by_id('firstname')
+
+*通过name定位：*
+name就像是每个学生的姓名，因为可能会重名（比如说一班和二班都有叫小明的），所以不是特别可靠，使用时需要注意
+针对我们上方的html中的名字输入框，代码如下：
+::
+
+	driver.find_element_by_name('firstname')
+
+
+* 通过classname定位：*
+
+ classname是html元素中的class属性，可能有多个如 <button class="button submit">按钮</button> ，使用时，选择一个class属性就可以，比如button或者submit
+
+我们上面的html中，使用classname是无法选择到姓名输入框的，因为会选到多个，所以会默认返回第一个元素，建议拿不准时不要使用
+
+ 
+除此之外还有通过tab_name、link_text等 ，不过并不常用
+
+*XPath：*
+
+XPath 使用路径表达式来选取 XML 文档中的节点或节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
+
+可参考：http://www.runoob.com/xpath/xpath-syntax.html

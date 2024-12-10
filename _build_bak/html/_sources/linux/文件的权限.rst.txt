@@ -1,0 +1,28 @@
+文件的权限
+=========================================
+
+::
+
+	ls -lh  # 显示权限
+	ls /tmp | pr -T5 -W$COLUMNS  # 将终端划分成5栏显示
+	chmod ugo+rwx directory1  # 设置目录的所有人(u)、群组(g)以及其他人(o)以读（r ）、写(w)和执行(x)的权限
+	chmod go-rwx directory1  # 删除群组(g)与其他人(o)对目录的读写执行权限
+	chown user1 file1  # 改变一个文件的所有人属性
+	chown -R user1 directory1  # 改变一个目录的所有人属性并同时改变改目录下所有文件的属性
+	chgrp group1 file1  # 改变文件的群组
+	chown user1:group1 file1  # 改变一个文件的所有人和群组属性
+	find / -perm -u+s  # 罗列一个系统中所有使用了SUID控制的文件
+	chmod u+s /bin/file1  # 设置一个二进制文件的 SUID 位 - 运行该文件的用户也被赋予和所有者同样的权限
+	chmod u-s /bin/file1  # 禁用一个二进制文件的 SUID位
+	chmod g+s /home/public  # 设置一个目录的SGID 位 - 类似SUID ，不过这是针对目录的
+	chmod g-s /home/public  # 禁用一个目录的 SGID 位
+	chmod o+t /home/public  # 设置一个文件的 STIKY 位 - 只允许合法所有人删除文件
+	chmod o-t /home/public  # 禁用一个目录的 STIKY 位
+	chmod +x  # 文件路径 为所有者、所属组和其他用户添加执行的权限
+	chmod -x  # 文件路径 为所有者、所属组和其他用户删除执行的权限
+	chmod u+x  # 文件路径 为所有者添加执行的权限
+	chmod g+x  # 文件路径 为所属组添加执行的权限
+	chmod o+x  # 文件路径 为其他用户添加执行的权限
+	chmod ug+x  # 文件路径 为所有者、所属组添加执行的权限
+	chmod =wx  # 文件路径 为所有者、所属组和其他用户添加写、执行的权限，取消读权限
+	chmod ug=wx  # 文件路径 为所有者、所属组添加写、执行的权限，取消读权限
