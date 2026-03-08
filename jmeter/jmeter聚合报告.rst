@@ -1,6 +1,6 @@
 Jmeter聚合报告
 ==========================================
-聚合报告(Aggregate Results)以表格的形式显示取样器结果，不过没有图形展示，所以消耗资源低
+聚合报告（Aggregate Results）以表格的形式显示取样器结果，不过没有图形展示，因此资源消耗较低。
 
 **Label**：每个JMeter的element的Name值。例如HTTP Request的Name
 

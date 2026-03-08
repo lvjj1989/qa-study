@@ -10,7 +10,7 @@ Jmeter断言方式总结
 .. figure:: /_static/jmeter/j_1.png
     :width: 15.0cm
 
-APPly to:适用范围
+Apply to：适用范围
 
 Main sample and sub-samples:主要样本和次级样本，Main sample only：仅主要样本，Sub-samples only:仅次级样本，JMeter Variable:jmeter变量(输入框内可输入jmeter的变量范围)；
 
@@ -18,14 +18,14 @@ Main sample and sub-samples:主要样本和次级样本，Main sample only：仅
 
 响应文本：服务器响应文本，一般普通http响应，都勾选这个
 
-Documeng(text)：测试文件，一切Apache Tika 支持服务器响应，包括文本响应，还支持 PDF, Office, Audio, Video，formats。jmeter会用Apache Tika
+Document (text)：测试文件，指所有 Apache Tika 支持解析的服务器响应，包括文本响应，以及 PDF、Office、Audio、Video 等格式。JMeter 会用 Apache Tika
 
 去解析服务器响应内容，会很耗内存，而且也很容易解析失败。所以一般普通http请求，不要选择这个。
-URL样本：对样板的url进行断言。如果请求没有重定向（302），那么就是这个就是请求url。 如果有重定向，那么url就包含请求url 和 重定向url。
+URL 样本：对样本的 URL 进行断言。如果请求没有重定向（302），那么这里就是请求 URL；如果有重定向，那么 URL 就包含请求 URL 和重定向 URL。
 
 响应代码：http status的断言，如200，404，500等。
 
-响应信息：http响应代码对应的响应信息，如：HTTP/1.1 200 Ok，HTTP/1.2 Found中的OK，Found
+响应信息：HTTP 响应代码对应的响应信息，如 HTTP/1.1 200 OK、HTTP/1.2 302 Found 中的 OK、Found。
 
 Response Headers:响应头部，如Content-Type: text/html。
 
@@ -38,11 +38,11 @@ Ignore status：忽略返回的响应报文状态码。
 (1) 相当于 equals 。当返回值固定时，可以返回值做断言，效果和equals相同；
 (2) 正则匹配 。 用正则表达式匹配返回结果，但必须全部匹配。 即正则表达式必须能匹配整个返回值，而不是返回值的一部分。  
 
-Equals：返回结果与指定断言完全一致。
+Equals：返回结果与指定断言内容完全一致。
 
-Substring：返回结果包括你指定的内容，不支持正则匹配；否：不进行匹配。
+Substring：返回结果包括你指定的内容，不支持正则匹配；“否”为不进行匹配。
 
-要测试的模式:可以填写多个响应断言，通过按钮【添加】、【删除】是进行内容管理。
+要测试的模式：可以填写多个响应断言，通过按钮【添加】、【删除】进行内容管理。
 
 断言持续时间
 ------------------------------------------------
