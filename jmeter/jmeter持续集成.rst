@@ -69,7 +69,7 @@ System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
 分布式压测（或者将本地机器作为调度机，其他服务器作为负载机）
 --------------------------------------------------------------
 
-在较大并发量时推荐使用分布式压测，修改Jenkins是中的shell脚本即可
+在较大并发量时推荐使用分布式压测，修改Jenkins中的shell脚本即可
 
 方法流程：
 
